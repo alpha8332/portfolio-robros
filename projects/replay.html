@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#111315">
   <title>HDF5 Episode 기반 실로봇 Replay · 신동찬</title>
   <link rel="stylesheet" href="../assets/style.css">
-<link rel="stylesheet" href="../assets/case-evidence.css"></head>
-<body class="case-page">
+<link rel="stylesheet" href="../assets/case-evidence.css"><link rel="stylesheet" href="../assets/visual-story.css"></head>
+<body class="case-page visual-story-page">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header"><div class="container header-inner">
     <a class="wordmark" href="../" aria-label="신동찬 소개 홈"><span class="wordmark-name">DONGCHAN SHIN<span class="wordmark-dot" aria-hidden="true">.</span></span><span class="wordmark-subtitle">PORTFOLIO</span></a>
@@ -16,12 +16,7 @@
   </div></header>
   <main id="main" class="container">
     <div class="case-topline"><a class="back-link" href="../work-experience.html">← Work Experience</a><span class="mono">CASE STUDY / 02</span></div>
-    <section class="case-intro" aria-labelledby="case-title">
-      <p class="eyebrow">ROBOT REPLAY · MIMICX</p>
-      <h1 id="case-title">기록된 동작을<br>실제 로봇에서 다시 실행</h1>
-      <p class="case-subtitle">HDF5 Episode 기반 실로봇 Replay</p>
-      <p class="case-description">초기 자세 정렬과 본 재생을 나누고, 팔과 엔드이펙터의 동작을 연결했습니다.</p>
-    </section>
+    <section class="case-intro vs-intro" data-story="replay"><div class="vs-hero-copy"><p class="eyebrow">02 / REAL-ROBOT REPLAY</p><h1>명령은 보냈는데,<br>왜 목표 전에 멈췄을까?</h1><p class="vs-summary">실행 로직·API·UI를 개발하고, 정상 이동 기능과의 비교로 초기 정렬을 수정해 실로봇에서 확인했습니다.</p><p class="vs-period">Neuromeka 인턴 · 2025.12 ~ 2026.06</p><dl class="vs-hero-facts"><div><dt>내가 개발</dt><dd>실행 로직 · API · UI</dd></div><div><dt>핵심 수정</dt><dd>같은 초기 목표를 도달까지 유지</dd></div><div><dt>검증 범위</dt><dd>한팔·양팔 로봇 · EIR 동작 확인</dd></div></dl><a class="vs-read-story" href="#role">문제 해결 과정 보기 ↓</a></div><div class="vs-hero-visual"><figure class="vs-debug-summary"><figcaption>정상 기능과 비교해 찾은 차이</figcaption><div class="vs-debug-row vs-error"><span>수정 전</span><strong>목표 1회 전송</strong><div class="vs-pulses"><i></i><b></b><b></b><b></b></div><p>잠깐 이동 → 목표 이전 정지</p></div><div class="vs-debug-row vs-fixed"><span>수정 후</span><strong>도달까지 같은 목표 유지</strong><div class="vs-pulses"><i></i><i></i><i></i><i></i></div><p>초기 정렬 완료 → 본 Replay</p></div><p class="vs-diagram-note">명령 유지 방식의 개념 비교 · 실측 타이밍 그래프 아님</p></figure></div></section>
     <div class="case-layout"><aside class="case-sidebar"><nav class="case-toc" aria-label="이 페이지의 목차"><p class="eyebrow">CONTENTS</p><a href="#role"><span class="toc-number">01</span><span aria-hidden="true">/</span><span>Overview</span></a><a href="#system"><span class="toc-number">02</span><span aria-hidden="true">/</span><span>System Flow</span></a><a href="#investigation"><span class="toc-number">03</span><span aria-hidden="true">/</span><span>Case A · Alignment</span></a><a href="#modification"><span class="toc-number">04</span><span aria-hidden="true">/</span><span>Implementation</span></a><a href="#right-arm-investigation"><span class="toc-number">05</span><span aria-hidden="true">/</span><span>Case B · Right Arm</span></a><a href="#validation"><span class="toc-number">06</span><span aria-hidden="true">/</span><span>Validation</span></a></nav></aside><div class="case-content">
     <section id="role" class="evidence-section" aria-labelledby="role-title">
       <div class="evidence-copy">
@@ -68,10 +63,10 @@
         </ol>
       </div>
       <figure class="evidence-figure command-comparison">
-        <div class="figure-heading"><span>COMMAND SEMANTICS</span><span>정상 기능과 비교</span></div>
+        <div class="figure-heading"><span>명령 유지 방식 비교</span><span>정상 기능과 비교</span></div>
         <div class="command-compare-content">
-          <div class="command-case"><span class="diagram-label">SAVED POSITION / 정상 동작</span><h3>Joint Move</h3><p>버튼을 누르는 동안 같은 목표를<br>짧은 간격으로 반복 전송</p><div class="command-pattern" aria-label="같은 목표를 반복 전송"><span>Command</span><span>Command</span><span>Command</span><span>Command</span></div></div>
-          <div class="command-case stalled-case"><span class="diagram-label">REPLAY INITIAL ALIGNMENT / 수정 전</span><h3>단발 이동 + 도착 관찰</h3><p>목표를 한 번 전송한 뒤<br>telemetry로 도달 여부만 확인</p><div class="command-pattern" aria-label="목표 한 번 전송 후 관찰"><span>Command</span><span class="observation-slot">Polling</span><span class="observation-slot">Polling</span><span class="observation-slot">Polling</span></div></div>
+          <div class="command-case"><span class="diagram-label">정상 이동 기능</span><h3>목표를 유지하는 이동</h3><p>버튼을 누르는 동안 같은 목표를<br>짧은 간격으로 반복 전송</p><div class="command-pattern" aria-label="같은 목표를 반복 전송"><span>전송</span><span>전송</span><span>전송</span><span>전송</span></div></div>
+          <div class="command-case stalled-case"><span class="diagram-label">수정 전 초기 정렬</span><h3>단발 이동 + 도착 관찰</h3><p>목표를 한 번 전송한 뒤<br>telemetry로 도달 여부만 확인</p><div class="command-pattern" aria-label="목표 한 번 전송 후 관찰"><span>전송</span><span class="observation-slot">확인</span><span class="observation-slot">확인</span><span class="observation-slot">확인</span></div></div>
           <p class="command-conclusion">판정 이후의 재시도뿐 아니라,<br><strong>목표를 유지하는 실행 방식</strong>을 맞춰야 했습니다.</p>
         </div>
         <figcaption><span>03</span> 전송 방식을 설명한 개념도이며 실측 타이밍 그래프가 아닙니다.</figcaption>
