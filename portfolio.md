@@ -763,7 +763,7 @@ AFTER
 
 동기 시험은 공통 원궤적을 두 팔에 전달하고 실제 TCP 위치를 기록했습니다. 각 팔의 시작 위치를 뺀 뒤 두 움직임의 차이로 동기 오차를 계산했습니다. 한 팔의 actual과 controller desired 사이 오차는 별도로 확인했습니다.
 
-동기 시험: 같은 목표를 주고, 실제 움직임을 비교 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+동기 시험 · 평균 0.615 mm / 20회 모두 기준 충족 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 공통 원궤적 → 양팔 실제 위치 기록 → 초기 위치 차이 제거 → 상대변위 오차 계산. 개별 목표 추종과 양팔 동기를 나누어 봅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔이 같은 원궤적 위상을 통과한 시각을 비교했습니다.
 
@@ -776,7 +776,7 @@ Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표
 -  반복 시험의 판정값을 구분
 회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 20회 평균과 기준 초과 회차를 함께 남겼습니다.
 
-지연 시험: 두 팔이 같은 위상을 통과한 시각 비교 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
+지연 시험 · 평균 48.969 ms / 15회 충족·5회 초과 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
 명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 선과 시간은 계산 개념을 설명한 것으로 측정 trace가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정했습니다. 카메라 환경 확인과 TCP 기반 KPI 계산은 역할을 구분했습니다.
 
