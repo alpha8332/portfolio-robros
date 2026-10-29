@@ -13,7 +13,7 @@
     scheduled = false;
     let current = sections[0];
     sections.forEach(section => {
-      if (section.getBoundingClientRect().top <= 180) current = section;
+      if (section.getBoundingClientRect().top <= Math.max(240, innerHeight * .35)) current = section;
     });
     if (current) activate(current.id);
   };
