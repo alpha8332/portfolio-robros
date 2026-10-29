@@ -450,11 +450,16 @@ AFTER
 
 화면은 한 대를 보더라도 Collect의 전환·정지는 세션 전체에 요청
 
+세션 참가자의 소속을 수집부터 실행까지 연결 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
+기존 플랫폼에서 확장한 경계를 보여주는 구조도입니다. 화면 선택·세션 참여·로봇별 실행 대상을 구분합니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
 세션 참가 목록과 순서를 기준으로 대상을 정하고, 수집 모드 전환과 정지 요청에서 같은 기준을 사용하도록 수정했습니다. 전환 도중 한 로봇이 실패하면 이미 전환된 로봇을 idle로 되돌리는 처리도 넣었습니다.
 
 데이터에서도 비슷한 문제가 있었습니다. 저장 파일에는 두 손의 값이 있었지만 수집 계획과 일부 메타데이터는 선택된 한 로봇의 손만 설명했습니다. 참가 로봇 전체의 장치 목록으로 계획을 만들고, 로봇별 식별자와 순서를 수집·학습 산출물·추론 출력까지 유지하도록 처리했습니다.
 같은 크기의 데이터도 소속이 다릅니다.
 A와 B의 배열 크기가 같아도 순서가 바뀌면 다른 로봇의 값이 됩니다. 학습에 사용한 key 순서와 차원을 산출물에 남기고, 추론에서도 그 기준으로 출력을 나누어 각 로봇에 전달했습니다.
+
+같은 크기의 배열도, 로봇 소속은 끝까지 유지 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
+선택한 key 순서와 차원으로 데이터를 결합하고, 같은 기준으로 출력을 분해해 각 로봇으로 돌려보내는 흐름입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
 
 04 / Validation
 
@@ -758,6 +763,8 @@ AFTER
 
 동기 시험은 공통 원궤적을 두 팔에 전달하고 실제 TCP 위치를 기록했습니다. 각 팔의 시작 위치를 뺀 뒤 두 움직임의 차이로 동기 오차를 계산했습니다. 한 팔의 actual과 controller desired 사이 오차는 별도로 확인했습니다.
 
+동기 시험: 같은 목표를 주고, 실제 움직임을 비교 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+공통 원궤적 → 양팔 실제 위치 기록 → 초기 위치 차이 제거 → 상대변위 오차 계산. 개별 목표 추종과 양팔 동기를 나누어 봅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔이 같은 원궤적 위상을 통과한 시각을 비교했습니다.
 
 -  평평한 파형 꼭대기의 한계 확인
@@ -769,7 +776,8 @@ Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표
 -  반복 시험의 판정값을 구분
 회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 20회 평균과 기준 초과 회차를 함께 남겼습니다.
 
-시험 환경 구성도 따로 확인했습니다.
+지연 시험: 두 팔이 같은 위상을 통과한 시각 비교 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
+명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 선과 시간은 계산 개념을 설명한 것으로 측정 trace가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정했습니다. 카메라 환경 확인과 TCP 기반 KPI 계산은 역할을 구분했습니다.
 
 04 / Validation
@@ -829,7 +837,9 @@ CONTENTS
 누리 양팔과 2지 그리퍼로 바나나를 집어 트레이에 놓는 작업을 실험했습니다. 초기에는 오른팔을 관측 위치에 고정하고 왼팔로 조작했습니다. VIVE 입력으로 교시하고 양쪽 손목 영상을 사용했습니다.
 
 처음에는 로봇 시작 자세·바나나·트레이 위치를 고정해 10회 교시했습니다. 기존 플랫폼에서 데이터를 수집하고 ACT 학습·추론과 실제 로봇 실행까지 수행하며 접근·파지·이동·놓기의 연결을 확인했습니다.
-제가 직접 수행한 범위
+
+무엇을 보고, 어느 팔로 조작했는가 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
+고정 관측 팔과 조작 팔, 손목 영상의 역할을 보여주는 배치 개념도입니다. 실제 설치 사진이나 치수 도면이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg) 제가 직접 수행한 범위
 작업 조건을 정하고 교시·데이터 검증·학습·실행을 반복했습니다. ACT 모델 아키텍처나 전체 학습 플랫폼을 새로 개발한 경험으로 표현하지 않습니다.
 
 02 / Investigation
@@ -866,6 +876,8 @@ AFTER
 + 20회 어려운 조건 추가 반복
 총 100회 교시 조건으로 구성
 
+무작위 수집에서 조건을 나눈 수집으로 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
+기존 수집표를 재작성했습니다. 트레이 4위치 × 바나나 5위치 × 자세 4종에 추가 반복을 배정한 표이며, 칸의 숫자는 성공률이 아닌 수행 횟수입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
 트레이 위치도 바뀌므로 영상에 바나나와 목적지가 함께 들어오는지 점검했습니다. 바나나 중앙을 파지하고 pick/place에서 잠시 멈춘 뒤 다음 동작으로 이어지도록 교시했습니다. 덜컹거리거나 멈칫한 Episode는 제외했습니다.
 
 Handover에서는 오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 release → 트레이 배치의 순서를 구성했습니다. 손목 영상의 가림과 파지 주체가 바뀌는 순간을 보며 조작했습니다.
