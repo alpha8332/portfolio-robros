@@ -404,9 +404,10 @@ Multi-Robot Platform Expansion
 
 Python · Linux · MiMicX
 
-[선택된 한 대가 전체를 대표하던 구조](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-0) [세션 참여와 로봇 소속을 명시](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-1) [배열의 크기보다 소속과 순서](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-2) [직접 바꾼 경계: 설정부터 출력 라우팅까지](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#implementation-evidence) [경계마다 같은 로봇을 가리키는지 확인](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-3)
+CONTENTS
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-0) [ 02  /  Architecture ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-1) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-2) [ 04  /  Evidence ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#implementation-evidence) [ 05  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-3)
 
-01 / BACKGROUND
+01 / Background
 
 ## 선택된 한 대가 전체를 대표하던 구조
 
@@ -419,7 +420,7 @@ BEFORE
 
 - 단일 로봇 데이터
 
-02 / ARCHITECTURE
+02 / Architecture
 
 ## 세션 참여와 로봇 소속을 명시
 
@@ -436,7 +437,7 @@ AFTER · 논리 구조
 
 이 도식은 확인한 데이터 흐름을 요약한 논리 구조입니다. 각 로봇의 명령·상태·주변 장치 소속을 분리하고, 화면 선택 변경이 세션 참여 집합을 바꾸지 않도록 처리했습니다.
 
-03 / IMPLEMENTATION
+03 / Implementation
 
 ## 배열의 크기보다 소속과 순서
 
@@ -444,7 +445,7 @@ AFTER · 논리 구조
 
 Graph와 Table은 로봇별 소속을 유지하고, Replay는 세션 전체의 실행 대상을 표시하도록 나누었습니다. 화면에서 한 로봇을 보는 상태가 다른 참여 로봇의 정지 대상을 누락하지 않도록 했습니다.
 
-EVIDENCE & IMPLEMENTATION
+04 / Evidence
 
 ## 직접 바꾼 경계: 설정부터 출력 라우팅까지
 
@@ -496,7 +497,7 @@ Capture sample은 참가자의 snapshot을 순서대로 읽어 한 row에 묶습
 
 기록 근거: [독립 다중 로봇 지원 기술 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/mimicx/multi-robot.html)
 
-04 / VALIDATION
+05 / Validation
 
 ## 경계마다 같은 로봇을 가리키는지 확인
 
@@ -524,9 +525,10 @@ HDF5 Episode 기반 실로봇 Replay
 
 초기 자세 정렬과 본 재생을 나누고, 팔과 엔드이펙터의 동작을 연결했습니다.
 
-[데이터를 보는 것에서 로봇을 움직이는 기능으로](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [정렬이 끝난 뒤에만 재생 시간을 시작](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [Case A · 초기 정렬 중 정지 명령은 전달됐는데, 목표 전에 멈췄습니다.](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [초기 목표를 유지하고, 도달한 뒤 Replay 시작](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [Case B · Replay 중 오른팔 동작 누락](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [코드의 통과에서 실제 동작 확인까지](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
+CONTENTS
+[ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [ 02  /  System Flow ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [ 03  /  Case A · Alignment ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [ 04  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [ 05  /  Case B · Right Arm ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [ 06  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
 
-01 / GOAL & MY ROLE
+01 / Overview
 
 ## 데이터를 보는 것에서
 로봇을 움직이는 기능으로
@@ -542,7 +544,7 @@ REPLAY OVERVIEW  HDF5 → ROBOT
 
 01  초기 정렬과 본 재생을 구분한 실행 흐름
 
-02 / SYSTEM FLOW
+02 / System Flow
 
 ## 정렬이 끝난 뒤에만
 재생 시간을 시작
@@ -579,7 +581,7 @@ episode와 대상 장치를 확인하고 실행 준비
 
 02  정렬 단계와 재생 단계를 구분한 상태 흐름도
 
-03 / PROBLEM & INVESTIGATION
+03 / Case A · Alignment
 
 ## Case A · 초기 정렬 중 정지
 명령은 전달됐는데,
@@ -621,7 +623,7 @@ Command  Polling  Polling  Polling
 
 03  전송 방식을 설명한 개념도이며 실측 타이밍 그래프가 아닙니다.
 
-04 / MODIFICATION
+04 / Implementation
 
 ## 초기 목표를 유지하고,
 도달한 뒤 Replay 시작
@@ -662,7 +664,7 @@ REACHED & SETTLED
 
 pulse/hold는 이 사례의 장비와 제어 경로에서 확인한 방식입니다. 모든 로봇의 관절 이동에 반복 전송이 필요하다는 뜻은 아닙니다.
 
-EVIDENCE & IMPLEMENTATION
+05 / Case B · Right Arm
 
 ## Case B · Replay 중 오른팔 동작 누락
 
@@ -689,7 +691,7 @@ EVIDENCE & IMPLEMENTATION
 
 재생·일시정지·재개·중지와 팔·그리퍼 매핑을 구현하고 한팔·양팔 로봇, EIR에서 동작을 검증했습니다. 정렬은 시작 자세로 도달하는 과정이고, 본 재생은 기록된 시간축의 실행입니다.
 
-05 / VALIDATION & RESULT
+06 / Validation
 
 ## 코드의 통과에서
 실제 동작 확인까지
@@ -740,9 +742,10 @@ Dual-Arm KPI Validation
 
 Dual NURI · D405 · D435IF · Python
 
-[동기 오차와 추종 오차를 나누어 측정](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-0) [동일 위상 지점을 통과한 시간의 차이](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-1) [평균과 회차별 기준 충족을 함께 보기](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-2) [시험 구성과 계산 경계를 먼저 정의](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measurement-evidence) [평균 통과가 모든 시험의 통과는 아니다](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-3)
+CONTENTS
+[ 01  /  Test Setup ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-0) [ 02  /  Latency ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-1) [ 03  /  Results ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-2) [ 04  /  Measurement ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measurement-evidence) [ 05  /  Limitations ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-3)
 
-01 / METHOD
+01 / Test Setup
 
 ## 동기 오차와 추종 오차를 나누어 측정
 
@@ -750,7 +753,7 @@ Dual NURI · D405 · D435IF · Python
 
 카메라 수집 환경은 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 구성하고 입력을 확인했습니다.
 
-02 / LATENCY
+02 / Latency
 
 ## 동일 위상 지점을 통과한 시간의 차이
 
@@ -758,7 +761,7 @@ Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구
 
 선행 보상은 실행 시점의 처리이고, 분석에서 시간축을 정렬한 뒤 남는 위치 잔차와는 다릅니다. 초기 시험과 최종 시험의 측정 정의도 달라 서로 직접적인 개선율로 계산하지 않았습니다.
 
-03 / RESULTS
+03 / Results
 
 ## 평균과 회차별 기준 충족을 함께 보기
 
@@ -784,7 +787,7 @@ Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구
 
 평균값과 기준 충족 횟수의 요약입니다. 회차별 측정값을 임의로 생성한 그래프가 아닙니다.
 
-EVIDENCE & IMPLEMENTATION
+04 / Measurement
 
 ## 시험 구성과 계산 경계를 먼저 정의
 
@@ -827,7 +830,7 @@ D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집
 
 기록 근거: [양팔 KPI 시험의 측정 정의와 반복 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
 
-04 / LIMITATIONS
+05 / Limitations
 
 ## 평균 통과가 모든 시험의 통과는 아니다
 
@@ -852,9 +855,10 @@ Imitation Learning Pipeline
 
 Teleoperation · ACT · MiMicX
 
-[기존 플랫폼에서 전 과정을 수행](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-0) [수집 횟수보다 먼저 조건을 설계](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-1) [Loss와 실제 작업 성공은 다른 확인 대상](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-2) [실험별 장비·데이터·실행 조건](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#experiment-evidence) [직접 개선과 실험 수행의 범위](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-3)
+CONTENTS
+[ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-0) [ 02  /  Data Collection ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-1) [ 03  /  Failure Analysis ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-2) [ 04  /  Experiments ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#experiment-evidence) [ 05  /  Scope ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-3)
 
-01 / OVERVIEW
+01 / Overview
 
 ## 기존 플랫폼에서 전 과정을 수행
 
@@ -871,7 +875,7 @@ IMITATION LEARNING
 
 - Robot Execution · 실로봇 Rollout 관찰
 
-02 / DATA
+02 / Data Collection
 
 ## 수집 횟수보다 먼저 조건을 설계
 
@@ -879,7 +883,7 @@ IMITATION LEARNING
 
 Pick & Place와 Handover 등 작업의 접근·파지·이동·놓기 순서를 구성했습니다. 카메라 시야, 파지 순서와 동작의 연속성을 점검해 Episode를 선별했습니다. 어느 위치와 자세가 빠졌는지 확인하며 다음 수집 조건을 정했습니다.
 
-03 / FAILURE ANALYSIS
+03 / Failure Analysis
 
 ## Loss와 실제 작업 성공은 다른 확인 대상
 
@@ -887,7 +891,7 @@ ACT 학습·추론과 실로봇 Rollout을 수행했습니다. 양팔 실험에�
 
 학습 오차의 감소만으로 새 배치에서의 파지·놓기 성공을 보장할 수 없었습니다. 환경 배치를 수집 조건과 맞추고, 변경한 조건을 구분해 보는 것이 이후 실험의 기준이 되었습니다.
 
-EVIDENCE & IMPLEMENTATION
+04 / Experiments
 
 ## 실험별 장비·데이터·실행 조건
 
@@ -931,7 +935,7 @@ Handover  오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 r
 
 기록 근거: [개인 모방학습 실험: 버전별 수집·학습·실행 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/experiments/personal/index.html)
 
-04 / SCOPE
+05 / Scope
 
 ## 직접 개선과 실험 수행의 범위
 
