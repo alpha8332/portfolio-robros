@@ -767,46 +767,72 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 핵심 판단
 목표 추종과 양팔 동기는 별도 평가
 
-KPI 달성 · 평균 기준
+KPI 달성 · 재실시 RMSE
 동기 0.615 mm / 기준 1 mm
-지연 48.969 ms / 기준 50 ms[실제 측정 그래프 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
+지연 X 46.675 · Z 47.694 ms / 기준 50 ms[실제 측정 그래프 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
 
-실제로 기록한 양팔의 원궤적 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-trajectories.svg)
-로컬 동기 시험 Trial 01의 실제 TCP 궤적입니다. 아래 20회 보고 평균과 구분한 단일 회차 기록입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-trajectories.svg)
+재실시 시험 · 양팔 실제 궤적과 목표 궤적
 
-REPORTED RESULTS · 20 TRIALS
+왼팔
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-left.png)
 
-## 평균 성능으로 확인한 KPI 달성
+오른팔
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-right.png)
+KPI재실시 슬라이드 1의 원본 그래프 · [원본 슬라이드 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)
+
+KPI RETEST · RESULTS
+
+## 재실시 결과, 동기·지연 KPI 달성
 
 양팔 동기 오차
-0.615 mm 20회 평균 · 이력서 보고값
+0.615 mm 재실시 보고 RMSE
 
-평균 RMSE  기준 1 mm
+RMSE  기준 1 mm
 
 0  1 mm
-평균 RMSE 기준 달성
+KPI 달성 MEAN 0.589 mm
 
-Master–Slave 지연
-48.969 ms 회차 판정값 20개의 평균
+X축 Master–Slave 지연
+46.675 ms 재실시 보고 RMSE
 
-평균 지연  기준 50 ms
+RMSE  기준 50 ms
 
 0  50 ms
-평균 지연 기준 달성
+KPI 달성 MEAN 41.012 ms
 
-MEASURED LOGS
+Z축 Master–Slave 지연
+47.694 ms 재실시 보고 RMSE
 
-## 요약 수치 아래, 실제 측정 기록
+RMSE  기준 50 ms
 
-로컬 원본 그래프와 CSV에서 확인한 궤적·오차·지연입니다. 기록별 시험 묶음과 계산 방식을 구분해 표시했습니다.
+0  50 ms
+KPI 달성 MEAN 42.285 ms
 
-시간에 따라 실제 오차는 어떻게 달라졌나 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-sync-error.svg)
-동일 Trial 01의 1,195개 샘플을 그렸습니다. 회차 RMSE는 0.523 mm, 순간 최대는 1.208 mm입니다. 순간 오차와 회차 RMSE 판정은 다릅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-sync-error.svg)
+KPI RETEST · MEASUREMENT
 
-Master와 Slave의 실제 움직임 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-master-slave.svg)
-별도 지연 시험 1회의 Z좌표 1,225개 샘플입니다. 원래 시간축과 값을 유지했으며, 두 곡선을 맞추는 시간 이동이나 평활화는 적용하지 않았습니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-master-slave.svg)
-저장된 대응 peak의 시각 차 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-latency.svg)
-같은 지연 기록에 저장된 X·Z축 각각 5개 대응 peak의 지연입니다. 최대 절대값은 26.084 ms이며, 위 20회 평균 48.969 ms와 다른 시험 기록입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-latency.svg)
+## 반복 시험과 실제 움직임으로 확인
+
+동기 시험 · 20회 측정 그래프 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-trials.png)
+재실시 보고서 슬라이드 1의 동기 RMSE 그래프입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-trials.png)
+
+X축 추종 지연 · 반복 시험 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-x-trials.png)
+재실시 보고서 슬라이드 2의 X축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-x-trials.png)
+Z축 추종 지연 · 반복 시험 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-z-trials.png)
+재실시 보고서 슬라이드 2의 Z축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-z-trials.png)
+
+### 두 팔 사이의 시간 차는 확대해서 비교했습니다.
+
+X축 · 같은 동작 구간을 확대 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-zoom-x.png)
+두 팔의 실제 위치 파형과 대응 지점의 시각 차를 비교한 원본 그래프입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-zoom-x.png)
+Z축 · 같은 동작 구간을 확대 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-zoom-z.png)
+Z축에서도 위치 파형의 시각 차를 확인했습니다. 원본 그래프의 수치와 축을 유지했습니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-zoom-z.png)
+실제 X·Z 위치 파형 더 보기
+
+X축 실제 위치 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-x.png)
+슬라이드 2의 Master·Slave 위치 파형입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-x.png)
+Z축 실제 위치 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-z.png)
+슬라이드 2의 Master·Slave 위치 파형입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-z.png)
+자료: KPI재실시 슬라이드 1·2 · [동기 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)  · [지연 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-2.png)
 
 CONTENTS
 [ 01  /  Test Goal ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background) [ 02  /  Decision ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#investigation) [ 03  /  Measurement ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#implementation) [ 04  /  Results ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#takeaway)
@@ -854,33 +880,30 @@ AFTER
 
 동기 오차를 확인한 과정 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 공통 원궤적 → 양팔 실제 위치 기록 → 초기 위치 차이 제거 → 상대변위 오차 계산. 개별 목표 추종과 양팔 동기를 나누어 봅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
-Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔이 같은 원궤적 위상을 통과한 시각을 비교했습니다.
+Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔의 실제 위치 파형에서 대응하는 지점의 시각을 비교했습니다.
 
--  평평한 파형 꼭대기의 한계 확인
-원운동의 꼭대기는 변화가 작아 단순 peak 위치가 노이즈와 샘플 간격에 민감할 수 있었습니다.
+-  동일한 반복 운동의 위치를 기록
+X·Z축에서 Master와 Slave의 실제 위치 파형을 확인했습니다.
 
--  대응 위상으로 비교 지점 통일
-실제 XZ 위치로 원 위상을 복원하고, 같은 위상 지점을 지나는 인접 샘플 사이에서 통과 시각을 보간했습니다.
+-  대응하는 지점의 시간 차를 확대
+같은 동작 구간을 확대해 두 곡선의 대응 peak 사이 시각 차를 비교했습니다.
 
--  반복 시험의 판정값을 구분
-회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 회차 판정값을 집계해 20회 평균을 확인했습니다.
+-  축별 결과를 나누어 정리
+X·Z축 지연의 RMSE와 MEAN을 각각 정리하고, 50 ms 기준과 비교했습니다.
 
-추종 지연을 확인한 과정 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
-명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 계산 과정을 설명한 개념도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
+시험 환경 구성도 따로 확인했습니다.
 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정했습니다. 카메라 환경 확인과 TCP 기반 KPI 계산은 역할을 구분했습니다.
 
 04 / Results
 
-## 20회 평균, 두 KPI 모두 기준 달성
+## 동기 RMSE 0.615 mm, 지연 RMSE 두 축 모두 50 ms 이내
 
-위 결과 그래프에서 평균 동기 오차와 평균 지연을 각각의 기준선과 비교할 수 있습니다. [결과 그래프로 돌아가기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#results-overview)
+재실시 보고서에서 동기 RMSE는 0.615 mm, 추종 지연 RMSE는 X축 46.675 ms · Z축 47.694 ms로 정리했습니다. 동기 오차와 시간 지연을 나누어 측정하고 각 KPI 기준의 달성을 확인했습니다.
 
-20회 평균 동기 오차는 0.615 mm로 1 mm 기준을, 평균 지연은 48.969 ms로 50 ms 기준을 충족했습니다. 동기 오차와 지연을 나누어 측정하고 각 평균값으로 KPI 달성을 확인했습니다.
-결과를 해석한 범위
-한 회차의 RMSE가 1 mm 이하인 것과 모든 순간 오차가 1 mm 이하인 것은 다릅니다. 지연 평균도 event 전체의 RMS와 회차 최댓값의 평균을 구분했습니다.
+[KPI 결과 그래프 보기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#results-overview)  · [실제 측정 그래프 보기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
 
-Measurement Notes · 집계 자료와 해석 범위
-위 동기 결과는 이력서 보고값입니다. 확보된 다른 20회 CSV는 평균 약 0.623 mm, 아카이브의 별도 재시험 그래프는 약 0.880 mm로 집계가 다릅니다. 동일 시험 묶음으로 확인되지 않아 서로 합치거나 0.615 mm의 재계산 근거로 사용하지 않았습니다.
+Measurement Notes · 보고 자료
+표시 수치는 KPI재실시 슬라이드 1·2의 RMSE와 MEAN입니다. 그래프는 같은 PowerPoint 원본에 포함된 이미지를 사용했습니다.
 
 05 / Takeaway
 
