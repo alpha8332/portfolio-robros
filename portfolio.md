@@ -1,6 +1,6 @@
 # 신동찬 · ROBROS 포트폴리오
 
-웹 포트폴리오의 공개 본문을 모은 텍스트 버전입니다.
+공개 웹 포트폴리오의 본문 텍스트입니다.
 
 [포트폴리오 홈](https://alpha8332.github.io/portfolio-robros/)
 
@@ -17,11 +17,11 @@ ROBOTICS SOFTWARE ENGINEER
 로봇 제어 · 텔레오퍼레이션 · 모방학습
 
 안 되면,
-될 때까지 합니다.
+될 때까지  합니다.
 
 텔레오퍼레이션, 로봇 데이터 수집·검증·시각화, 모방학습 학습·추론을 경험했습니다. 수집한 데이터를 실제 로봇과 엔드이펙터의 동작으로 연결하고, 장치와 소프트웨어의 연동을 직접 검증했습니다.
 
-[Journey 둘러보기 ↗](https://alpha8332.github.io/portfolio-robros/index.html#journey)[사용해 본 장비 ↓](https://alpha8332.github.io/portfolio-robros/index.html#equipment)
+[Journey 둘러보기  ↗ ](https://alpha8332.github.io/portfolio-robros/index.html#journey) [사용해 본 장비  ↓ ](https://alpha8332.github.io/portfolio-robros/index.html#equipment)
 
 ## About Me
 
@@ -44,11 +44,11 @@ ENTP
 
 단점과 보완
 
-- 표현 부족독서와 글쓰기로 생각을 정리하고 표현하는 연습
+-  표현 부족 독서와 글쓰기로 생각을 정리하고 표현하는 연습
 
-- 의지박약기상 후 침구류 정리, 양치, 물 한 잔, 야외 러닝
+-  의지박약 기상 후 침구류 정리, 양치, 물 한 잔, 야외 러닝
 
-- 공감 부족적극적인 경청, 상대방의 관점에서 생각하기, 곧바로 해결책 제시하지 않기
+-  공감 부족 적극적인 경청, 상대방의 관점에서 생각하기, 곧바로 해결책 제시하지 않기
 
 존경하는 인물
 디디에 드록바
@@ -75,7 +75,7 @@ Certifications
 
 ### Challenge & Focus
 
-도전몰입주도성
+도전  몰입  주도성
 
 - 방향 설정
 목표가 정해지면 필요한 일을 스스로 찾아 움직입니다.
@@ -90,7 +90,7 @@ Certifications
 
 ### Problem Solving
 
-집요함검증완결성
+집요함  검증  완결성
 
 - 원인 탐구
 답을 찾을 때까지 원인을 집요하게 파고듭니다.
@@ -105,7 +105,7 @@ Certifications
 
 ### Learning & Coachable
 
-학습민첩성피드백적응력
+학습민첩성  피드백  적응력
 
 - 빠른 적응
 낯선 환경에서도 필요한 것부터 배우며 빠르게 적응합니다.
@@ -120,7 +120,7 @@ Certifications
 
 ### Collaboration
 
-협업책임감문서화
+협업  책임감  문서화
 
 - 조직 융화
 팀의 방식과 분위기를 먼저 파악하고 자연스럽게 맞춰갑니다.
@@ -135,70 +135,70 @@ Certifications
 
 HANDS-ON EXPERIENCE
 
-업무와 과제에서 직접 사용한 로봇과 장치입니다. 이름에 마우스를 올리거나 눌러 제품 이미지를 확인하세요.
+업무와 과제에서 직접 사용한 로봇과 장치입니다.  이름에 마우스를 올리거나 눌러 제품 이미지를 확인하세요.
 
 01 / ROBOT
 
 ### Robots
 
-- 
+-
 One-Arm Robot:
 
-- Indy7▧
-Indy7공식 Indy7 제품 이미지[Neuromeka ↗](https://en.neuromeka.com/indy)
+- Indy7 ▧
+Indy7 공식 Indy7 제품 이미지 [Neuromeka ↗](https://en.neuromeka.com/indy)
 
-- Indy12▧
-Indy12공식 Indy12 제품 이미지[Neuromeka ↗](https://en.neuromeka.com/indy)
+- Indy12 ▧
+Indy12 공식 Indy12 제품 이미지 [Neuromeka ↗](https://en.neuromeka.com/indy)
 
-- Nuri-5S▧
-NURI 5S공식 NURI 5S 제품 이미지[Neuromeka ↗](https://en.neuromeka.com/nuris)
+- Nuri-5S ▧
+NURI 5S 공식 NURI 5S 제품 이미지 [Neuromeka ↗](https://en.neuromeka.com/nuris)
 
 - Dual-Arm Robot: Dual NURI
 
-- Humanoid: EIR▧
-Humanoid: EIR공식 EIR 제품 이미지[Neuromeka ↗](https://en.neuromeka.com/humanoids)
+- Humanoid: EIR ▧
+Humanoid: EIR 공식 EIR 제품 이미지 [Neuromeka ↗](https://en.neuromeka.com/humanoids)
 
 02 / INPUT DEVICE
 
 ### Control Devices
 
-- SpaceMouse▧
-SpaceMouseSpaceMouse Compact 제품군 참고 이미지[3Dconnexion ↗](https://3dconnexion.com/us/product/spacemouse-compact/buy/)
+- SpaceMouse ▧
+SpaceMouse SpaceMouse Compact 제품군 참고 이미지 [3Dconnexion ↗](https://3dconnexion.com/us/product/spacemouse-compact/buy/)
 
-- Vive Controller▧
-Vive ControllerVIVE Controller (2018) 참고 이미지[HTC VIVE ↗](https://www.vive.com/us/accessory/controller2018/)
+- Vive Controller ▧
+Vive Controller VIVE Controller (2018) 참고 이미지 [HTC VIVE ↗](https://www.vive.com/us/accessory/controller2018/)
 
-- Vive Tracker▧
-Vive TrackerVIVE Tracker (3.0) 제품군 참고 이미지[HTC VIVE ↗](https://www.vive.com/us/accessory/tracker3/)
+- Vive Tracker ▧
+Vive Tracker VIVE Tracker (3.0) 제품군 참고 이미지 [HTC VIVE ↗](https://www.vive.com/us/accessory/tracker3/)
 
-- Meta Quest 3▧
-Meta Quest 3Quest 3 제품 이미지[Meta ↗](https://www.meta.com/quest/quest-3/)
+- Meta Quest 3 ▧
+Meta Quest 3 Quest 3 제품 이미지 [Meta ↗](https://www.meta.com/quest/quest-3/)
 
-- Pico 4▧
-Pico 4PICO 4 제품군 참고 사진[KKPCW / Wikimedia Commons ↗](https://commons.wikimedia.org/wiki/File:Pico_4_-_1.jpg)KKPCW（Kyu3） · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) · 원본 비율 유지
+- Pico 4 ▧
+Pico 4 PICO 4 제품군 참고 사진 [KKPCW / Wikimedia Commons ↗](https://commons.wikimedia.org/wiki/File:Pico_4_-_1.jpg)  KKPCW（Kyu3） · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)  · 원본 비율 유지
 
-- Manus Glove▧
-Manus GloveQuantum Metagloves 제품군 참고 이미지[MANUS ↗](https://www.manus-meta.com/products/quantum-metagloves)
+- Manus Glove ▧
+Manus Glove Quantum Metagloves 제품군 참고 이미지 [MANUS ↗](https://www.manus-meta.com/products/quantum-metagloves)
 
 03 / END-EFFECTOR
 
 ### End Effectors
 
-- Tesollo DG-4F▧
-Tesollo DG-4F공식 DG-4F 제품 이미지[Tesollo ↗](https://www.tesollo.com/products/grippers/dg-4f)
+- Tesollo DG-4F ▧
+Tesollo DG-4F 공식 DG-4F 제품 이미지 [Tesollo ↗](https://www.tesollo.com/products/grippers/dg-4f)
 
-- DH Gripper▧
-DH GripperDH AG-95 제품군 참고 이미지[Trossen Robotics ↗](https://docs.trossenrobotics.com/dobot_cr_cobots_docs/end_effectors/dh_robotics/ag95.html)
+- DH Gripper ▧
+DH Gripper DH AG-95 제품군 참고 이미지 [Trossen Robotics ↗](https://docs.trossenrobotics.com/dobot_cr_cobots_docs/end_effectors/dh_robotics/ag95.html)
 
 04 / CAMERA
 
 ### Cameras
 
-- Intel RealSense D405▧
-Intel RealSense D405공식 D405 제품 이미지[RealSense ↗](https://www.realsenseai.com/depth-camera-d405/)
+- Intel RealSense D405 ▧
+Intel RealSense D405 공식 D405 제품 이미지 [RealSense ↗](https://www.realsenseai.com/depth-camera-d405/)
 
-- Intel RealSense D435IF▧
-Intel RealSense D435IF공식 D435if 제품 이미지[RealSense ↗](https://www.realsenseai.com/products/d435if/)
+- Intel RealSense D435IF ▧
+Intel RealSense D435IF 공식 D435if 제품 이미지 [RealSense ↗](https://www.realsenseai.com/products/d435if/)
 
 DEVELOPMENT TOOLS
 Python · Linux · Docker · Git
@@ -209,31 +209,31 @@ CONTEXT → IMPLEMENTATION → VALIDATION
 
 AI Agent와 함께 기존 코드와 문서를 분석하고 기능을 구현합니다. 저는 실제 현상과 시스템의 제약을 설명하고, 제안된 계획의 영향 범위를 검토한 뒤, 작은 단계로 구현한 결과를 실제 장비에서 확인합니다.
 
-- 01
+-  01
 
 ### Context
 
 현상·재현 조건·시스템 제약과 완료 기준을 먼저 설명합니다.
 
-- 02
+-  02
 
 ### Analysis & Planning
 
 수정 위치와 방법, 다른 기능에 미치는 영향을 확인합니다.
 
-- 03
+-  03
 
 ### Plan Review
 
 기존 기능의 누락과 데이터·API 계약의 충돌을 계획에서 먼저 찾습니다.
 
-- 04
+-  04
 
 ### Slice Implementation
 
 독립된 목표와 확인 기준을 가진 작은 단위로 나눠 진행합니다.
 
-- 05
+-  05
 
 ### Validation
 
@@ -261,11 +261,11 @@ AllCareerProjectActivityAwardEducation
 
 ### 2026
 
-Award2026.09장기현장실습 수기공모전 최우수상한국기술교육대학교 총장상+
+Award  2026.09   장기현장실습 수기공모전 최우수상  한국기술교육대학교 총장상  +
 
 장기현장실습 경험을 정리한 수기로 최우수상을 수상했습니다.
 
-Education2026.07.13 ~ 2026.07.232026 피지컬 AI 부트캠프Isaac Sim · Isaac Lab · Unitree Go2 · PPO+
+Education  2026.07.13 ~ 2026.07.23   2026 피지컬 AI 부트캠프  Isaac Sim · Isaac Lab · Unitree Go2 · PPO  +
 
 시뮬레이션에서 사족보행 정책을 학습·실행하고, 설정과 보상 변경이 동작에 미치는 영향을 확인했습니다.
 
@@ -275,7 +275,7 @@ Education2026.07.13 ~ 2026.07.232026 피지컬 AI 부트캠프Isaac Sim · Isaac
 
 단기 교육 실습 · 검증 범위: 시뮬레이션
 
-Project2026.06.17 ~ 2026.08.27청년정책알리미3인 오픈소스 팀 프로젝트 · 팀장·데이터파트+
+Project  2026.06.17 ~ 2026.08.27   청년정책알리미  3인 오픈소스 팀 프로젝트 · 팀장·데이터파트  +
 
 - 공개 정책 2,051건 데이터셋 구축
 
@@ -286,7 +286,7 @@ Project2026.06.17 ~ 2026.08.27청년정책알리미3인 오픈소스 팀 프로�
 
 ### 2025
 
-Career2025.12 ~ 2026.06NeuromekaRobotics Software Engineering Intern · Platform그룹+
+Career  2025.12 ~ 2026.06   Neuromeka  Robotics Software Engineering Intern · Platform그룹  +
 
 기존 텔레오퍼레이션·모방학습 플랫폼의 기능 개발과 검증을 수행했습니다.
 
@@ -300,34 +300,34 @@ Career2025.12 ~ 2026.06NeuromekaRobotics Software Engineering Intern · Platform
 
 ### 2024
 
-Activity2024.01 ~ 2025.07육군 정보통신 병장 만기제대 · 분대장통신망 구축·유지보수 · 장애 진단·복구+
+Activity  2024.01 ~ 2025.07   육군 정보통신 병장 만기제대 · 분대장  통신망 구축·유지보수 · 장애 진단·복구  +
 
 회선 시험, CCTV·통신장비 운용과 RJ45·RJ11 케이블 제작을 담당했습니다. 분대장으로 병력 관리·작업 교육과 인수인계 문서 작성을 수행했습니다.
 [군 복무 활동 자세히 보기 ↗](https://alpha8332.github.io/portfolio-robros/activities/military.html)
 
 ### 2023
 
-Project2023.03 ~ 2023.06스마트 이동형 공기청정기졸업작품 · SW 담당+
+Project  2023.03 ~ 2023.06   스마트 이동형 공기청정기  졸업작품 · SW 담당  +
 
 C·ATmega128에서 먼지·적외선·초음파 센서 입력을 이동 조건에 연결했습니다. 라인 트레이싱, 팬·LCD·부저와 이동·복귀 동작을 제어했습니다.
 [공기청정기 Case Study ↗](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html)
 
 ### 2022
 
-Award2022.02메타버스 공모전 우수상동아리 부문 · 한국기술교육대학교 온라인평생교육원+
+Award  2022.02   메타버스 공모전 우수상  동아리 부문 · 한국기술교육대학교 온라인평생교육원  +
 
 동아리 부문 우수상 수상 이력입니다.
 
 ### 2021
 
-Activity2021.11 ~ 2022.10총동아리연합회 · 대외협력국장운영 문서·연락체계 정비 · 대학 간 교류 추진+
+Activity  2021.11 ~ 2022.10   총동아리연합회 · 대외협력국장  운영 문서·연락체계 정비 · 대학 간 교류 추진  +
 
 9개 대학 사례 조사와 3개 대학 간 4회 협의를 바탕으로 교류를 추진했습니다. 학생처와 협의해 추가 예산을 확보했습니다.
 [대외협력 활동 자세히 보기 ↗](https://alpha8332.github.io/portfolio-robros/activities/association.html)
 
 ### 2019
 
-Activity2019.09 ~ 2026.10근로장학생 · 부서별 이력한국기술교육대학교 · 비연속 근로 이력 통합+
+Activity  2019.09 ~ 2026.10   근로장학생 · 부서별 이력  한국기술교육대학교 · 비연속 근로 이력 통합  +
 
 행정·교육 운영·콘텐츠 검수 등 부서별 역할을 맡았습니다. 2026.07 ~ 2026.10에는 능력개발교육원 HRD교육팀에서 자격교육 운영을 지원했습니다.
 
@@ -366,12 +366,12 @@ Activity2019.09 ~ 2026.10근로장학생 · 부서별 이력한국기술교육�
 2021.04 ~ 06 / 2020.06 ~ 07
 학사팀 · 온라인 시험 감독 및 행정 지원
 
-Activity2019.03 ~ 2025.11풍물동아리 한소리회장 재임 2020.11 ~ 2021.11 · 공연 기획·운영+
+Activity  2019.03 ~ 2025.11   풍물동아리 한소리  회장 재임 2020.11 ~ 2021.11 · 공연 기획·운영  +
 
 집행부 공백에서 조직 운영을 맡고 부원 교육·악보 제작, 온라인·대면 공연과 무대·음향을 운영했습니다. 전체 활동 기간 동안 정기공연 5회, 외부 행사 20회 이상, 농악대회 2회에 참여했습니다.
 [한소리 활동 자세히 보기 ↗](https://alpha8332.github.io/portfolio-robros/activities/hansori.html)
 
-Education2019.03 ~ 2027.02 졸업예정한국기술교육대학교전기전자통신공학부 전기공학전공 · HRD 부전공+
+Education  2019.03 ~ 2027.02 졸업예정   한국기술교육대학교  전기전자통신공학부 전기공학전공 · HRD 부전공  +
 
 2019년 3월 입학 · 2027년 2월 졸업예정
 
@@ -381,20 +381,20 @@ GET IN TOUCH
 
 편하게 연락 주세요. 커피챗도 좋습니다.
 
-[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf) · [GitHub ↗](https://github.com/alpha8332)
+[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf)  · [GitHub ↗](https://github.com/alpha8332)
 
 Email
-[sdc8470@gmail.com ↗](mailto:sdc8470@gmail.com)
+[sdc8470@gmail.com  ↗ ](mailto:sdc8470@gmail.com)
 
 Phone
-[010-2718-4436 ↗](tel:+821027184436)
+[010-2718-4436  ↗ ](tel:+821027184436)
 
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)CASE STUDY
+[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
 Multi-Robot Platform Expansion
 
@@ -404,7 +404,7 @@ Multi-Robot Platform Expansion
 
 Python · Linux · MiMicX
 
-[선택된 한 대가 전체를 대표하던 구조](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-0)[세션 참여와 로봇 소속을 명시](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-1)[배열의 크기보다 소속과 순서](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-2)[경계마다 같은 로봇을 가리키는지 확인](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-3)
+[선택된 한 대가 전체를 대표하던 구조](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-0) [세션 참여와 로봇 소속을 명시](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-1) [배열의 크기보다 소속과 순서](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-2) [직접 바꾼 경계: 설정부터 출력 라우팅까지](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#implementation-evidence) [경계마다 같은 로봇을 가리키는지 확인](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-3)
 
 01 / BACKGROUND
 
@@ -444,6 +444,58 @@ AFTER · 논리 구조
 
 Graph와 Table은 로봇별 소속을 유지하고, Replay는 세션 전체의 실행 대상을 표시하도록 나누었습니다. 화면에서 한 로봇을 보는 상태가 다른 참여 로봇의 정지 대상을 누락하지 않도록 했습니다.
 
+EVIDENCE & IMPLEMENTATION
+
+## 직접 바꾼 경계: 설정부터 출력 라우팅까지
+
+실제 대상은 독립된 Indy12 두 대였습니다. 한 로봇 안의 left/right 팔로 합치는 대신, 각 로봇의 제어기와 엔드이펙터 소속을 보존하는 robot-keyed 경로를 추가했습니다. 기존 로봇 SDK와 제어·학습 adapter는 재사용했습니다.
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
+기존 아카이브에 공개된 소속 보존 구조. 설정·수집·학습 산출물·추론과 Replay 경로를 구분한 설명도이며 실행 화면 캡처가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
+
+수정 영역  기존 가정 / 관찰  직접 변경한 처리
+
+설정·preset  active robot 하나가 작업 전체를 대표  참가 목록·stable order·primary를 저장하고 삭제된 로봇 참조를 정규화
+
+Collect 모드·정지  화면에서 선택한 한 대만 전환·정지  backend가 resolve한 세션 전체 대상으로 전환·정지 요청; 전환 실패 시 이미 전환한 로봇을 idle 복귀
+
+데이터 writer·capture plan  H5에는 두 손, plan에는 선택한 한 로봇의 손  로봇별 namespace와 session EE catalog를 사용해 raw·metadata·plan의 대상 집합 일치
+
+학습 adapter·artifact  숫자 block의 위치에 소속을 의존  선택 key 순서·shape·robot_key_order를 전처리와 모델 산출물에 보존
+
+추론 decode·전송  배열 크기만 맞으면 다른 장치로도 전송될 위험  artifact의 key별 차원으로 출력 분해 후 owner robot·EE 계약을 검사해 전송
+
+### 같은 크기의 A/B 배열이 바뀌지 않도록
+
+robot_key는 값의 소속이고 robot_order는 결합 순서입니다. 예를 들어 참가자가 A/B이고 저장 순서가 B/A여도 화면 focus를 A로 바꿨다는 이유로 입력을 A/B로 재해석하지 않습니다. 학습에 선택된 key 순서와 각 key의 차원을 artifact에 남기고, 추론에서도 같은 경계로 출력을 나누어 owner에게 전달합니다.
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
+선택한 key 순서와 출력 block 경계를 연결한 기존 공개 설명도. 모델 성능이나 실로봇 성공률 그래프가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
+설명용 대응 예시 — 실제 수집 파일의 값이나 dump가 아닙니다.
+participants: [A, B]        # 작업 참가 집합
+robot_order: [B, A]         # 직렬화·결합 순서
+selected_keys: [B.position, A.position]
+artifact: key 순서 + key별 차원 + owner 계약
+decode: B block → B의 worker / A block → A의 worker
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-schema.svg)
+공통 timestamp·camera와 robot별 state/command를 구분한 v5 저장 구조. 기존 v4·양팔 segment의 호환 경로는 별도로 유지합니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-schema.svg)
+
+### 발견한 불일치와 수정 확인
+
+검증 시나리오  관찰 및 처리  판단 범위
+
+A/B 참여 중 화면 focus 변경  Collect 참가 집합은 유지하고 Move Robot 대상만 변경  화면 선택과 수집 대상의 독립성
+
+로봇 삭제·과거 preset 로드  없는 participant/order/primary 참조 정리  설정 정규화; 임의 등록 이름을 영구 ID로 간주하지 않음
+
+Collect 전환·정지  선택 한 대에만 적용되던 경로를 session 전체 대상으로 수정  순차 요청·복귀 실패 가능성과 실제 정지 확인은 구분
+
+raw·plan·metadata 대조  두 robot/EE key가 파일과 계획에 함께 존재하는지 확인  key 존재만으로 유효 신호가 기록됐다고 판단하지 않음
+
+기존 단일·양팔 데이터  v4 및 segment 경로를 별도 소비  새 v5 robot namespace가 기존 의미를 덮어쓰지 않음
+
+Capture sample은 참가자의 snapshot을 순서대로 읽어 한 row에 묶습니다. 같은 sample index가 제어기·카메라의 물리적 동시 측정을 뜻하지는 않습니다. 두 대 구성의 검증을 임의 N대의 성능 보장으로 확장하지 않습니다.
+
+기록 근거: [독립 다중 로봇 지원 기술 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/mimicx/multi-robot.html)
+
 04 / VALIDATION
 
 ## 경계마다 같은 로봇을 가리키는지 확인
@@ -454,12 +506,14 @@ Graph와 Table은 로봇별 소속을 유지하고, Replay는 세션 전체의 �
 
 관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
 
+[← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html) [Replay 기능 개발 및 검증 →](https://alpha8332.github.io/portfolio-robros/projects/replay.html)
+
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/replay.html
 
-[← 프로젝트 목록](https://alpha8332.github.io/portfolio-robros/work-experience.html)CASE STUDY / 02
+[← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY / 02
 
 ROBOT REPLAY · MIMICX
 
@@ -470,7 +524,7 @@ HDF5 Episode 기반 실로봇 Replay
 
 초기 자세 정렬과 본 재생을 나누고, 팔과 엔드이펙터의 동작을 연결했습니다.
 
-[01 목표와 역할](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role)[02 시스템 흐름](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system)[03 원인 추적](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation)[04 수정](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification)[05 검증과 결과](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
+[데이터를 보는 것에서 로봇을 움직이는 기능으로](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [정렬이 끝난 뒤에만 재생 시간을 시작](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [Case A · 초기 정렬 중 정지 명령은 전달됐는데, 목표 전에 멈췄습니다.](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [초기 목표를 유지하고, 도달한 뒤 Replay 시작](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [Case B · Replay 중 오른팔 동작 누락](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [코드의 통과에서 실제 동작 확인까지](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
 
 01 / GOAL & MY ROLE
 
@@ -484,9 +538,9 @@ HDF5 Episode 기반 실로봇 Replay
 기존 기반
 Replay 참고 로직과 기존 그래프·영상 playback을 활용하고, 플랫폼의 실로봇 실행 경로로 통합·확장했습니다.
 
-REPLAY OVERVIEWHDF5 → ROBOT
+REPLAY OVERVIEW  HDF5 → ROBOT
 
-01 초기 정렬과 본 재생을 구분한 실행 흐름
+01  초기 정렬과 본 재생을 구분한 실행 흐름
 
 02 / SYSTEM FLOW
 
@@ -501,47 +555,48 @@ Replay는 텔레오퍼레이션으로 기록한 동작을 실제 로봇에서 �
 
 브라우저의 재생 커서가 로봇 명령을 만드는 구조가 아닙니다. 실제 실행은 backend가 맡고 화면은 그 진행 상태를 표시합니다.
 
-EXECUTION LIFECYCLE주요 단계
+EXECUTION LIFECYCLE  주요 단계
 
-- STARTING
+-  STARTING
 
 ### 데이터·실행 조건 확인
 
 episode와 대상 장치를 확인하고 실행 준비
 
-- ALIGNING
+-  ALIGNING
 
 ### 초기 정렬 Safe Logic
 
 목표 유지 → 도달·안정 확인
 재생 커서 고정
 
-- RUNNING
+-  RUNNING
 
 ### 본 Replay 실행
 
 기록된 시간축으로 장치 명령 전달
 실행 상태에 맞춰 커서 진행
 
-02 정렬 단계와 재생 단계를 구분한 상태 흐름도
+02  정렬 단계와 재생 단계를 구분한 상태 흐름도
 
 03 / PROBLEM & INVESTIGATION
 
-## 명령은 전달됐는데,
+## Case A · 초기 정렬 중 정지
+명령은 전달됐는데,
 목표 전에 멈췄습니다.
 
 초기 위치 이동 명령은 전달됐지만 로봇이 잠깐 움직인 뒤 목표에 도달하기 전에 멈췄습니다. 상태 판정과 재시도를 보강해도 실제 장비에서는 같은 현상이 반복됐습니다.
 
-- 실행 단계 분리
+-  실행 단계 분리
 초기 정렬과 본 Replay를 분리하고 정렬 중에는 커서가 진행하지 않도록 했습니다. 초기 이동 자체의 중단 현상은 남았습니다.
 
-- 완료 판정·재시도 보강
+-  완료 판정·재시도 보강
 현재 로봇과 기록 데이터의 공통 팔 축을 비교하고 대기·재시도를 수정했지만, 실제 목표까지 계속 움직이지 못했습니다.
 
-- 정상 기능과 비교
+-  정상 기능과 비교
 정상 동작하던 Saved Position의 Joint Move를 비교했습니다. 같은 관절 목표를 보내더라도 목표를 유지하는 방식이 달랐습니다.
 
-COMMAND SEMANTICS정상 기능과 비교
+COMMAND SEMANTICS  정상 기능과 비교
 
 SAVED POSITION / 정상 동작
 
@@ -550,7 +605,7 @@ SAVED POSITION / 정상 동작
 버튼을 누르는 동안 같은 목표를
 짧은 간격으로 반복 전송
 
-CommandCommandCommandCommand
+Command  Command  Command  Command
 
 REPLAY INITIAL ALIGNMENT / 수정 전
 
@@ -559,12 +614,12 @@ REPLAY INITIAL ALIGNMENT / 수정 전
 목표를 한 번 전송한 뒤
 telemetry로 도달 여부만 확인
 
-CommandPollingPollingPolling
+Command  Polling  Polling  Polling
 
 판정 이후의 재시도뿐 아니라,
 목표를 유지하는 실행 방식을 맞춰야 했습니다.
 
-03 전송 방식을 설명한 개념도이며 실측 타이밍 그래프가 아닙니다.
+03  전송 방식을 설명한 개념도이며 실측 타이밍 그래프가 아닙니다.
 
 04 / MODIFICATION
 
@@ -573,32 +628,32 @@ CommandPollingPollingPolling
 
 backend의 초기 정렬 Safe Logic에 정상 Joint Move와 같은 pulse/hold 방식을 적용해, 목표 도달 전까지 같은 초기 목표를 반복 전송하도록 바꿨습니다. 관절 오차와 모션 상태를 보고, 이용 가능한 속도 정보도 확인해 안정 상태가 유지된 뒤 본 Replay를 시작하도록 했습니다.
 
-BEFORE / 수정 전목표 이전 정지
+BEFORE / 수정 전  목표 이전 정지
 
 INITIAL MOVE
 초기 목표 한 번 전송
 
-↓도달 여부만 관찰
+↓  도달 여부만 관찰
 OBSERVED ON HARDWARE
 잠깐 이동한 뒤 정지
 
-× 목표에 도달하지 못한 채 이동 중단
+×  목표에 도달하지 못한 채 이동 중단
 
 남아 있던 문제
 대기·재시도 변경 후에도 반복
 
 완료 판정을 보강해도 초기 이동의 실행 방식은 달랐습니다.
 
-AFTER / 수정 후pulse / hold
+AFTER / 수정 후  pulse / hold
 
 INITIAL MOVE
 같은 초기 목표 반복 전송
 
-↓도달과 안정 상태 확인까지 목표 유지
+↓  도달과 안정 상태 확인까지 목표 유지
 REACHED & SETTLED
 초기 위치 도달·안정 확인
 
-→ 초기 정렬이 끝난 뒤 running으로 전환
+→  초기 정렬이 끝난 뒤 running으로 전환
 
 본 재생
 기록된 시간축으로 Replay 시작
@@ -607,41 +662,19 @@ REACHED & SETTLED
 
 pulse/hold는 이 사례의 장비와 제어 경로에서 확인한 방식입니다. 모든 로봇의 관절 이동에 반복 전송이 필요하다는 뜻은 아닙니다.
 
-05 / VALIDATION & RESULT
+EVIDENCE & IMPLEMENTATION
 
-## 코드의 통과에서
-실제 동작 확인까지
+## Case B · Replay 중 오른팔 동작 누락
 
-수정 후 실제 로봇에서 초기 위치로 이동하다 멈추던 문제의 해결을 확인했습니다. 이후 정렬 완료 뒤 본 재생이 이어지는 흐름과 재생·일시정지·재개·정지, 팔과 엔드이펙터의 동작을 확인했습니다.
+단계  기록으로 확인한 내용
 
-화면의 커서와 진행률은 backend의 실행 상태와 연결했습니다. 화면 표시의 연결과 물리적인 동작 확인은 나눠 판단했습니다.
+현상  재생 중 오른팔 동작이 누락되는 구간 관찰
 
-직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터에서 Replay 정상 동작을 확인했으며, 다중 로봇 구성에서도 검증했습니다.
+조사  동일 구간에서 저장 목표값은 갱신되지 않지만 측정 자세는 변함을 비교
 
-WHAT WAS VERIFIED항목별 확인 범위
+수정  해당 데이터 경로를 측정 자세 우선 재생으로 바꾸고 전송 로직 수정
 
-초기 정렬 Safe Logic목표 이전 정지 문제 해결
-pulse/hold 수정 뒤 목표 위치로 이동하는 동작을 실제 로봇에서 확인했습니다.
-
-실행 단계정렬 완료 뒤 본 재생
-정렬과 본 Replay를 분리하고 도달·안정 뒤 실행하는 경로를 확인했습니다.
-
-실행 제어재생 · 일시정지 · 재개 · 정지
-실제 장비에서 재생 제어와 종료 처리를 확인했습니다.
-
-장치 동작사용 장비 전체 Replay 확인
-직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터의 Replay 정상 동작을 확인했습니다.
-
-다중 로봇다중 로봇 구성에서 재생
-다중 로봇 구성에서도 기록된 동작을 재생하고 정상 동작을 확인했습니다.
-
-화면 연결실행 상태에 따른 커서 표시
-초기 정렬 중 커서를 고정하고 본 재생의 진행 상태를 표시하도록 연결했습니다.
-
-ENGINEERING NOTE
-동작을 재현하려면 명령뿐 아니라 시작 조건도 재현해야 한다는 걸 배웠습니다. 기록된 시작 자세로 정렬하고 도달·안정을 확인하는 과정을 통해, 재생을 시작할 조건까지 실행 로직에 포함해야 한다는 기준을 얻었습니다.
-
-[← 모방학습 정책 실행 및 실패 분석](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)[다음 사례 · 다중 로봇 플랫폼 확장 →](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html)
+검증  수정 후 실제 로봇 동작 확인. 모든 목표값을 측정값으로 바꾸는 일반 규칙으로 적용하지 않음
 
 ## 오른팔 정지 구간: 목표값과 측정 자세의 차이
 
@@ -656,12 +689,48 @@ ENGINEERING NOTE
 
 재생·일시정지·재개·중지와 팔·그리퍼 매핑을 구현하고 한팔·양팔 로봇, EIR에서 동작을 검증했습니다. 정렬은 시작 자세로 도달하는 과정이고, 본 재생은 기록된 시간축의 실행입니다.
 
+05 / VALIDATION & RESULT
+
+## 코드의 통과에서
+실제 동작 확인까지
+
+수정 후 실제 로봇에서 초기 위치로 이동하다 멈추던 문제의 해결을 확인했습니다. 이후 정렬 완료 뒤 본 재생이 이어지는 흐름과 재생·일시정지·재개·정지, 팔과 엔드이펙터의 동작을 확인했습니다.
+
+화면의 커서와 진행률은 backend의 실행 상태와 연결했습니다. 화면 표시의 연결과 물리적인 동작 확인은 나눠 판단했습니다.
+
+직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터에서 Replay 정상 동작을 확인했으며, 다중 로봇 구성에서도 검증했습니다.
+
+WHAT WAS VERIFIED  항목별 확인 범위
+
+초기 정렬 Safe Logic 목표 이전 정지 문제 해결
+pulse/hold 수정 뒤 목표 위치로 이동하는 동작을 실제 로봇에서 확인했습니다.
+
+실행 단계 정렬 완료 뒤 본 재생
+정렬과 본 Replay를 분리하고 도달·안정 뒤 실행하는 경로를 확인했습니다.
+
+실행 제어 재생 · 일시정지 · 재개 · 정지
+실제 장비에서 재생 제어와 종료 처리를 확인했습니다.
+
+장치 동작 사용 장비 전체 Replay 확인
+직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터의 Replay 정상 동작을 확인했습니다.
+
+다중 로봇 다중 로봇 구성에서 재생
+다중 로봇 구성에서도 기록된 동작을 재생하고 정상 동작을 확인했습니다.
+
+화면 연결 실행 상태에 따른 커서 표시
+초기 정렬 중 커서를 고정하고 본 재생의 진행 상태를 표시하도록 연결했습니다.
+
+ENGINEERING NOTE
+동작을 재현하려면 명령뿐 아니라 시작 조건도 재현해야 한다는 걸 배웠습니다. 기록된 시작 자세로 정렬하고 도달·안정을 확인하는 과정을 통해, 재생을 시작할 조건까지 실행 로직에 포함해야 한다는 기준을 얻었습니다.
+
+[← 다중 로봇 플랫폼 확장](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html) [양팔 KPI 검증 →](https://alpha8332.github.io/portfolio-robros/projects/kpi.html)
+
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/kpi.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)CASE STUDY
+[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
 Dual-Arm KPI Validation
 
@@ -671,7 +740,7 @@ Dual-Arm KPI Validation
 
 Dual NURI · D405 · D435IF · Python
 
-[동기 오차와 추종 오차를 나누어 측정](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-0)[동일 위상 지점을 통과한 시간의 차이](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-1)[평균과 회차별 기준 충족을 함께 보기](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-2)[평균 통과가 모든 시험의 통과는 아니다](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-3)
+[동기 오차와 추종 오차를 나누어 측정](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-0) [동일 위상 지점을 통과한 시간의 차이](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-1) [평균과 회차별 기준 충족을 함께 보기](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-2) [시험 구성과 계산 경계를 먼저 정의](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measurement-evidence) [평균 통과가 모든 시험의 통과는 아니다](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-3)
 
 01 / METHOD
 
@@ -693,6 +762,8 @@ Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구
 
 ## 평균과 회차별 기준 충족을 함께 보기
 
+이력서 보고값입니다. 확보된 별도 재시험 자료와 집계가 달라, 아래 그래프는 원자료 재계산 결과가 아닌 이력서 수치 요약으로 제시합니다.
+
 ### 동기 RMSE
 0.615 mm
 20회 평균 · 기준 ≤ 1 mm
@@ -709,9 +780,52 @@ Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구
 
 15 / 20회 충족 · 5회 초과
 
-15회 충족5회 초과
+15회 충족 5회 초과
 
 평균값과 기준 충족 횟수의 요약입니다. 회차별 측정값을 임의로 생성한 그래프가 아닙니다.
+
+EVIDENCE & IMPLEMENTATION
+
+## 시험 구성과 계산 경계를 먼저 정의
+
+두 시험은 입력 구조가 다릅니다. 동기 시험은 양팔에 같은 원형 상대 목표를 전달하고, 지연 시험은 Master의 실제 움직임을 관측해 Slave 목표를 만듭니다. 같은 원궤적이라는 이유로 지연 경계와 정밀도 결과를 합치지 않습니다.
+
+기록에 확인된 시험 구성  설정  해석
+
+장비·인터페이스  NURI 5S 양팔 · IndyDCP3 · TCP/IP  동일 제어기의 양팔 상태를 읽고 팔 인덱스로 명령 전달
+
+원궤적  XZ 평면 · 반지름 100 mm · 주기 5 s · 시계 방향  시작점 기준 누적 상대 목표; 회전 목표는 0
+
+반복  5바퀴 × 20회; 회차당 25초  각 회차 시작 위치로 복귀하고 도달 확인
+
+명령·기록  60 Hz / 100 Hz 설정  목표 주기이며 실측 servo rate 또는 시간 정확도 보장이 아님
+
+위 조건은 아카이브의 재시험 실행 기록에서 확인했습니다. 이력서의 동기 RMSE 0.615 mm 집계와 동일한 20회 원자료인지의 연결은 추가 확인이 필요하므로, 조건표가 해당 집계를 재계산·입증한다고 표현하지 않습니다.
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+공통 원궤적 → 실제 위치 기록 → 초기 offset 제거 → 상대변위 오차 → RMSE. 측정 trace가 아닌 시험·계산 경로 설명도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+
+### 개별 추종과 양팔 동기 오차
+
+각 팔의 상대변위: d_R(t) = p_R(t) − p_R(0)
+d_L(t) = p_L(t) − p_L(0)
+동기 오차: e_sync(t) = d_R(t) − d_L(t)
+동기 RMSE = sqrt(mean(||e_sync(t)||²))
+개별 추종 오차: actual TCP − 해당 팔의 controller desired TCP
+
+각 팔의 초기 위치만 빼서 설치 간격에 해당하는 고정 offset을 제거합니다. 두 궤적을 임의로 회전·이동시켜 최적으로 포개는 것과 구분합니다. 한 회차의 RMSE가 1 mm 이하라는 것과 그 안의 모든 순간 오차가 1 mm 이하라는 것은 다릅니다.
+
+### 대응 위상 통과 시각으로 지연 계산
+
+XZ 실제 위치에서 중심과 축별 반폭을 정규화하고 atan2·unwrap으로 원 위상을 복원합니다. 두 팔의 같은 위상 landmark를 통과한 인접 샘플을 찾고 선형보간으로 시각을 계산합니다. 지연은 Slave 통과 시각 − Master 통과 시각입니다. 샘플 사이 보간이 센서 시각 정확도를 높였다는 의미는 아닙니다.
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
+Master/Slave 실제 위치 → 대응 위상 검출 → 통과 시각 차 → 회차 판정. 설명용 선과 시각이며 실제 측정 파형이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
+최종 지연 판정은 회차별 X/Z landmark 최대 절대 지연 중 큰 값입니다. 48.969 ms는 이 회차 판정값 20개의 평균이며, 전체 event의 RMS나 단순 전송 시간 차와 다릅니다. 15회 통과·5회 초과를 평균값과 함께 봅니다.
+
+### Testbed Setup
+
+D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정하고 입력을 확인했습니다. 이 작업은 시험 환경 구성 경험으로, 카메라 영상이 위 TCP 기반 RMSE·지연 계산의 직접 계측 입력이었다고 표현하지 않습니다.
+
+기록 근거: [양팔 KPI 시험의 측정 정의와 반복 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
 
 04 / LIMITATIONS
 
@@ -721,12 +835,14 @@ Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구
 
 관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
 
+[← Replay 기능 개발 및 검증](https://alpha8332.github.io/portfolio-robros/projects/replay.html) [모방학습 정책 실행 →](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
+
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/imitation.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)CASE STUDY
+[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
 Imitation Learning Pipeline
 
@@ -736,7 +852,7 @@ Imitation Learning Pipeline
 
 Teleoperation · ACT · MiMicX
 
-[기존 플랫폼에서 전 과정을 수행](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-0)[수집 횟수보다 먼저 조건을 설계](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-1)[Loss와 실제 작업 성공은 다른 확인 대상](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-2)[직접 개선과 실험 수행의 범위](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-3)
+[기존 플랫폼에서 전 과정을 수행](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-0) [수집 횟수보다 먼저 조건을 설계](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-1) [Loss와 실제 작업 성공은 다른 확인 대상](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-2) [실험별 장비·데이터·실행 조건](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#experiment-evidence) [직접 개선과 실험 수행의 범위](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-3)
 
 01 / OVERVIEW
 
@@ -771,6 +887,50 @@ ACT 학습·추론과 실로봇 Rollout을 수행했습니다. 양팔 실험에�
 
 학습 오차의 감소만으로 새 배치에서의 파지·놓기 성공을 보장할 수 없었습니다. 환경 배치를 수집 조건과 맞추고, 변경한 조건을 구분해 보는 것이 이후 실험의 기준이 되었습니다.
 
+EVIDENCE & IMPLEMENTATION
+
+## 실험별 장비·데이터·실행 조건
+
+실험 기록  수집 환경·수행 내용  확인한 결과 / 한계
+
+Banana v1 · 3월 18일  누리 양팔·2지 그리퍼·VIVE 입력·손목 영상 2대. 오른팔은 관측 위치에 고정하고 왼팔로 조작. 위치·자세·트레이를 고정한 10회 교시  전체 동작 연결과 실행 관찰. 최종 반복 성공률로 사용하지 않음
+
+Banana v2 · 3월 23일  트레이·초기 자세를 고정하고 바나나 위치·자세를 임의로 바꾼 50회 수집  유사 조건 중복과 빠진 조합 확인. 왼팔에서 먼 수직 배치에서 파지 어려움
+
+Banana v3 · 3월 25일  트레이 4위치 × 물체 5위치 × 자세 4종, 추가 반복 포함 100회 수행 조건  조건표 합계와 유효 저장 Episode 개수·정책 성공 횟수는 별도 확인 대상
+
+후속 양팔 배치 실험  양팔 상태·손목 영상 2대·중앙 영상 1대 입력; ACT 실행  카메라 각도·테이블 배치 변경 후 작업 실패 관찰. 실패가 어느 단일 원인 때문인지 확정하지 않음
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
+수집 메모를 바탕으로 재작성한 개념적 배치. 실제 설치 사진·치수·좌표를 재현한 도면이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
+
+### 작업 순서와 데이터 선별
+
+작업  교시한 순서  관찰·선별 기준
+
+Pick & Place  물체 접근 → 중앙 파지 → 이동 → 트레이에 놓기  물체와 목적지가 영상에 함께 들어오는지 확인; pick/place에서 잠시 정지
+
+Handover  오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 release → 트레이 배치  손목 영상의 가림과 파지 주체가 바뀌는 순서 확인
+
+양팔 순차 배치  오른팔 바나나 배치·복귀 → 왼팔 물체 배치·복귀  두 팔 동작을 모두 동시 수행으로 표현하지 않음; 끊기거나 멈칫한 Episode 제외
+[](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
+기존 수집표를 재작성한 조건별 수행 횟수. 기본 80조건에 반복 20회를 더한 총 100회이며, 유효 Episode 수나 성공률이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
+
+### 학습 설정과 실패 관찰을 같은 실험 단위로 읽기
+
+항목  Banana v2 기록  후속 양팔 학습 기록
+
+모델 입력  왼팔 위치·속도·그리퍼 + 양쪽 손목 영상  양팔 위치·속도·그리퍼 + 손목 영상 2대 + 중앙 영상 1대
+
+전처리  TCP 기준 relative on · 책상 영역 crop  absolute · no crop · is_progress
+
+학습 메모  약 500 epoch · 약 10시간 20분 · Loss 0.0067  ACT Full · batch 16 · 최대 1000 epoch 설정; 50 epoch에서 Loss 약 0.01 관찰
+
+실행 해석  특정 위치·자세의 파지 어려움을 다음 수집 조건에 반영  카메라·테이블 배치 변경 후 실패 반복; 학습 오차와 실로봇 작업 성립을 구분
+
+위 설정은 서로 다른 실험의 메모를 구분한 것입니다. 1000 epoch는 설정 상한이며 실제 완료 epoch를 뜻하지 않습니다. 카메라·배치가 함께 바뀐 실험에서 개별 변수의 인과 효과나 정확한 실패 단계는 현재 자료만으로 분리할 수 없습니다. 성공률을 새로 만들거나 학습 Loss를 작업 성공률로 바꾸지 않았습니다.
+
+기록 근거: [개인 모방학습 실험: 버전별 수집·학습·실행 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/experiments/personal/index.html)
+
 04 / SCOPE
 
 ## 직접 개선과 실험 수행의 범위
@@ -779,12 +939,14 @@ ACT 학습·추론과 실로봇 Rollout을 수행했습니다. 양팔 실험에�
 
 관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
 
+[← 양팔 KPI 검증](https://alpha8332.github.io/portfolio-robros/projects/kpi.html) [Journey →](https://alpha8332.github.io/portfolio-robros/index.html#journey)
+
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)CASE STUDY
+[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
 
 Open Source Team Project
 
@@ -794,7 +956,7 @@ Open Source Team Project
 
 React · FastAPI · PostgreSQL · Docker
 
-[기관별 데이터를 공통 기준으로 연결](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-0)[불확실한 값과 유효한 데이터를 구분](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-1)[반복된 지역 조건 조회를 개선](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-2)[다른 PC에서도 설치·실행 확인](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-3)
+[기관별 데이터를 공통 기준으로 연결](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-0) [불확실한 값과 유효한 데이터를 구분](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-1) [반복된 지역 조건 조회를 개선](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-2) [다른 PC에서도 설치·실행 확인](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-3)
 
 01 / OVERVIEW
 
@@ -848,7 +1010,7 @@ Docker 기반 Windows 실행 환경과 배포·데이터 검증 절차를 구성
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)CASE STUDY
+[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
 
 Graduation Project
 
@@ -858,7 +1020,7 @@ Graduation Project
 
 C · ATmega128 · 먼지/적외선/초음파 센서
 
-[먼지가 감지된 구역으로 이동하는 시제품](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-0)[센서 입력과 동작 순서를 연결](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-1)[실제 주행에서 거리와 회전을 조정](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-2)
+[먼지가 감지된 구역으로 이동하는 시제품](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-0) [센서 입력과 동작 순서를 연결](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-1) [실제 주행에서 거리와 회전을 조정](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-2)
 
 01 / OVERVIEW
 
@@ -896,7 +1058,7 @@ C와 ATmega128 환경에서 먼지 센서 임계값과 적외선 신호를 이�
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/military.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
 
 Military Service
 
@@ -917,7 +1079,7 @@ NVR·DVR 기반 CCTV 선로 설치·복구, RJ45·RJ11 케이블 제작과 통�
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/association.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
 
 Student Association
 
@@ -938,7 +1100,7 @@ Student Association
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/hansori.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
 
 Club & Performance
 
