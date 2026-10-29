@@ -394,118 +394,91 @@ Phone
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
+[← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
-Multi-Robot Platform Expansion
+다중 로봇 지원을 위한 플랫폼 확장
 
-# 다중 로봇 지원을 위한 플랫폼 확장
+# 두 대를 연결했지만,
+수집 기능은 한 대만 보고 있었습니다.
 
-2025.12 ~ 2026.06 · 플랫폼 기능 개발·검증
+2025.12 ~ 2026.06 · Neuromeka 인턴
 
-Python · Linux · MiMicX
+담당: 기존 MiMicX의 세션·수집·데이터 처리·실행 경로 확장
 
 CONTENTS
-[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-0) [ 02  /  Architecture ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-1) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-2) [ 04  /  Evidence ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#implementation-evidence) [ 05  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#part-3)
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#background) [ 02  /  Investigation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#investigation) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#implementation) [ 04  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/multi-robot.html#takeaway)
 
 01 / Background
 
-## 선택된 한 대가 전체를 대표하던 구조
+## 로봇을 추가하는 것만으로는 부족했습니다.
 
-기존 플랫폼은 단일 활성 로봇 중심으로 동작했습니다. 독립 제어기를 가진 협동로봇 2대를 지원하려면 화면에서 보고 있는 대상과 실제 작업에 참여하는 집합을 분리해야 했습니다. 한 대의 양팔을 나누는 문제와 독립된 로봇 두 대의 소속을 나누는 문제도 구분했습니다.
+독립된 제어기를 사용하는 Indy12 두 대를 하나의 세션에서 지원해야 했습니다. 기존 플랫폼에는 로봇을 여러 대 등록할 수 있는 부분이 있었지만, 실제 수집과 조작은 화면에서 선택한 한 대를 중심으로 동작했습니다.
 
-BEFORE
-- 화면 선택 / 활성 로봇
+두 대를 연결한 뒤 Collect에서 텔레오퍼레이션 모드로 전환했을 때, 선택된 로봇만 전환됐습니다. 저는 장비 연결보다 기존 기능이 무엇을 작업 대상으로 보고 있는지부터 확인했습니다.
+제가 맡은 범위
+기존 로봇 SDK와 제어·학습 기능을 활용하면서, 독립 로봇 두 대의 명령·상태·장치 소속이 수집부터 실행까지 이어지도록 플랫폼을 확장했습니다.
 
-- 한 로봇의 명령·상태·장치
+02 / Investigation
 
-- 단일 로봇 데이터
+## 처음 고친 곳만으로는 문제가 끝나지 않았습니다.
 
-02 / Architecture
+-  전환 요청의 대상을 확인
+Collect의 텔레오퍼레이션 진입 요청이 화면에서 선택된 로봇을 따라가고 있었습니다. 먼저 세션 전체를 대상으로 요청하도록 바꿨습니다.
 
-## 세션 참여와 로봇 소속을 명시
+-  반대 방향의 동작도 다시 확인
+진입 요청을 바꾼 뒤에도 idle 복귀에서는 화면의 단일 로봇 상태로 대상을 추정하고 있었습니다. Stop 역시 수집기의 단일 로봇 정보만 읽었습니다.
 
-AFTER · 논리 구조
-- 화면 선택: 관찰할 로봇
+-  공통 가정을 찾아 수정 범위를 넓힘
+각 버튼을 따로 고치는 대신, “현재 화면 선택이 전체 작업을 대표한다”는 가정을 바꿔야 한다고 판단했습니다. 화면 선택과 실제 세션 참가 목록을 분리했습니다.
 
-- Session: 참여 로봇 A + B
-
-- Robot A → 독립 제어기 A / Robot B → 독립 제어기 B
-
-- 로봇 식별자 + 데이터 순서 → 수집 스키마
-
-- 학습 산출물의 로봇 대응 → 추론 출력 → 로봇별 전송
-
-이 도식은 확인한 데이터 흐름을 요약한 논리 구조입니다. 각 로봇의 명령·상태·주변 장치 소속을 분리하고, 화면 선택 변경이 세션 참여 집합을 바꾸지 않도록 처리했습니다.
+판단의 전환
+문제는 로봇 호출을 한 번 더 추가하는 것이 아니라, 여러 기능이 공유하던 단일 대상 기준을 바꾸는 일이었습니다.
 
 03 / Implementation
 
-## 배열의 크기보다 소속과 순서
+## 화면의 한 대와 작업의 두 대를 나눴습니다.
 
-로봇 식별자와 데이터 순서가 저장·학습·출력에서 이어지도록 처리 구조를 수정했습니다. 같은 크기의 배열도 순서가 바뀌면 다른 로봇에 해당하는 값이 되므로, 수집 스키마와 학습 산출물의 대응을 함께 확인했습니다.
+BEFORE
 
-Graph와 Table은 로봇별 소속을 유지하고, Replay는 세션 전체의 실행 대상을 표시하도록 나누었습니다. 화면에서 한 로봇을 보는 상태가 다른 참여 로봇의 정지 대상을 누락하지 않도록 했습니다.
+### 화면 선택이 작업 대상
 
-04 / Evidence
+선택한 로봇을 기준으로 모드를 전환하고 정지 대상을 찾음
 
-## 직접 바꾼 경계: 설정부터 출력 라우팅까지
+AFTER
 
-실제 대상은 독립된 Indy12 두 대였습니다. 한 로봇 안의 left/right 팔로 합치는 대신, 각 로봇의 제어기와 엔드이펙터 소속을 보존하는 robot-keyed 경로를 추가했습니다. 기존 로봇 SDK와 제어·학습 adapter는 재사용했습니다.
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
-기존 아카이브에 공개된 소속 보존 구조. 설정·수집·학습 산출물·추론과 Replay 경로를 구분한 설명도이며 실행 화면 캡처가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-architecture.svg)
+### 세션 참가 목록이 작업 대상
 
-수정 영역  기존 가정 / 관찰  직접 변경한 처리
+화면은 한 대를 보더라도 Collect의 전환·정지는 세션 전체에 요청
 
-설정·preset  active robot 하나가 작업 전체를 대표  참가 목록·stable order·primary를 저장하고 삭제된 로봇 참조를 정규화
+세션 참가 목록과 순서를 기준으로 대상을 정하고, 수집 모드 전환과 정지 요청에서 같은 기준을 사용하도록 수정했습니다. 전환 도중 한 로봇이 실패하면 이미 전환된 로봇을 idle로 되돌리는 처리도 넣었습니다.
 
-Collect 모드·정지  화면에서 선택한 한 대만 전환·정지  backend가 resolve한 세션 전체 대상으로 전환·정지 요청; 전환 실패 시 이미 전환한 로봇을 idle 복귀
+데이터에서도 비슷한 문제가 있었습니다. 저장 파일에는 두 손의 값이 있었지만 수집 계획과 일부 메타데이터는 선택된 한 로봇의 손만 설명했습니다. 참가 로봇 전체의 장치 목록으로 계획을 만들고, 로봇별 식별자와 순서를 수집·학습 산출물·추론 출력까지 유지하도록 처리했습니다.
+같은 크기의 데이터도 소속이 다릅니다.
+A와 B의 배열 크기가 같아도 순서가 바뀌면 다른 로봇의 값이 됩니다. 학습에 사용한 key 순서와 차원을 산출물에 남기고, 추론에서도 그 기준으로 출력을 나누어 각 로봇에 전달했습니다.
 
-데이터 writer·capture plan  H5에는 두 손, plan에는 선택한 한 로봇의 손  로봇별 namespace와 session EE catalog를 사용해 raw·metadata·plan의 대상 집합 일치
+04 / Validation
 
-학습 adapter·artifact  숫자 block의 위치에 소속을 의존  선택 key 순서·shape·robot_key_order를 전처리와 모델 산출물에 보존
+## 화면에서 보인 결과를 파일과 실제 동작까지 확인했습니다.
 
-추론 decode·전송  배열 크기만 맞으면 다른 장치로도 전송될 위험  artifact의 key별 차원으로 출력 분해 후 owner robot·EE 계약을 검사해 전송
+-  선택을 바꿔도 참가자는 유지되는가
+화면의 로봇을 바꿔도 수집 대상 두 대가 유지되는지, 세션 전체의 조작·정지 요청이 연결되는지 확인했습니다.
 
-### 같은 크기의 A/B 배열이 바뀌지 않도록
+-  같은 로봇을 가리키는가
+수집 파일·계획·메타데이터의 로봇과 장치 목록을 대조하고, 학습 입력과 추론 출력의 소속·순서를 구분해 검사했습니다.
 
-robot_key는 값의 소속이고 robot_order는 결합 순서입니다. 예를 들어 참가자가 A/B이고 저장 순서가 B/A여도 화면 focus를 A로 바꿨다는 이유로 입력을 A/B로 재해석하지 않습니다. 학습에 선택된 key 순서와 각 key의 차원을 artifact에 남기고, 추론에서도 같은 경계로 출력을 나누어 owner에게 전달합니다.
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
-선택한 key 순서와 출력 block 경계를 연결한 기존 공개 설명도. 모델 성능이나 실로봇 성공률 그래프가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-learning.svg)
-설명용 대응 예시 — 실제 수집 파일의 값이나 dump가 아닙니다.
-participants: [A, B]        # 작업 참가 집합
-robot_order: [B, A]         # 직렬화·결합 순서
-selected_keys: [B.position, A.position]
-artifact: key 순서 + key별 차원 + owner 계약
-decode: B block → B의 worker / A block → A의 worker
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-schema.svg)
-공통 timestamp·camera와 robot별 state/command를 구분한 v5 저장 구조. 기존 v4·양팔 segment의 호환 경로는 별도로 유지합니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/multi-work-schema.svg)
+-  기존 기능도 계속 동작하는가
+기존 단일 로봇 데이터와 양팔 데이터의 해석 경로를 유지하고, 새 경로가 기존 의미를 덮어쓰지 않는지 확인했습니다.
 
-### 발견한 불일치와 수정 확인
+독립 로봇 두 대 구성에서 기능을 확인했습니다. 전체 대상에 정지 요청을 보내는 처리와 물리적으로 모든 장비가 정지했는지는 별도 확인 대상이며, 이 결과를 임의 N대의 성능 보장으로 확대하지 않았습니다.
 
-검증 시나리오  관찰 및 처리  판단 범위
+05 / Takeaway
 
-A/B 참여 중 화면 focus 변경  Collect 참가 집합은 유지하고 Move Robot 대상만 변경  화면 선택과 수집 대상의 독립성
+## 한 기능의 수정이 아니라, 같은 기준을 끝까지 이어가는 일
 
-로봇 삭제·과거 preset 로드  없는 participant/order/primary 참조 정리  설정 정규화; 임의 등록 이름을 영구 ID로 간주하지 않음
+처음 보인 증상은 모드 전환 문제였지만, 같은 가정이 정지·수집 계획·학습 데이터에도 남아 있었습니다. 이후에는 한 화면의 정상 동작만으로 끝내지 않고, 설정한 대상이 저장과 실행에서도 같은 대상으로 남는지 확인하는 기준을 갖게 됐습니다.
 
-Collect 전환·정지  선택 한 대에만 적용되던 경로를 session 전체 대상으로 수정  순차 요청·복귀 실패 가능성과 실제 정지 확인은 구분
-
-raw·plan·metadata 대조  두 robot/EE key가 파일과 계획에 함께 존재하는지 확인  key 존재만으로 유효 신호가 기록됐다고 판단하지 않음
-
-기존 단일·양팔 데이터  v4 및 segment 경로를 별도 소비  새 v5 robot namespace가 기존 의미를 덮어쓰지 않음
-
-Capture sample은 참가자의 snapshot을 순서대로 읽어 한 row에 묶습니다. 같은 sample index가 제어기·카메라의 물리적 동시 측정을 뜻하지는 않습니다. 두 대 구성의 검증을 임의 N대의 성능 보장으로 확장하지 않습니다.
-
-기록 근거: [독립 다중 로봇 지원 기술 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/mimicx/multi-robot.html)
-
-05 / Validation
-
-## 경계마다 같은 로봇을 가리키는지 확인
-
-참가 목록, 저장 key, 모델 metadata와 전송 대상을 대조했습니다. 세션 참여 로봇 전체의 조작·정지와 기존 단일 로봇 데이터 호환성을 확인했습니다. 설정 복원·수집 파일·학습 입력·출력 decode·실물 동작을 각각 구분해 검사했습니다.
-
-검증 대상은 독립 제어기 기반 로봇 2대입니다. 임의의 N대 확장 성능이나 제어기 수준의 동시 명령 도착을 입증한 결과로 해석하지 않습니다. 학습 경로 연결과 출력 decode 확인도 정책의 전체 실로봇 성공률과 구분합니다.
-
-관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
+관련 기록 더 보기
+[다중 로봇 개발·검증 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/mimicx/multi-robot.html)
 
 [← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html) [Replay 기능 개발 및 검증 →](https://alpha8332.github.io/portfolio-robros/projects/replay.html)
 
@@ -732,111 +705,101 @@ ENGINEERING NOTE
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/kpi.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
+[← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
-Dual-Arm KPI Validation
+POSCO 양팔 테스트베드 및 KPI 검증
 
-# POSCO 양팔 테스트베드 및 KPI 검증
+# 잘 따라가는 것과,
+함께 움직이는 것은 달랐습니다.
 
-2025.12 ~ 2026.06 · 시험 환경 구성 · 측정 · 결과 분석
+2025.12 ~ 2026.06 · Neuromeka 인턴
 
-Dual NURI · D405 · D435IF · Python
+담당: 측정 코드 구현 · 반복 시험 · 결과 분석 / 측정 정의와 구조 변경은 그룹장과 협의
 
 CONTENTS
-[ 01  /  Test Setup ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-0) [ 02  /  Latency ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-1) [ 03  /  Results ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-2) [ 04  /  Measurement ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measurement-evidence) [ 05  /  Limitations ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#part-3)
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background) [ 02  /  Investigation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#investigation) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#implementation) [ 04  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#takeaway)
 
-01 / Test Setup
+01 / Background
 
-## 동기 오차와 추종 오차를 나누어 측정
+## 겹쳐 보이는 궤적만으로는 판단할 수 없었습니다.
 
-양팔에 공통 원궤적을 주고 움직임의 상대적인 위치 차이를 평가했습니다. 개별 팔의 실제 자세와 목표 자세 사이 오차는 추종 오차이고, 두 팔 움직임 사이의 오차는 동기 오차입니다. 한 지표의 통과로 다른 지표까지 충족했다고 판단하지 않았습니다.
+양팔 로봇의 시험 환경을 구성하고, 두 팔이 같은 움직임을 유지하는지와 Master를 Slave가 얼마나 늦게 따라가는지를 평가했습니다. 화면에서 궤적이 비슷해 보여도 각 팔의 목표 추종, 두 팔 사이의 위치 차이, 시간 지연은 서로 다른 문제였습니다.
 
-카메라 수집 환경은 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 구성하고 입력을 확인했습니다.
+저는 결과값을 계산하기 전에 무엇을 비교해야 요구한 성능을 판단할 수 있는지부터 정리했습니다. 작은 오차를 만드는 계산보다, 실제 차이를 남기는 측정 기준이 필요했습니다.
 
-02 / Latency
+02 / Investigation
 
-## 동일 위상 지점을 통과한 시간의 차이
+## 설치 차이를 지우면서 운동 차이까지 지우고 있지 않은가?
 
-Master의 실제 TCP 움직임을 관측해 Slave 목표를 만드는 추종 구조에 선행 보상을 적용했습니다. 원궤적에서 대응하는 위상 지점의 통과 시각 차로 지연을 계산했습니다. 최종 시험의 회차 판정값은 X/Z 최대 지연 중 큰 값이며, 20회 평균 48.969 ms는 이 회차 판정값들의 평균입니다.
+-  처음의 비교 방식을 검토
+초기에는 한 팔을 반전하고 두 궤적을 회전·이동시켜 맞추는 방식을 검토했습니다. 하지만 정합 과정에서 평가하려는 운동 차이까지 작아질 수 있었습니다.
 
-선행 보상은 실행 시점의 처리이고, 분석에서 시간축을 정렬한 뒤 남는 위치 잔차와는 다릅니다. 초기 시험과 최종 시험의 측정 정의도 달라 서로 직접적인 개선율로 계산하지 않았습니다.
+-  제거할 차이와 남길 차이를 구분
+설치 간격에 해당하는 초기 위치 차이만 제거하고, 이후 두 팔의 상대변위 차이는 그대로 남기는 기준으로 정리했습니다.
 
-03 / Results
+-  추종 오차를 동기 오차와 분리
+각 팔이 제어기 목표를 잘 따라가는지와 두 팔이 같은 운동을 하는지는 따로 계산했습니다. 하나의 RMSE 이름만 보고 두 결과를 합치지 않았습니다.
 
-## 평균과 회차별 기준 충족을 함께 보기
+BEFORE
 
-이력서 보고값입니다. 확보된 별도 재시험 자료와 집계가 달라, 아래 그래프는 원자료 재계산 결과가 아닌 이력서 수치 요약으로 제시합니다.
+### 궤적을 잘 포개는 비교
 
-### 동기 RMSE
-0.615 mm
-20회 평균 · 기준 ≤ 1 mm
+회전·이동 정합에 따라 운동 차이도 줄어들 수 있음
 
-0 → 1 mm 기준선
+AFTER
 
-20 / 20회 기준 충족
+### 초기 위치만 제거한 비교
 
-### Master–Slave 지연
-48.969 ms
-20회 평균 · 기준 ≤ 50 ms
+두 팔이 출발한 뒤 서로 얼마나 다르게 움직였는지 확인
 
-0 → 50 ms 기준선
+03 / Implementation
 
-15 / 20회 충족 · 5회 초과
+## 지연도 명령 간격이 아니라 실제 응답에서 확인했습니다.
 
-15회 충족 5회 초과
+동기 시험은 공통 원궤적을 두 팔에 전달하고 실제 TCP 위치를 기록했습니다. 각 팔의 시작 위치를 뺀 뒤 두 움직임의 차이로 동기 오차를 계산했습니다. 한 팔의 actual과 controller desired 사이 오차는 별도로 확인했습니다.
 
-평균값과 기준 충족 횟수의 요약입니다. 회차별 측정값을 임의로 생성한 그래프가 아닙니다.
+Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔이 같은 원궤적 위상을 통과한 시각을 비교했습니다.
 
-04 / Measurement
+-  평평한 파형 꼭대기의 한계 확인
+원운동의 꼭대기는 변화가 작아 단순 peak 위치가 노이즈와 샘플 간격에 민감할 수 있었습니다.
 
-## 시험 구성과 계산 경계를 먼저 정의
+-  대응 위상으로 비교 지점 통일
+실제 XZ 위치로 원 위상을 복원하고, 같은 위상 지점을 지나는 인접 샘플 사이에서 통과 시각을 보간했습니다.
 
-두 시험은 입력 구조가 다릅니다. 동기 시험은 양팔에 같은 원형 상대 목표를 전달하고, 지연 시험은 Master의 실제 움직임을 관측해 Slave 목표를 만듭니다. 같은 원궤적이라는 이유로 지연 경계와 정밀도 결과를 합치지 않습니다.
+-  반복 시험의 판정값을 구분
+회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 20회 평균과 기준 초과 회차를 함께 남겼습니다.
 
-기록에 확인된 시험 구성  설정  해석
+시험 환경 구성도 따로 확인했습니다.
+D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정했습니다. 카메라 환경 확인과 TCP 기반 KPI 계산은 역할을 구분했습니다.
 
-장비·인터페이스  NURI 5S 양팔 · IndyDCP3 · TCP/IP  동일 제어기의 양팔 상태를 읽고 팔 인덱스로 명령 전달
+04 / Validation
 
-원궤적  XZ 평면 · 반지름 100 mm · 주기 5 s · 시계 방향  시작점 기준 누적 상대 목표; 회전 목표는 0
+## 평균이 통과해도, 5회의 초과는 남았습니다.
 
-반복  5바퀴 × 20회; 회차당 25초  각 회차 시작 위치로 복귀하고 도달 확인
+0.615 mm 동기 RMSE · 이력서 보고값
+20회 평균 / 20회 모두 1 mm 이하
 
-명령·기록  60 Hz / 100 Hz 설정  목표 주기이며 실측 servo rate 또는 시간 정확도 보장이 아님
+48.969 ms Master–Slave 지연
+회차 판정값 20개의 평균
 
-위 조건은 아카이브의 재시험 실행 기록에서 확인했습니다. 이력서의 동기 RMSE 0.615 mm 집계와 동일한 20회 원자료인지의 연결은 추가 확인이 필요하므로, 조건표가 해당 집계를 재계산·입증한다고 표현하지 않습니다.
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
-공통 원궤적 → 실제 위치 기록 → 초기 offset 제거 → 상대변위 오차 → RMSE. 측정 trace가 아닌 시험·계산 경로 설명도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+15 / 20 지연 기준 충족
+5회는 50 ms 기준 초과
 
-### 개별 추종과 양팔 동기 오차
+동기 오차와 지연을 각각 판단했고, 지연은 평균이 기준 이내여도 모든 반복 시험이 통과한 것은 아니라고 정리했습니다. 기준을 넘은 회차의 원인을 통계만 보고 통신 손실이나 OS 지연으로 단정하지 않았습니다.
+결과를 해석한 범위
+한 회차의 RMSE가 1 mm 이하인 것과 모든 순간 오차가 1 mm 이하인 것은 다릅니다. 지연 평균도 event 전체의 RMS와 회차 최댓값의 평균을 구분했습니다.
 
-각 팔의 상대변위: d_R(t) = p_R(t) − p_R(0)
-d_L(t) = p_L(t) − p_L(0)
-동기 오차: e_sync(t) = d_R(t) − d_L(t)
-동기 RMSE = sqrt(mean(||e_sync(t)||²))
-개별 추종 오차: actual TCP − 해당 팔의 controller desired TCP
+집계 자료 대조 범위
+위 동기 결과는 이력서 보고값입니다. 확보된 다른 20회 CSV는 평균 약 0.623 mm, 아카이브의 별도 재시험 그래프는 약 0.880 mm·12회 통과로 집계가 다릅니다. 동일 시험 묶음으로 확인되지 않아 서로 합치거나 0.615 mm의 재계산 근거로 사용하지 않았습니다.
 
-각 팔의 초기 위치만 빼서 설치 간격에 해당하는 고정 offset을 제거합니다. 두 궤적을 임의로 회전·이동시켜 최적으로 포개는 것과 구분합니다. 한 회차의 RMSE가 1 mm 이하라는 것과 그 안의 모든 순간 오차가 1 mm 이하라는 것은 다릅니다.
+05 / Takeaway
 
-### 대응 위상 통과 시각으로 지연 계산
+## 좋은 숫자보다, 설명할 수 있는 결과
 
-XZ 실제 위치에서 중심과 축별 반폭을 정규화하고 atan2·unwrap으로 원 위상을 복원합니다. 두 팔의 같은 위상 landmark를 통과한 인접 샘플을 찾고 선형보간으로 시각을 계산합니다. 지연은 Slave 통과 시각 − Master 통과 시각입니다. 샘플 사이 보간이 센서 시각 정확도를 높였다는 의미는 아닙니다.
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
-Master/Slave 실제 위치 → 대응 위상 검출 → 통과 시각 차 → 회차 판정. 설명용 선과 시각이며 실제 측정 파형이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
-최종 지연 판정은 회차별 X/Z landmark 최대 절대 지연 중 큰 값입니다. 48.969 ms는 이 회차 판정값 20개의 평균이며, 전체 event의 RMS나 단순 전송 시간 차와 다릅니다. 15회 통과·5회 초과를 평균값과 함께 봅니다.
+이 경험을 통해 설치 차이와 운동 오차, 목표 추종과 양팔 동기, 명령 전송과 실제 응답을 나누어 봐야 다음 확인 지점이 명확해진다는 것을 배웠습니다. 평균값 하나로 시험을 끝내지 않고, 통과하지 못한 반복과 측정의 경계까지 함께 남기는 것을 검증의 기준으로 삼았습니다.
 
-### Testbed Setup
-
-D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정하고 입력을 확인했습니다. 이 작업은 시험 환경 구성 경험으로, 카메라 영상이 위 TCP 기반 RMSE·지연 계산의 직접 계측 입력이었다고 표현하지 않습니다.
-
-기록 근거: [양팔 KPI 시험의 측정 정의와 반복 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
-
-05 / Limitations
-
-## 평균 통과가 모든 시험의 통과는 아니다
-
-동기 RMSE는 20회 모두 1 mm 이하였습니다. 지연은 평균이 50 ms 이하였지만 5회가 기준을 넘었습니다. 통계만으로 특정 회차의 초과 원인을 OS 지연이나 통신 손실로 단정하지 않았습니다. 동일 시험 조건과 회차 판정 정의를 유지한 반복 확인이 필요합니다.
-
-관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
+관련 기록 더 보기
+[양팔 KPI 시험·분석 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
 
 [← Replay 기능 개발 및 검증](https://alpha8332.github.io/portfolio-robros/projects/replay.html) [모방학습 정책 실행 →](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
 
@@ -845,103 +808,93 @@ D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/imitation.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
+[← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html)  CASE STUDY
 
-Imitation Learning Pipeline
+모방학습 정책 실행 및 실패 분석
 
-# 모방학습 정책 실행 및 실패 분석
+# 50회를 모았는데,
+빠진 조건은 여전히 남았습니다.
 
-2025.12 ~ 2026.06 · 시연 설계 · 수집·검증 · ACT 실행
+2025.12 ~ 2026.06 · Neuromeka 인턴
 
-Teleoperation · ACT · MiMicX
+담당: 작업 시나리오 설계 · 교시·데이터 선별 · 기존 플랫폼에서 ACT 학습·추론·실로봇 실행
 
 CONTENTS
-[ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-0) [ 02  /  Data Collection ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-1) [ 03  /  Failure Analysis ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-2) [ 04  /  Experiments ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#experiment-evidence) [ 05  /  Scope ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#part-3)
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background) [ 02  /  Investigation ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#investigation) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#implementation) [ 04  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#takeaway)
 
-01 / Overview
+01 / Background
 
-## 기존 플랫폼에서 전 과정을 수행
+## 고정된 배치에서 동작을 연결하는 것부터 시작했습니다.
 
-기존 모방학습 플랫폼을 활용해 시연 수집부터 학습·추론과 실로봇 실행까지 수행했습니다. 모델 아키텍처나 전체 학습 플랫폼을 처음부터 개발한 경험과 구분합니다.
+누리 양팔과 2지 그리퍼로 바나나를 집어 트레이에 놓는 작업을 실험했습니다. 초기에는 오른팔을 관측 위치에 고정하고 왼팔로 조작했습니다. VIVE 입력으로 교시하고 양쪽 손목 영상을 사용했습니다.
 
-IMITATION LEARNING
-- Teleoperation · 작업 순서 교시
+처음에는 로봇 시작 자세·바나나·트레이 위치를 고정해 10회 교시했습니다. 기존 플랫폼에서 데이터를 수집하고 ACT 학습·추론과 실제 로봇 실행까지 수행하며 접근·파지·이동·놓기의 연결을 확인했습니다.
+제가 직접 수행한 범위
+작업 조건을 정하고 교시·데이터 검증·학습·실행을 반복했습니다. ACT 모델 아키텍처나 전체 학습 플랫폼을 새로 개발한 경험으로 표현하지 않습니다.
 
-- Dataset · Episode 검증·선별
+02 / Investigation
 
-- ACT Training · 데이터·학습 설정
+## 무작위로 늘린 데이터가 작업 영역을 고르게 채우지는 못했습니다.
 
-- Inference · 현재 관측 → 예측 행동
+다음 실험에서는 바나나의 위치와 자세를 임의로 바꾸어 50회 수집했습니다. 하지만 비슷한 조건은 중복되고, 충분히 들어 있지 않은 위치·자세 조합도 남았습니다. 특히 왼팔에서 먼 위치에 수직으로 놓인 바나나를 파지하기 어려웠습니다.
 
-- Robot Execution · 실로봇 Rollout 관찰
+-  실패를 작업 조건으로 다시 보기
+“학습이 잘 안 된다”로 묶지 않고, 어느 위치·자세에서 파지가 어려운지 살폈습니다.
 
-02 / Data Collection
+-  수집 횟수와 조건 범위를 구분
+50개를 모았다는 사실만으로 어떤 상황을 보여 주었는지는 설명할 수 없었습니다. 다음 수집은 위치와 자세를 먼저 나누기로 했습니다.
 
-## 수집 횟수보다 먼저 조건을 설계
+BEFORE
 
-바나나의 위치·자세와 트레이 위치를 80개 기본 조합으로 나누고, 추가 반복을 포함한 100회 교시 조건을 설계했습니다. 이는 작업 성공 100회를 뜻하지 않습니다.
+### 무작위 50회 교시
 
-Pick & Place와 Handover 등 작업의 접근·파지·이동·놓기 순서를 구성했습니다. 카메라 시야, 파지 순서와 동작의 연속성을 점검해 Episode를 선별했습니다. 어느 위치와 자세가 빠졌는지 확인하며 다음 수집 조건을 정했습니다.
+수집 횟수는 늘었지만 중복과 빠진 조합을 파악하기 어려움
 
-03 / Failure Analysis
+AFTER
 
-## Loss와 실제 작업 성공은 다른 확인 대상
+### 조건을 나눈 수집
 
-ACT 학습·추론과 실로봇 Rollout을 수행했습니다. 양팔 실험에서는 낮은 학습 Loss에도 카메라·테이블 배치를 바꾼 뒤 작업 실패가 발생했습니다. 수집 시점과 실행 시점의 관측 조건이 달라졌다는 사실과 학습 지표를 별도로 기록했습니다.
+물체·트레이 위치와 자세를 표로 나누어 포함할 상황과 반복할 상황을 정함
 
-학습 오차의 감소만으로 새 배치에서의 파지·놓기 성공을 보장할 수 없었습니다. 환경 배치를 수집 조건과 맞추고, 변경한 조건을 구분해 보는 것이 이후 실험의 기준이 되었습니다.
+03 / Implementation
 
-04 / Experiments
+## 더 모으기 전에, 무엇을 보여 줄지 정했습니다.
 
-## 실험별 장비·데이터·실행 조건
+4 × 5 × 4 80개 기본 조건
+트레이 4위치 · 바나나 5위치 · 자세 4종
 
-실험 기록  수집 환경·수행 내용  확인한 결과 / 한계
++ 20회 어려운 조건 추가 반복
+총 100회 교시 조건으로 구성
 
-Banana v1 · 3월 18일  누리 양팔·2지 그리퍼·VIVE 입력·손목 영상 2대. 오른팔은 관측 위치에 고정하고 왼팔로 조작. 위치·자세·트레이를 고정한 10회 교시  전체 동작 연결과 실행 관찰. 최종 반복 성공률로 사용하지 않음
+트레이 위치도 바뀌므로 영상에 바나나와 목적지가 함께 들어오는지 점검했습니다. 바나나 중앙을 파지하고 pick/place에서 잠시 멈춘 뒤 다음 동작으로 이어지도록 교시했습니다. 덜컹거리거나 멈칫한 Episode는 제외했습니다.
 
-Banana v2 · 3월 23일  트레이·초기 자세를 고정하고 바나나 위치·자세를 임의로 바꾼 50회 수집  유사 조건 중복과 빠진 조합 확인. 왼팔에서 먼 수직 배치에서 파지 어려움
+Handover에서는 오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 release → 트레이 배치의 순서를 구성했습니다. 손목 영상의 가림과 파지 주체가 바뀌는 순간을 보며 조작했습니다.
+100회가 뜻하는 것
+기본 조합과 추가 반복을 포함한 교시 조건입니다. 최종 유효 Episode 100개 또는 정책 성공 100회를 뜻하지 않으며, 수집 설계만으로 성능이 개선됐다고 결론 내리지 않았습니다.
 
-Banana v3 · 3월 25일  트레이 4위치 × 물체 5위치 × 자세 4종, 추가 반복 포함 100회 수행 조건  조건표 합계와 유효 저장 Episode 개수·정책 성공 횟수는 별도 확인 대상
+04 / Validation
 
-후속 양팔 배치 실험  양팔 상태·손목 영상 2대·중앙 영상 1대 입력; ACT 실행  카메라 각도·테이블 배치 변경 후 작업 실패 관찰. 실패가 어느 단일 원인 때문인지 확정하지 않음
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
-수집 메모를 바탕으로 재작성한 개념적 배치. 실제 설치 사진·치수·좌표를 재현한 도면이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
+## Loss가 낮아져도, 바뀐 환경에서 작업은 실패했습니다.
 
-### 작업 순서와 데이터 선별
+후속 양팔 실험에서는 학습 Loss가 약 0.01인 구간을 관찰했지만, 카메라 각도와 테이블 배치가 달라진 실행에서 실패가 반복됐습니다. 저는 학습 지표와 실제 작업의 성립을 따로 기록했습니다.
 
-작업  교시한 순서  관찰·선별 기준
+-  학습 완료와 작업 성공을 구분
+Loss가 낮다는 이유만으로 실제 파지·배치까지 성공했다고 판단하지 않았습니다.
 
-Pick & Place  물체 접근 → 중앙 파지 → 이동 → 트레이에 놓기  물체와 목적지가 영상에 함께 들어오는지 확인; pick/place에서 잠시 정지
+-  수집 조건과 실행 조건 대조
+카메라 시점과 배치가 바뀌면 물체의 영상 위치·가림 관계도 달라집니다. 모델만 다시 학습하기 전에 수집 때의 조건을 실행 환경에 제공하고 있는지 확인해야 한다고 정리했습니다.
 
-Handover  오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 release → 트레이 배치  손목 영상의 가림과 파지 주체가 바뀌는 순서 확인
+-  관찰한 범위에서 결론 내림
+카메라와 테이블이 함께 바뀐 기록만으로 개별 변수의 영향이나 정확한 실패 단계를 확정하지 않았습니다. 이 문제를 해결 완료한 성과로 쓰지 않고 다음 실험에서 통제할 조건으로 남겼습니다.
 
-양팔 순차 배치  오른팔 바나나 배치·복귀 → 왼팔 물체 배치·복귀  두 팔 동작을 모두 동시 수행으로 표현하지 않음; 끊기거나 멈칫한 Episode 제외
-[](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
-기존 수집표를 재작성한 조건별 수행 횟수. 기본 80조건에 반복 20회를 더한 총 100회이며, 유효 Episode 수나 성공률이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
+05 / Takeaway
 
-### 학습 설정과 실패 관찰을 같은 실험 단위로 읽기
+## 데이터의 양보다 먼저, 로봇이 본 상황을 설명하기
 
-항목  Banana v2 기록  후속 양팔 학습 기록
+무작위 50회 수집에서 빠진 조건을 발견한 뒤, 조건을 나눈 수집표가 다음 교시의 기준이 됐습니다. 또한 학습 지표만 보던 시선을 실제 실행 환경과 작업 순서까지 넓혔습니다. 어떤 데이터를 모았는지와 그 모델을 어떤 조건에서 실행했는지 함께 남기는 것이 이 실험에서 얻은 개발·검증 방식입니다.
 
-모델 입력  왼팔 위치·속도·그리퍼 + 양쪽 손목 영상  양팔 위치·속도·그리퍼 + 손목 영상 2대 + 중앙 영상 1대
-
-전처리  TCP 기준 relative on · 책상 영역 crop  absolute · no crop · is_progress
-
-학습 메모  약 500 epoch · 약 10시간 20분 · Loss 0.0067  ACT Full · batch 16 · 최대 1000 epoch 설정; 50 epoch에서 Loss 약 0.01 관찰
-
-실행 해석  특정 위치·자세의 파지 어려움을 다음 수집 조건에 반영  카메라·테이블 배치 변경 후 실패 반복; 학습 오차와 실로봇 작업 성립을 구분
-
-위 설정은 서로 다른 실험의 메모를 구분한 것입니다. 1000 epoch는 설정 상한이며 실제 완료 epoch를 뜻하지 않습니다. 카메라·배치가 함께 바뀐 실험에서 개별 변수의 인과 효과나 정확한 실패 단계는 현재 자료만으로 분리할 수 없습니다. 성공률을 새로 만들거나 학습 Loss를 작업 성공률로 바꾸지 않았습니다.
-
-기록 근거: [개인 모방학습 실험: 버전별 수집·학습·실행 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/experiments/personal/index.html)
-
-05 / Scope
-
-## 직접 개선과 실험 수행의 범위
-
-직접 개선한 다중 로봇 지원과 Replay 기능은 별도 실무 사례에서 설명합니다. 이 사례는 기존 플랫폼에서 수행한 시연·학습·실행 경험입니다. 확인된 반복 성공률을 제시하지 않으며 Diffusion Policy의 실로봇 실증 결과도 포함하지 않습니다.
-
-관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
+관련 기록 더 보기
+[개인 모방학습 실험 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/experiments/personal/index.html)
 
 [← 양팔 KPI 검증](https://alpha8332.github.io/portfolio-robros/projects/kpi.html) [Journey →](https://alpha8332.github.io/portfolio-robros/index.html#journey)
 
