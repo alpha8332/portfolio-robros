@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HDF5 episode를 실제 로봇에서 재생하는 기능과 초기 정렬 중 정지 문제를 정상 Joint Move와 비교해 해결한 경험.">
+  <meta name="theme-color" content="#111315">
+  <title>HDF5 Episode 기반 실로봇 Replay · 신동찬</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="wordmark" href="../" aria-label="신동찬 소개 홈"><span class="wordmark-name">DONGCHAN SHIN<span class="wordmark-dot" aria-hidden="true">.</span></span><span class="wordmark-subtitle">PORTFOLIO</span></a>
+    <nav aria-label="주요 메뉴"><a href="../index.html#about">About</a><a href="../index.html#journey">Journey</a><a href="../index.html#contact">Contact</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="case-topline"><a class="back-link" href="../index.html#journey">← 프로젝트 목록</a><span class="mono">CASE STUDY / 02</span></div>
+    <section class="case-intro" aria-labelledby="case-title">
+      <p class="eyebrow">ROBOT REPLAY · MIMICX</p>
+      <h1 id="case-title">기록된 동작을<br>실제 로봇에서 다시 실행</h1>
+      <p class="case-subtitle">HDF5 Episode 기반 실로봇 Replay</p>
+      <p class="case-description">초기 자세 정렬과 본 재생을 나누고, 팔과 엔드이펙터의 동작을 연결했습니다.</p>
+    </section>
+    <nav class="case-sections" aria-label="이 페이지의 섹션"><a href="#role">01 목표와 역할</a><a href="#system">02 시스템 흐름</a><a href="#investigation">03 원인 추적</a><a href="#modification">04 수정</a><a href="#validation">05 검증과 결과</a></nav>
+    <section id="role" class="evidence-section" aria-labelledby="role-title">
+      <div class="evidence-copy">
+        <p class="section-number">01 / GOAL &amp; MY ROLE</p>
+        <h2 id="role-title">데이터를 보는 것에서<br>로봇을 움직이는 기능으로</h2>
+        <p>수집한 조작 데이터를 그래프나 영상으로 확인하는 것에 더해, 기록된 동작을 실제 로봇에서 다시 실행할 수 있는 기능이 필요했습니다.</p>
+        <p>저는 기존 Replay 참고 로직을 플랫폼의 실행 구조에 연결하고 <strong>데이터 해석, 초기 정렬, 장치 명령과 실행 상태</strong>를 다루는 기능을 개발했습니다. 브라우저의 데이터 재생 기능은 활용하되, 실제 로봇의 실행과 상태 관리는 backend가 담당하도록 구성했습니다.</p>
+        <div class="scope-note"><span>기존 기반</span><p>Replay 참고 로직과 기존 그래프·영상 playback을 활용하고, 플랫폼의 실로봇 실행 경로로 통합·확장했습니다.</p></div>
+      </div>
+      <figure class="evidence-figure">
+        <div class="figure-heading"><span>REPLAY OVERVIEW</span><span class="mono">HDF5 → ROBOT</span></div>
+        <picture><source media="(max-width: 900px)" srcset="../assets/replay-mobile.svg"><img src="../assets/replay.svg" width="600" height="360" alt="HDF5 episode를 읽고 초기 자세를 정렬한 뒤 도달과 안정을 확인하고 본 Replay를 실행하는 흐름"></picture>
+        <figcaption><span>01</span> 초기 정렬과 본 재생을 구분한 실행 흐름</figcaption>
+      </figure>
+    </section>
+    <section id="system" class="evidence-section" aria-labelledby="system-title">
+      <div class="evidence-copy">
+        <p class="section-number">02 / SYSTEM FLOW</p>
+        <h2 id="system-title">정렬이 끝난 뒤에만<br>재생 시간을 시작</h2>
+        <p>Replay는 텔레오퍼레이션으로 기록한 동작을 실제 로봇에서 다시 확인하는 기능입니다. 재생 시점의 로봇 자세가 기록의 시작 자세와 다를 수 있어, <strong>기록된 시작 자세로 먼저 정렬</strong>해야 합니다.</p>
+        <p>선택한 HDF5 episode에서 관절·자세와 엔드이펙터 데이터를 읽고, 현재 장치에서 실행할 수 있는지 확인합니다. <strong>초기 정렬 Safe Logic</strong>이 시작 자세로 이동하는 목표 명령을 유지하고, 도달·안정을 확인한 뒤 본 Replay를 시작합니다.</p>
+        <p>본 재생에서는 기록된 시간축에 맞춰 팔과 그리퍼·로봇 핸드 명령을 전달합니다. 웹UI 화면의 커서와 진행률은 <strong>backend가 보고한 실행 상태</strong>를 따라가며 초기 정렬 중에는 전진하지 않습니다.</p>
+        <p class="quiet-note">브라우저의 재생 커서가 로봇 명령을 만드는 구조가 아닙니다. 실제 실행은 backend가 맡고 화면은 그 진행 상태를 표시합니다.</p>
+      </div>
+      <figure class="evidence-figure replay-state-figure">
+        <div class="figure-heading"><span>EXECUTION LIFECYCLE</span><span>주요 단계</span></div>
+        <ol class="replay-states">
+          <li><span class="diagram-label">STARTING</span><h3>데이터·실행 조건 확인</h3><p>episode와 대상 장치를 확인하고 실행 준비</p></li>
+          <li><span class="diagram-label">ALIGNING</span><h3>초기 정렬 Safe Logic</h3><p>목표 유지 → 도달·안정 확인</p><span class="state-clock">재생 커서 고정</span></li>
+          <li class="active-state"><span class="diagram-label">RUNNING</span><h3>본 Replay 실행</h3><p>기록된 시간축으로 장치 명령 전달</p><span class="state-clock">실행 상태에 맞춰 커서 진행</span></li>
+        </ol>
+        <figcaption><span>02</span> 정렬 단계와 재생 단계를 구분한 상태 흐름도</figcaption>
+      </figure>
+    </section>
+    <section id="investigation" class="evidence-section" aria-labelledby="investigation-title">
+      <div class="evidence-copy">
+        <p class="section-number">03 / PROBLEM &amp; INVESTIGATION</p>
+        <h2 id="investigation-title">명령은 전달됐는데,<br>목표 전에 멈췄습니다.</h2>
+        <p>초기 위치 이동 명령은 전달됐지만 로봇이 잠깐 움직인 뒤 목표에 도달하기 전에 멈췄습니다. 상태 판정과 재시도를 보강해도 실제 장비에서는 같은 현상이 반복됐습니다.</p>
+        <ol class="investigation-steps">
+          <li><span class="step-label">실행 단계 분리</span><p>초기 정렬과 본 Replay를 분리하고 정렬 중에는 커서가 진행하지 않도록 했습니다. 초기 이동 자체의 중단 현상은 남았습니다.</p></li>
+          <li><span class="step-label">완료 판정·재시도 보강</span><p>현재 로봇과 기록 데이터의 공통 팔 축을 비교하고 대기·재시도를 수정했지만, 실제 목표까지 계속 움직이지 못했습니다.</p></li>
+          <li><span class="step-label">정상 기능과 비교</span><p>정상 동작하던 Saved Position의 Joint Move를 비교했습니다. 같은 관절 목표를 보내더라도 목표를 유지하는 방식이 달랐습니다.</p></li>
+        </ol>
+      </div>
+      <figure class="evidence-figure command-comparison">
+        <div class="figure-heading"><span>COMMAND SEMANTICS</span><span>정상 기능과 비교</span></div>
+        <div class="command-compare-content">
+          <div class="command-case"><span class="diagram-label">SAVED POSITION / 정상 동작</span><h3>Joint Move</h3><p>버튼을 누르는 동안 같은 목표를<br>짧은 간격으로 반복 전송</p><div class="command-pattern" aria-label="같은 목표를 반복 전송"><span>Command</span><span>Command</span><span>Command</span><span>Command</span></div></div>
+          <div class="command-case stalled-case"><span class="diagram-label">REPLAY INITIAL ALIGNMENT / 수정 전</span><h3>단발 이동 + 도착 관찰</h3><p>목표를 한 번 전송한 뒤<br>telemetry로 도달 여부만 확인</p><div class="command-pattern" aria-label="목표 한 번 전송 후 관찰"><span>Command</span><span class="observation-slot">Polling</span><span class="observation-slot">Polling</span><span class="observation-slot">Polling</span></div></div>
+          <p class="command-conclusion">판정 이후의 재시도뿐 아니라,<br><strong>목표를 유지하는 실행 방식</strong>을 맞춰야 했습니다.</p>
+        </div>
+        <figcaption><span>03</span> 전송 방식을 설명한 개념도이며 실측 타이밍 그래프가 아닙니다.</figcaption>
+      </figure>
+    </section>
+    <section id="modification" class="modification-section" aria-labelledby="modification-title">
+      <div class="modification-heading"><div><p class="section-number">04 / MODIFICATION</p><h2 id="modification-title">초기 목표를 유지하고,<br>도달한 뒤 Replay 시작</h2></div><p><strong>backend의 초기 정렬 Safe Logic</strong>에 정상 Joint Move와 같은 pulse/hold 방식을 적용해, 목표 도달 전까지 같은 초기 목표를 반복 전송하도록 바꿨습니다. 관절 오차와 모션 상태를 보고, 이용 가능한 속도 정보도 확인해 안정 상태가 유지된 뒤 본 Replay를 시작하도록 했습니다.</p></div>
+      <div class="before-after">
+        <figure class="flow-panel before-panel">
+          <div class="figure-heading"><span>BEFORE / 수정 전</span><span>목표 이전 정지</span></div>
+          <div class="flow-content"><div class="flow-node"><span class="diagram-label">INITIAL MOVE</span><p>초기 목표 한 번 전송</p></div><div class="flow-arrow"><span aria-hidden="true">↓</span><span>도달 여부만 관찰</span></div><div class="flow-node"><span class="diagram-label">OBSERVED ON HARDWARE</span><p>잠깐 이동한 뒤 정지</p></div><p class="flow-loss"><span aria-hidden="true">×</span> 목표에 도달하지 못한 채 이동 중단</p><div class="flow-result"><span>남아 있던 문제</span><p>대기·재시도 변경 후에도 반복</p></div></div>
+          <figcaption>완료 판정을 보강해도 초기 이동의 실행 방식은 달랐습니다.</figcaption>
+        </figure>
+        <figure class="flow-panel after-panel">
+          <div class="figure-heading"><span>AFTER / 수정 후</span><span>pulse / hold</span></div>
+          <div class="flow-content"><div class="flow-node"><span class="diagram-label">INITIAL MOVE</span><p>같은 초기 목표 반복 전송</p></div><div class="flow-arrow"><span aria-hidden="true">↓</span><span>도달과 안정 상태 확인까지 목표 유지</span></div><div class="flow-node preserved"><span class="diagram-label">REACHED &amp; SETTLED</span><p>초기 위치 도달·안정 확인</p></div><p class="flow-retained"><span aria-hidden="true">→</span> 초기 정렬이 끝난 뒤 running으로 전환</p><div class="flow-result"><span>본 재생</span><p>기록된 시간축으로 Replay 시작</p></div></div>
+          <figcaption>당시 장비에서 정상 동작하던 명령 방식을 초기 정렬에도 적용했습니다.</figcaption>
+        </figure>
+      </div>
+      <p class="modification-caption">pulse/hold는 이 사례의 장비와 제어 경로에서 확인한 방식입니다. 모든 로봇의 관절 이동에 반복 전송이 필요하다는 뜻은 아닙니다.</p>
+    </section>
+    <section id="validation" class="evidence-section validation-section" aria-labelledby="validation-title">
+      <div class="evidence-copy"><p class="section-number">05 / VALIDATION &amp; RESULT</p><h2 id="validation-title">코드의 통과에서<br>실제 동작 확인까지</h2><p>수정 후 실제 로봇에서 <strong>초기 위치로 이동하다 멈추던 문제의 해결</strong>을 확인했습니다. 이후 정렬 완료 뒤 본 재생이 이어지는 흐름과 재생·일시정지·재개·정지, 팔과 엔드이펙터의 동작을 확인했습니다.</p><p>화면의 커서와 진행률은 backend의 실행 상태와 연결했습니다. 화면 표시의 연결과 물리적인 동작 확인은 나눠 판단했습니다.</p><p>직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터에서 <strong>Replay 정상 동작을 확인했으며, 다중 로봇 구성에서도 검증했습니다.</strong></p></div>
+      <div class="validation-evidence" aria-label="Replay 검증 단계와 결과"><div class="figure-heading"><span>WHAT WAS VERIFIED</span><span>항목별 확인 범위</span></div><dl class="validation-list">
+        <div><dt><span class="verification-type">초기 정렬 Safe Logic</span>목표 이전 정지 문제 해결</dt><dd>pulse/hold 수정 뒤 목표 위치로 이동하는 동작을 실제 로봇에서 확인했습니다.</dd></div>
+        <div><dt><span class="verification-type">실행 단계</span>정렬 완료 뒤 본 재생</dt><dd>정렬과 본 Replay를 분리하고 도달·안정 뒤 실행하는 경로를 확인했습니다.</dd></div>
+        <div><dt><span class="verification-type">실행 제어</span>재생 · 일시정지 · 재개 · 정지</dt><dd>실제 장비에서 재생 제어와 종료 처리를 확인했습니다.</dd></div>
+        <div><dt><span class="verification-type">장치 동작</span>사용 장비 전체 Replay 확인</dt><dd>직접 사용한 로봇·엔드이펙터와 각 텔레오퍼레이션 장치로 수집한 데이터의 Replay 정상 동작을 확인했습니다.</dd></div>
+        <div><dt><span class="verification-type">다중 로봇</span>다중 로봇 구성에서 재생</dt><dd>다중 로봇 구성에서도 기록된 동작을 재생하고 정상 동작을 확인했습니다.</dd></div>
+        <div><dt><span class="verification-type">화면 연결</span>실행 상태에 따른 커서 표시</dt><dd>초기 정렬 중 커서를 고정하고 본 재생의 진행 상태를 표시하도록 연결했습니다.</dd></div>
+      </dl></div>
+    </section>
+    <aside class="case-takeaway detailed-takeaway" aria-label="이 경험에서 얻은 기준"><span class="eyebrow">ENGINEERING NOTE</span><p>동작을 재현하려면 명령뿐 아니라 <strong>시작 조건도 재현해야 한다</strong>는 걸 배웠습니다. 기록된 시작 자세로 정렬하고 도달·안정을 확인하는 과정을 통해, <strong>재생을 시작할 조건까지 실행 로직에 포함</strong>해야 한다는 기준을 얻었습니다.</p></aside>
+    <div class="case-bottom"><a class="text-link" href="imitation.html">← 모방학습 정책 실행 및 실패 분석</a><a class="text-link" href="multi-robot.html">다음 사례 · 다중 로봇 플랫폼 확장 →</a></div>
+  <section class="home-section"><div class="section-heading"><h2>오른팔 정지 구간: 목표값과 측정 자세의 차이</h2></div><p>저장 목표값이 갱신되지 않는 구간에서도 측정 자세는 변하고 있었습니다. 해당 경로를 측정 자세 우선 재생으로 바꾸고 전송 로직을 수정한 뒤 실제 로봇 동작을 확인했습니다. 모든 데이터의 목표값을 측정값으로 바꾸는 일반 규칙으로 적용한 것은 아닙니다.</p><figure class="evidence-figure robros-flow"><div class="figure-heading">수정 전 → 수정 후</div><ol><li>수정 전: 갱신되지 않는 저장 목표값 → 오른팔 동작 누락</li><li>비교: 동일 구간의 측정 자세 변화 확인</li><li>수정 후: 해당 경로에서 측정 자세 우선 → 전송 로직 수정 → 실로봇 확인</li></ol></figure><p>재생·일시정지·재개·중지와 팔·그리퍼 매핑을 구현하고 한팔·양팔 로봇, EIR에서 동작을 검증했습니다. 정렬은 시작 자세로 도달하는 과정이고, 본 재생은 기록된 시간축의 실행입니다.</p></section></main>
+  <footer class="container site-footer"><span>신동찬 · Robotics Software Engineer</span><address class="footer-contact"><a href="mailto:sdc8470@gmail.com">sdc8470@gmail.com</a><a href="tel:+821027184436">010-2718-4436</a></address><a href="#main">맨 위로 <span aria-hidden="true">↑</span></a></footer>
+</body>
+</html>
