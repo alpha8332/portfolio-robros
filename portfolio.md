@@ -533,6 +533,16 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 
 명령 유지 방식의 개념 비교 · 실측 타이밍 그래프 아님
 
+EXECUTION EVIDENCE
+
+## 실제 로봇 동작으로 비교할 장면
+
+수정 전 초기 정렬 중 정지 영상 전달 예정
+목표 도달 전에 멈추는 장면
+수정 후 초기 정렬 → Replay 영상 전달 예정
+목표 도달 후 본 Replay로 이어지는 장면
+영상 자료를 전달받으면 이 위치에 삽입합니다. 현재는 비교할 장면의 구성만 준비되어 있습니다.
+
 CONTENTS
 [ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [ 02  /  System Flow ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [ 03  /  Case A · Alignment ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [ 04  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [ 05  /  Case B · Right Arm ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [ 06  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
 
@@ -851,7 +861,7 @@ D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집
 결과를 해석한 범위
 한 회차의 RMSE가 1 mm 이하인 것과 모든 순간 오차가 1 mm 이하인 것은 다릅니다. 지연 평균도 event 전체의 RMS와 회차 최댓값의 평균을 구분했습니다.
 
-집계 자료 대조 범위
+Measurement Notes · 집계 자료와 해석 범위
 위 동기 결과는 이력서 보고값입니다. 확보된 다른 20회 CSV는 평균 약 0.623 mm, 아카이브의 별도 재시험 그래프는 약 0.880 mm·12회 통과로 집계가 다릅니다. 동일 시험 묶음으로 확인되지 않아 서로 합치거나 0.615 mm의 재계산 근거로 사용하지 않았습니다.
 
 05 / Takeaway
@@ -884,7 +894,7 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 직접 수행
 교시 · 데이터 선별 · ACT 학습·실행
 
-수집 설계
+설계한 조건
 80개 기본 조건 + 20회 추가 반복
 
 관찰
@@ -892,6 +902,16 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 
 위치 후보  트레이
 수집 메모의 배치 예시 · 바나나 표시는 위치 후보이며 동시 조작 개수가 아닙니다.
+
+EXECUTION EVIDENCE
+
+## 시연 수집과 정책 실행을 나란히 확인
+
+Teleoperation 사람의 시연 수집 영상 전달 예정
+바나나와 트레이, 로봇 조작이 함께 보이는 장면
+ACT Rollout 학습한 정책의 실제 실행 영상 전달 예정
+실제 동작과 관찰한 실패를 확인할 장면
+영상 자료를 전달받으면 이 위치에 삽입합니다. 현재는 비교할 장면의 구성만 준비되어 있습니다.
 
 CONTENTS
 [ 01  /  Experiment ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background) [ 02  /  Missing Data ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#investigation) [ 03  /  Data Design ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#implementation) [ 04  /  Rollout ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#takeaway)
@@ -953,6 +973,18 @@ Handover에서는 오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오
 04 / Rollout
 
 ## Loss가 낮아져도, 바뀐 환경에서 작업은 실패했습니다.
+
+수행·정리한 일
+
+### 교시부터 실로봇 실행까지 수행
+
+시연 수집·선별과 ACT 학습·추론·실행을 수행하고, 빠진 조합을 줄이기 위해 80개 기본 조건과 추가 반복을 설계했습니다.
+
+남은 검증
+
+### 환경 변경 뒤의 실패는 미해결
+
+조건 설계 이후의 정책 성공률 개선은 확인되지 않았습니다. 카메라 시점·테이블 배치를 통제한 후속 실험이 필요합니다.
 
 후속 양팔 실험에서는 학습 Loss가 약 0.01인 구간을 관찰했지만, 카메라 각도와 테이블 배치가 달라진 실행에서 실패가 반복됐습니다. 저는 학습 지표와 실제 작업의 성립을 따로 기록했습니다.
 
