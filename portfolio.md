@@ -721,12 +721,14 @@ POSCO 양팔 테스트베드 및 KPI 검증
 
 담당: 측정 코드 구현 · 반복 시험 · 결과 분석 / 측정 정의와 구조 변경은 그룹장과 협의
 
+[시험 결과 막대그래프 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation)
+
 CONTENTS
 [ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background) [ 02  /  Investigation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#investigation) [ 03  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#implementation) [ 04  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#takeaway)
 
 01 / Background
 
-## 겹쳐 보이는 궤적만으로는 판단할 수 없었습니다.
+## 두 팔의 차이를 무엇으로 판단할까?
 
 양팔 로봇의 시험 환경을 구성하고, 두 팔이 같은 움직임을 유지하는지와 Master를 Slave가 얼마나 늦게 따라가는지를 평가했습니다. 화면에서 궤적이 비슷해 보여도 각 팔의 목표 추종, 두 팔 사이의 위치 차이, 시간 지연은 서로 다른 문제였습니다.
 
@@ -734,7 +736,7 @@ CONTENTS
 
 02 / Investigation
 
-## 설치 차이를 지우면서 운동 차이까지 지우고 있지 않은가?
+## 오차를 작게 만드는 대신, 실제 차이를 남기기
 
 -  처음의 비교 방식을 검토
 초기에는 한 팔을 반전하고 두 궤적을 회전·이동시켜 맞추는 방식을 검토했습니다. 하지만 정합 과정에서 평가하려는 운동 차이까지 작아질 수 있었습니다.
@@ -759,11 +761,11 @@ AFTER
 
 03 / Implementation
 
-## 지연도 명령 간격이 아니라 실제 응답에서 확인했습니다.
+## 실제 위치와 통과 시각으로 확인했습니다.
 
 동기 시험은 공통 원궤적을 두 팔에 전달하고 실제 TCP 위치를 기록했습니다. 각 팔의 시작 위치를 뺀 뒤 두 움직임의 차이로 동기 오차를 계산했습니다. 한 팔의 actual과 controller desired 사이 오차는 별도로 확인했습니다.
 
-동기 시험 · 평균 0.615 mm / 20회 모두 기준 충족 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
+동기 오차를 확인한 과정 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 공통 원궤적 → 양팔 실제 위치 기록 → 초기 위치 차이 제거 → 상대변위 오차 계산. 개별 목표 추종과 양팔 동기를 나누어 봅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-sync-pipeline.svg)
 Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표를 만드는 경로와 선행 보상을 다뤘습니다. 명령을 보낸 시각 차이가 실제 로봇의 추종 지연을 대신하지 않도록, 두 팔이 같은 원궤적 위상을 통과한 시각을 비교했습니다.
 
@@ -776,22 +778,33 @@ Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표
 -  반복 시험의 판정값을 구분
 회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 20회 평균과 기준 초과 회차를 함께 남겼습니다.
 
-지연 시험 · 평균 48.969 ms / 15회 충족·5회 초과 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
-명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 선과 시간은 계산 개념을 설명한 것으로 측정 trace가 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
+추종 지연을 확인한 과정 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
+명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 계산 과정을 설명한 개념도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
 D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집 구성을 선정했습니다. 카메라 환경 확인과 TCP 기반 KPI 계산은 역할을 구분했습니다.
 
 04 / Validation
 
-## 평균이 통과해도, 5회의 초과는 남았습니다.
+## 20회 시험, 평균과 반복 결과를 함께 확인
 
-0.615 mm 동기 RMSE · 이력서 보고값
-20회 평균 / 20회 모두 1 mm 이하
+양팔 동기 오차
+0.615 mm 20회 평균 · 이력서 보고값
 
-48.969 ms Master–Slave 지연
-회차 판정값 20개의 평균
+평균 RMSE  기준 1 mm
 
-15 / 20 지연 기준 충족
-5회는 50 ms 기준 초과
+0  1 mm
+20회 모두 1 mm 이하
+
+Master–Slave 지연
+48.969 ms 회차 판정값 20개의 평균
+
+평균 지연  기준 50 ms
+
+0  50 ms
+평균은 기준 이내 · 5회 초과
+
+지연 기준 충족 횟수  전체 20회
+15회 충족 5회 초과
+평균 충족과 모든 회차의 충족은 구분했습니다.
 
 동기 오차와 지연을 각각 판단했고, 지연은 평균이 기준 이내여도 모든 반복 시험이 통과한 것은 아니라고 정리했습니다. 기준을 넘은 회차의 원인을 통계만 보고 통신 손실이나 OS 지연으로 단정하지 않았습니다.
 결과를 해석한 범위
