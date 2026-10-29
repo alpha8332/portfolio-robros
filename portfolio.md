@@ -757,7 +757,7 @@ ENGINEERING NOTE
 # 함께 움직였는가?
 얼마나 늦게 따라왔는가?
 
-측정 코드와 반복 시험을 맡아, 동기 오차·추종 지연·기준 초과 회차를 나누어 확인했습니다.
+측정 코드 구현과 반복 시험을 맡아, 양팔 동기 오차와 추종 지연을 측정하고 KPI 달성을 확인했습니다.
 
 Neuromeka 인턴 · 2025.12 ~ 2026.06
 
@@ -767,8 +767,16 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 핵심 판단
 목표 추종과 양팔 동기는 별도 평가
 
-남은 결과
-평균 충족에도 지연 5회 기준 초과[문제 해결 과정 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background)
+KPI 달성 · 평균 기준
+동기 0.615 mm / 기준 1 mm
+지연 48.969 ms / 기준 50 ms[실제 측정 그래프 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
+
+실제로 기록한 양팔의 원궤적 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-trajectories.svg)
+로컬 동기 시험 Trial 01의 실제 TCP 궤적입니다. 아래 20회 보고 평균과 구분한 단일 회차 기록입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-trajectories.svg)
+
+REPORTED RESULTS · 20 TRIALS
+
+## 평균 성능으로 확인한 KPI 달성
 
 양팔 동기 오차
 0.615 mm 20회 평균 · 이력서 보고값
@@ -776,7 +784,7 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 평균 RMSE  기준 1 mm
 
 0  1 mm
-20회 모두 1 mm 이하
+평균 RMSE 기준 달성
 
 Master–Slave 지연
 48.969 ms 회차 판정값 20개의 평균
@@ -784,11 +792,21 @@ Master–Slave 지연
 평균 지연  기준 50 ms
 
 0  50 ms
-평균은 기준 이내 · 5회 초과
+평균 지연 기준 달성
 
-지연 기준 충족 횟수  전체 20회
-15회 충족 5회 초과
-평균 충족과 모든 회차의 충족은 구분했습니다.
+MEASURED LOGS
+
+## 요약 수치 아래, 실제 측정 기록
+
+로컬 원본 그래프와 CSV에서 확인한 궤적·오차·지연입니다. 기록별 시험 묶음과 계산 방식을 구분해 표시했습니다.
+
+시간에 따라 실제 오차는 어떻게 달라졌나 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-sync-error.svg)
+동일 Trial 01의 1,195개 샘플을 그렸습니다. 회차 RMSE는 0.523 mm, 순간 최대는 1.208 mm입니다. 순간 오차와 회차 RMSE 판정은 다릅니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-sync-error.svg)
+
+Master와 Slave의 실제 움직임 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-master-slave.svg)
+별도 지연 시험 1회의 Z좌표 1,225개 샘플입니다. 원래 시간축과 값을 유지했으며, 두 곡선을 맞추는 시간 이동이나 평활화는 적용하지 않았습니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-master-slave.svg)
+저장된 대응 peak의 시각 차 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-latency.svg)
+같은 지연 기록에 저장된 X·Z축 각각 5개 대응 peak의 지연입니다. 최대 절대값은 26.084 ms이며, 위 20회 평균 48.969 ms와 다른 시험 기록입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-measured-latency.svg)
 
 CONTENTS
 [ 01  /  Test Goal ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background) [ 02  /  Decision ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#investigation) [ 03  /  Measurement ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#implementation) [ 04  /  Results ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#takeaway)
@@ -845,7 +863,7 @@ Master–Slave 시험에서는 Master의 실제 움직임을 읽어 Slave 목표
 실제 XZ 위치로 원 위상을 복원하고, 같은 위상 지점을 지나는 인접 샘플 사이에서 통과 시각을 보간했습니다.
 
 -  반복 시험의 판정값을 구분
-회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 20회 평균과 기준 초과 회차를 함께 남겼습니다.
+회차별 X/Z 최대 절대 지연 중 큰 값으로 판정하고, 회차 판정값을 집계해 20회 평균을 확인했습니다.
 
 추종 지연을 확인한 과정 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg)
 명령 전송 간격 대신 실제 운동의 대응 위상으로 지연을 판단합니다. 계산 과정을 설명한 개념도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-phase-metrics.svg) 시험 환경 구성도 따로 확인했습니다.
@@ -853,22 +871,22 @@ D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집
 
 04 / Results
 
-## 20회 시험, 평균과 반복 결과를 함께 확인
+## 20회 평균, 두 KPI 모두 기준 달성
 
-위 결과 그래프에서 평균·기준선·통과 횟수를 함께 비교할 수 있습니다. [결과 그래프로 돌아가기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#results-overview)
+위 결과 그래프에서 평균 동기 오차와 평균 지연을 각각의 기준선과 비교할 수 있습니다. [결과 그래프로 돌아가기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#results-overview)
 
-동기 오차와 지연을 각각 판단했고, 지연은 평균이 기준 이내여도 모든 반복 시험이 통과한 것은 아니라고 정리했습니다. 기준을 넘은 회차의 원인을 통계만 보고 통신 손실이나 OS 지연으로 단정하지 않았습니다.
+20회 평균 동기 오차는 0.615 mm로 1 mm 기준을, 평균 지연은 48.969 ms로 50 ms 기준을 충족했습니다. 동기 오차와 지연을 나누어 측정하고 각 평균값으로 KPI 달성을 확인했습니다.
 결과를 해석한 범위
 한 회차의 RMSE가 1 mm 이하인 것과 모든 순간 오차가 1 mm 이하인 것은 다릅니다. 지연 평균도 event 전체의 RMS와 회차 최댓값의 평균을 구분했습니다.
 
 Measurement Notes · 집계 자료와 해석 범위
-위 동기 결과는 이력서 보고값입니다. 확보된 다른 20회 CSV는 평균 약 0.623 mm, 아카이브의 별도 재시험 그래프는 약 0.880 mm·12회 통과로 집계가 다릅니다. 동일 시험 묶음으로 확인되지 않아 서로 합치거나 0.615 mm의 재계산 근거로 사용하지 않았습니다.
+위 동기 결과는 이력서 보고값입니다. 확보된 다른 20회 CSV는 평균 약 0.623 mm, 아카이브의 별도 재시험 그래프는 약 0.880 mm로 집계가 다릅니다. 동일 시험 묶음으로 확인되지 않아 서로 합치거나 0.615 mm의 재계산 근거로 사용하지 않았습니다.
 
 05 / Takeaway
 
 ## 좋은 숫자보다, 설명할 수 있는 결과
 
-이 경험을 통해 설치 차이와 운동 오차, 목표 추종과 양팔 동기, 명령 전송과 실제 응답을 나누어 봐야 다음 확인 지점이 명확해진다는 것을 배웠습니다. 평균값 하나로 시험을 끝내지 않고, 통과하지 못한 반복과 측정의 경계까지 함께 남기는 것을 검증의 기준으로 삼았습니다.
+이 경험을 통해 설치 차이와 운동 오차, 목표 추종과 양팔 동기, 명령 전송과 실제 응답을 나누어 봐야 다음 확인 지점이 명확해진다는 것을 배웠습니다. 실제 동작을 기록하고 측정 기준에 따라 결과를 설명하는 것을 검증의 기준으로 삼았습니다.
 
 관련 기록 더 보기
 [양팔 KPI 시험·분석 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
