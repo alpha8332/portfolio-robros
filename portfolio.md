@@ -294,7 +294,7 @@ Career  2025.12 ~ 2026.06   Neuromeka  Robotics Software Engineering Intern · P
 
 - [02 · Replay 기능 개발 및 검증 ↗](https://alpha8332.github.io/portfolio-robros/projects/replay.html)
 
-- [03 · POSCO 양팔 테스트베드 및 KPI 검증 ↗](https://alpha8332.github.io/portfolio-robros/projects/kpi.html)
+- [03 · 양팔 테스트베드 및 KPI 검증 과제 ↗](https://alpha8332.github.io/portfolio-robros/projects/kpi.html)
 
 - [04 · 모방학습 데이터 개선 및 정책 실행 ↗](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
 
@@ -381,7 +381,7 @@ GET IN TOUCH
 
 편하게 연락 주세요. 커피챗도 좋습니다.
 
-[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf)  · [GitHub ↗](https://github.com/alpha8332)
+[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf?v=kpi-task-20261030)  · [GitHub ↗](https://github.com/alpha8332)
 
 Email
 [sdc8470@gmail.com  ↗ ](mailto:sdc8470@gmail.com)
@@ -915,9 +915,13 @@ Measurement Notes · 보고 자료
 
 05 / Takeaway
 
-## 좋은 숫자보다, 설명할 수 있는 결과
+## 측정 기준부터, 다시 확인할 수 있는 결과까지
+ENGINEERING NOTE
+이번 과제를 통해 성능 검증은 먼저 ‘무엇이 잘 동작해야 하는가’를 측정 가능한 기준으로 바꾸는 과정이라는 점을 배웠습니다. 두 팔이 각각 목표 궤적을 잘 따라가더라도 서로 같은 움직임을 유지한다고 볼 수는 없었고, 명령을 비슷한 시각에 전송하는 것만으로 실제 추종 지연을 설명하기도 어려웠습니다. 개별 추종 오차, 양팔 동기 오차, Master–Slave 지연을 나누어 보면서, 평가 대상과 비교 기준을 명확히 해야 결과의 의미도 설명할 수 있다는 관점을 얻었습니다.
 
-이 경험을 통해 설치 차이와 운동 오차, 목표 추종과 양팔 동기, 명령 전송과 실제 응답을 나누어 봐야 다음 확인 지점이 명확해진다는 것을 배웠습니다. 실제 동작을 기록하고 측정 기준에 따라 결과를 설명하는 것을 검증의 기준으로 삼았습니다.
+특히 두 궤적을 포개는 정합 과정에서 평가하려는 운동 차이까지 줄어들 수 있다는 점이 인상적이었습니다. 설치 간격에 해당하는 초기 위치 차이만 제거하고 이후의 실제 상대변위를 비교하는 기준을 선택하며, 전처리의 목적과 제거해도 되는 정보를 스스로 설명할 수 있어야 한다고 느꼈습니다. 어떤 차이를 남기고 어떤 차이를 제거했는지, 계산에 어떤 가정이 들어갔는지를 드러내는 일이 측정의 신뢰성을 만든다는 것을 배웠습니다.
+
+또한 그래프를 직접 살펴보며 평균이나 RMSE 같은 요약 수치와 실제 동작을 함께 읽는 습관의 필요성을 느꼈습니다. 위치 파형과 궤적을 함께 확인하면 어느 축과 구간을 더 점검할지 구체화할 수 있었습니다. 카메라의 연결·영상 조건과 TCP 기반 성능 측정을 구분한 경험 역시, 시험 환경의 안정성과 평가 지표의 타당성을 각각 확인해야 한다는 기준으로 이어졌습니다. 앞으로도 요구 성능에 맞는 측정 방법을 먼저 정하고, 좌표 기준·시간 정보·시험 조건을 함께 정리해 다른 사람도 같은 근거로 결과를 재확인할 수 있도록 검증하겠습니다.
 
 [← Replay 기능 개발 및 검증](https://alpha8332.github.io/portfolio-robros/projects/replay.html) [모방학습 정책 실행 →](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
 
