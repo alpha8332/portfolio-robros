@@ -1106,108 +1106,282 @@ v3에서는 학습 Loss 0.0037과 실로봇 작업 성공률 90%를 기록했습
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
+[← Projects](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
 
-Open Source Team Project
+01 / 청년정책알리미
 
-# 청년정책알리미
+# 다른 기관의 정책을,
+하나의 기준으로
 
-2026.06.17 ~ 2026.08.27 · 3인 팀 · 팀장·데이터파트
+기관별 정책 데이터를 공통 기준으로 정리하고, 추천 결과의 정확성을 확인하면서 반복 조회를 개선했습니다. 데이터 수집부터 다른 PC에서의 실행까지 연결했습니다.
 
-React · FastAPI · PostgreSQL · Docker
+2026.06.17 ~ 2026.08.27 · 오픈소스 팀 프로젝트
 
-[기관별 데이터를 공통 기준으로 연결](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-0) [불확실한 값과 유효한 데이터를 구분](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-1) [반복된 지역 조건 조회를 개선](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-2) [다른 PC에서도 설치·실행 확인](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#part-3)
+내 역할
+3인 팀 · 팀장·데이터파트
+공통 스키마·API 계약·산출물 통합·검증
 
-01 / OVERVIEW
+공개 데이터
+정책 2,051건 · 별도 API Key 없이 초기 설치
 
-## 기관별 데이터를 공통 기준으로 연결
+핵심 개선
+지역 조건 N+1 조회 → 일괄 조회
+추천 응답 14.845초 → 1.386초[문제 해결 과정 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#background)
 
-서로 다른 기관의 정책 정보를 같은 기준으로 검색·확인할 수 있도록 데이터 수집부터 실행 환경까지 연결했습니다. 저는 데이터파트와 팀장을 맡아 공통 스키마, API·데이터 계약, 역할 분담과 통합·검증을 담당했습니다. 프론트엔드와 백엔드 전체를 혼자 개발한 성과가 아닙니다.
+MEASURED RESPONSE TIME
 
-SYSTEM & DATA FLOW
-- 기관별 정책 데이터 → 추출·정규화
+### 추천 결과를 기다리는 시간
 
-- 자격조건·중복·결측 검수 → 공개 데이터셋 2,051건
+일괄 조회 적용 전 14.845 s
 
-- 초기 데이터 설치 → PostgreSQL
+일괄 조회 적용 후 1.386 s
 
-- FastAPI · 검색·추천 API ↔ PostgreSQL
+0 s  동일한 시간 축  15 s
+응답 시간 90.7% 단축
 
-- React · 조회 결과 표시 / Docker · 실행 환경
+같은 PC·DB·요청 조건의 수정 전후 관찰값
+측정 당시 개발 DB 3,273건 · 대구광역시·25세 조건
 
-02 / IMPLEMENTATION
+CONTENTS
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#background) [ 02  /  Data Contract ](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#data-contract) [ 03  /  Query Improvement ](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#query-improvement) [ 04  /  Delivery & Validation ](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#delivery) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html#takeaway)
 
-## 불확실한 값과 유효한 데이터를 구분
+01 / Background
 
-기관별 필드를 공통 스키마로 맞추고 자격조건·중복·결측을 검수했습니다. 데이터가 없거나 근거가 불확실한 상태를 확정 정보처럼 통과시키지 않도록 확인했습니다. 공개 정책 2,051건을 구성하고 별도 API Key 없이 초기 데이터를 설치할 수 있게 했습니다.
+## 정책을 모은 뒤에도, 같은 기준으로 읽는 문제가 남았습니다.
 
-담당자별 결과물을 통합하면서 Git PR 검토와 실제 DB–API–화면 흐름을 확인했습니다. 변경사항이 합쳐졌다는 사실과 응답의 의미가 맞는지는 따로 검증했습니다.
+청년정책은 기관마다 필드와 조건 표현이 달랐습니다. 정책을 한곳에 모아도 지역·연령·신청 상태의 의미가 다르면 검색과 추천 결과를 같은 기준으로 설명하기 어려웠습니다.
 
-03 / PERFORMANCE
+저는 팀장·데이터파트로서 공통 스키마와 API·데이터 계약을 정하고, 담당자별 결과물을 DB–API–화면으로 연결해 확인했습니다. 팀원 간 역할을 나누고 Git PR 검토와 통합·실행 검증을 함께 진행했습니다.
 
-## 반복된 지역 조건 조회를 개선
+원문부터 화면까지, 정책의 의미를 같은 기준으로 유지[](https://alpha8332.github.io/portfolio-robros/assets/evidence/youth-data-flow.svg)
+데이터파트와 팀 통합에서 다룬 처리 흐름을 요약한 개념도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/youth-data-flow.svg)
 
-추천 경로에서 정책별 지역 조건 조회가 추가 쿼리로 이어지는 N+1 문제를 개선했습니다. 동일 조건의 추천 응답은 14.845초에서 1.386초로 단축됐습니다.
+02 / Data Contract
 
-### 개선 전
-14.845 s
+## 근거가 있는 조건과, 확인이 필요한 조건을 구분했습니다.
 
-### 개선 후
-1.386 s
+원문에 근거가 없는 값을 실제 자격조건처럼 해석하면 추천 결과도 달라집니다. 일부 데이터에서는 연령 근거가 없는 0세~0세 값이 실제 제한으로 처리되는 문제를 확인했습니다.
 
-동일 조건에서 확인한 응답 시간입니다. 여러 부하 조건의 평균이나 서비스 전체의 보장 성능으로 일반화하지 않습니다.
+발견
 
-04 / VALIDATION
+### 값은 있지만, 조건의 근거가 없음
 
-## 다른 PC에서도 설치·실행 확인
+연령 placeholder가 신청 가능한 나이처럼 구조화되어 판정에 영향을 줌
 
-Docker 기반 Windows 실행 환경과 배포·데이터 검증 절차를 구성했습니다. 별도 PC에서 설치·실행을 확인하고 결과물과 시연 영상을 제출했습니다. 데이터·API·화면의 연결 및 실행 재현성을 통합 검증의 대상으로 삼았습니다.
+정리
+
+### 원문을 보존하고 확인 필요로 구분
+
+식별된 631건의 근거 없는 숫자 경계를 해제하고 정규화·재적재
+
+기관별 필드를 공통 스키마로 맞추고 자격조건·중복·결측을 검수했습니다. 값이 없거나 확인되지 않은 상태를 추측으로 채우지 않고, 원문 근거와 함께 구분해 전달했습니다.
+
+이 기준을 데이터 모델, API 응답과 화면의 안내 문구까지 연결했습니다. 산출물을 합친 뒤에는 필드명이 같은지와 함께 빈 값·확인 필요 상태가 같은 의미로 해석되는지도 점검했습니다.
+
+03 / Query Improvement
+
+## 전체 정책을 평가하자, 14.845초의 반복 조회가 드러났습니다.
+
+추천 결과에서 다른 지역이나 마감 정책이 남고, 뒤쪽에 적재된 지역 정책이 평가 대상에서 빠지는 문제를 확인했습니다. 검색과 추천의 조건 판정을 맞추고 전체 승인 정책을 평가하도록 변경하자, 응답에 약 14.845초가 걸렸습니다.
+
+원인을 따라가 보니 정책마다 지역 근거와 행정구역 정보를 다시 읽는 N+1 조회가 있었습니다. 평가 대상과 최종 응답 개수를 구분하고, 대상 정책의 지역 근거·행정구역 정보를 일괄 조회한 뒤 메모리에서 판정하도록 바꿨습니다.
+
+정책별 반복 조회 → 필요한 근거를 일괄 조회
+
+수정 전
+
+### 정책마다 DB에 다시 요청
+
+- 정책 하나 선택
+
+- 지역 근거·행정구역 조회
+
+- 판정 후 다음 정책에서 반복
+
+수정 후
+
+### 함께 읽고, 정책별로 판정
+
+- 평가할 정책 ID 전체 확인
+
+- 지역 근거·행정구역 일괄 조회
+
+- 메모리에서 정책별 조건 판정
+
+조회 경로의 변경을 요약한 개념도입니다. 전체 평가 범위와 조건 판정 기준을 유지하며 반복 조회를 줄였습니다.
+MEASURED RESPONSE TIME
+
+### 추천 결과를 기다리는 시간
+
+일괄 조회 적용 전 14.845 s
+
+일괄 조회 적용 후 1.386 s
+
+0 s  동일한 시간 축  15 s
+응답 시간 90.7% 단축
+
+같은 PC·DB·요청 조건의 수정 전후 관찰값
+측정 당시 개발 DB 3,273건 · 대구광역시·25세 조건
+측정 당시 개발 DB 3,273건에서 같은 PC·요청 조건으로 수정 전후를 비교했습니다. 대구광역시·25세 조건의 결과 34건이 모두 지역 조건과 일치하고, 마감 정책이 포함되지 않는 것도 함께 확인했습니다.
+
+04 / Delivery & Validation
+
+## 다른 PC에서도 같은 데이터로 시작할 수 있도록 정리했습니다.
+
+개발 환경에서만 실행되는 결과로 끝나지 않도록 공개 데이터셋과 설치·검증 절차를 구성했습니다. 공개 정책 2,051건을 별도 API Key 없이 초기 설치하고, Docker 기반 Windows 환경에서 서비스를 시작하도록 연결했습니다.
+
+공개 데이터셋 → DB 초기 설치 → API·화면 연결 → 별도 PC 실행
+다른 PC에서 설치·실행을 확인하고 결과물과 시연 영상을 제출했습니다. PR 검토와 함께 실제 DB–API–화면에서 데이터의 의미와 동작이 이어지는지를 통합 검증했습니다.
+
+프로젝트 저장소와 개선 기록
+- [청년정책알리미 공개 GitHub 저장소 ↗](https://github.com/alpha8332/cheongnyeon-alimi)
+
+- [추천 판정·N+1 조회 개선과 측정 조건 ↗](https://github.com/alpha8332/cheongnyeon-alimi/blob/main/docs/troubleshooting/backend/recommendation_full_inventory_performance.md)
+
+- [연령 placeholder 정규화 기록 ↗](https://github.com/alpha8332/cheongnyeon-alimi/blob/main/docs/troubleshooting/data/release_age_placeholder_normalization.md)
+
+05 / Takeaway
+
+## 같은 데이터의 의미를, 수집부터 사용자 화면까지 유지하기
+ENGINEERING NOTE
+이번 프로젝트를 통해 데이터 서비스의 신뢰성은 수집·저장·판정·화면에서 같은 정보가 같은 의미로 이어지는지를 확인하는 데서 시작한다는 점을 배웠습니다. 값이 비어 있거나 근거가 불확실할 때 이를 확정된 조건처럼 다루면, 이후의 추천 로직이 정상적으로 실행되어도 사용자에게 다른 의미의 결과를 전달할 수 있었습니다.
+
+추천 경로에서는 정확한 평가 범위를 확보한 뒤 반복 조회가 드러났습니다. 이 과정에서 판정의 정확성과 처리 시간을 함께 확인하는 기준을 얻었습니다. 어떤 정책을 평가했는지, 어떤 조건으로 제외했는지를 유지하면서 조회 경로를 바꾸어야 개선 전후의 결과를 설명할 수 있다고 느꼈습니다.
+
+팀장으로서 공통 스키마와 API 계약을 맞추고 산출물을 통합하면서, 코드가 합쳐지는 것과 기능이 연결되는 것을 각각 확인해야 한다는 점도 배웠습니다. 필드의 이름, 빈 값의 의미, 응답과 화면의 표현을 함께 점검하고 다른 PC에서 설치·실행해 보는 과정이 협업의 완료 기준을 구체화했습니다.
+
+앞으로는 같은 데이터셋과 입력 조건에서 추천 판정 결과, DB 조회 횟수와 응답 시간을 함께 기록하고 싶습니다. 데이터가 늘거나 기관별 형식이 바뀌었을 때에도 근거와 처리 결과를 추적하고, 팀원이 같은 기준으로 검증할 수 있는 데이터 파이프라인을 설계하겠습니다.
+
+[← Projects](https://alpha8332.github.io/portfolio-robros/projects.html) [스마트 이동형 공기청정기 →](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html)
 
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html
 
-[← 홈으로](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
+[← Projects](https://alpha8332.github.io/portfolio-robros/projects.html)  CASE STUDY
 
-Graduation Project
+02 / 스마트 이동형 공기청정기
 
-# 스마트 이동형 공기청정기
+# 센서의 입력을,
+이동·청정·복귀로
 
-2023.03 ~ 2023.06 · 졸업작품 · SW 담당
+먼지가 감지된 구역으로 이동해 청정하고 복귀하는 시제품의 소프트웨어를 담당했습니다. 센서 입력과 동작 순서를 연결하고, 실제 주행에서 거리·회전과 장애물 대응을 확인했습니다.
 
-C · ATmega128 · 먼지/적외선/초음파 센서
+2023.03 ~ 2023.06 · 졸업작품
 
-[먼지가 감지된 구역으로 이동하는 시제품](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-0) [센서 입력과 동작 순서를 연결](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-1) [실제 주행에서 거리와 회전을 조정](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#part-2)
+내 역할
+소프트웨어 담당 · C · ATmega128
 
-01 / OVERVIEW
+연결한 기능
+먼지·적외선 입력 / 라인 트레이싱 / 팬·LCD / 복귀
 
-## 먼지가 감지된 구역으로 이동하는 시제품
+실기 확인
+이동 거리·회전 조정 / 초음파 장애물 감지 시 정지·부저[문제 해결 과정 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#background)
 
-구역별 먼지 감지에 따라 해당 구역으로 이동해 청정한 뒤 복귀하는 시제품의 소프트웨어를 담당했습니다. 기구 설계와 하드웨어 제작을 본인의 개발 범위에 포함하지 않습니다.
+CONTROL SCENARIO
 
-CONTROL FLOW
-- 먼지 센서 임계값 + 적외선 입력
+### 센서 입력에서 시작하는 동작 순서
 
-- 구역 이동 조건 판단
+-  01 감지먼지·적외선 입력
 
-- 라인 트레이싱 → 해당 구역 이동
+-  02 이동라인 트레이싱
 
-- 팬·LCD 제어 → 청정 완료 후 복귀
+-  03 청정팬·LCD 제어
 
-- 주행 중 초음파 장애물 감지 → 정지·부저
+-  04 복귀청정 완료 후 복귀
 
-02 / IMPLEMENTATION
+주행 중 초음파 장애물 감지 정지 + 부저
+구현한 동작 순서와 장애물 대응의 개념도
 
-## 센서 입력과 동작 순서를 연결
+CONTENTS
+[ 01  /  Background ](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#background) [ 02  /  Control Flow ](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#control-flow) [ 03  /  On-Robot Tuning ](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#tuning) [ 04  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/air-purifier.html#takeaway)
 
-C와 ATmega128 환경에서 먼지 센서 임계값과 적외선 신호를 이동 조건으로 활용했습니다. 라인 트레이싱, 팬 작동, LCD 표시와 복귀 순서를 제어했습니다. 이동 중 장애물을 감지하면 정지하고 부저를 작동하도록 구성했습니다.
+01 / Background
 
-03 / VALIDATION
+## 먼지를 감지한 뒤, 필요한 구역으로 이동하도록
 
-## 실제 주행에서 거리와 회전을 조정
+구역별 먼지 감지에 따라 이동 장치가 해당 구역으로 이동하고, 청정 동작을 수행한 뒤 복귀하는 시제품을 만들었습니다. 저는 C·ATmega128 기반 센서 입력 처리와 이동·팬·LCD·복귀 동작 제어를 담당했습니다.
 
-실제 주행 시험에서 이동 거리와 회전 동작을 조정하고 초음파 장애물 감지 시 정지·부저 동작을 확인했습니다. 확인된 것은 센서 입력에 따른 이동·청정·복귀의 제어 흐름입니다. 정량적인 공기 정화 효율이나 자율 지도 작성 성능을 측정한 사례는 아닙니다.
+각 부품의 동작을 전체 작업 순서로 연결하는 것이 과제였습니다. 어떤 입력에서 이동을 시작하고, 이동 중 장애물을 만나면 어떻게 대응할지까지 실제 장치의 동작으로 확인해야 했습니다.
+
+02 / Control Flow
+
+## 센서별 역할을 나누고, 이동·청정·복귀를 연결했습니다.
+
+먼지 센서 임계값과 적외선 신호를 구역 이동 조건으로 활용했습니다. 라인 트레이싱으로 해당 구역에 이동하고, 팬 작동과 LCD 표시를 제어한 뒤 복귀하는 순서를 연결했습니다.
+
+동작 순서와 주행 중 장애물 대응[](https://alpha8332.github.io/portfolio-robros/assets/evidence/air-control-flow.svg)
+센서 입력·동작 순서·정지 경로를 요약한 개념도입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/air-control-flow.svg)
+
+입력·장치  제어에서 맡은 역할
+
+먼지·적외선  구역 이동 조건 판단
+
+라인 트레이싱  해당 구역으로 이동
+
+팬·LCD  청정 동작과 LCD 표시
+
+초음파·부저  주행 중 장애물 감지 시 정지·알림
+
+03 / On-Robot Tuning
+
+## 코드로 연결한 이동을, 실제 주행에 맞췄습니다.
+
+동작 순서를 코드로 연결한 뒤에는 실제 장치에서 이동 거리와 회전 동작을 맞추는 과정이 남았습니다. 실제 주행을 보며 이동 거리와 회전 동작을 조정하고, 구역 이동과 복귀 흐름을 확인했습니다.
+
+-  동작 순서를 먼저 연결
+센서 입력을 받은 뒤 이동·청정·표시·복귀로 이어지는 제어 흐름을 구성했습니다.
+
+-  실제 거리와 회전을 확인
+주행 시험에서 장치의 이동과 회전을 관찰하며 동작을 조정했습니다.
+
+-  장애물 상황을 따로 확인
+주행 중 초음파 센서로 장애물을 감지하면 이동을 멈추고 부저가 동작하는지 확인했습니다.
+
+04 / Validation
+
+## 이동·청정·복귀와, 정지 동작을 각각 확인했습니다.
+
+01 / 이동
+
+### 구역 이동과 복귀
+
+센서 입력에 따라 해당 구역으로 이동하고 복귀하는 흐름 확인
+
+02 / 청정·표시
+
+### 팬·LCD 연동
+
+주행과 청정 동작, LCD 표시가 작업 순서에 맞게 연결되는지 확인
+
+03 / 주행 조정
+
+### 거리·회전 동작
+
+실제 주행 시험으로 이동 거리와 회전 동작 조정
+
+04 / 장애물
+
+### 정지·부저
+
+주행 중 장애물 감지에 따른 정지와 알림 동작 확인
+
+시제품에서 센서 입력이 이동·청정·복귀와 장애물 대응으로 이어지는 제어 흐름을 실제 장치로 확인했습니다.
+
+05 / Takeaway
+
+## 센서 입력부터 예외 상황까지, 동작의 연결을 설계하기
+ENGINEERING NOTE
+이번 프로젝트를 통해 센서값이 실제 기능으로 이어지려면 입력 조건과 동작 순서를 함께 정리해야 한다는 점을 배웠습니다. 먼지를 감지하는 것에서 시작해 구역 이동, 팬 작동, LCD 표시와 복귀가 이어지도록 연결하면서, 개별 기능을 전체 작업 흐름 안에서 바라보게 됐습니다.
+
+실제 주행에서 거리와 회전 동작을 조정한 경험도 중요했습니다. 코드에 작성한 동작이 장치에서 어떻게 나타나는지 직접 관찰하고 수정하는 과정이 필요했습니다. 이후에는 입력이 들어왔는지와 함께, 그 입력으로 의도한 움직임이 만들어졌는지까지 확인하는 기준을 갖게 됐습니다.
+
+주행 중 장애물을 감지했을 때 정지하고 부저를 울리도록 구성하며, 정상 동작과 예외 상황의 대응을 함께 설계하는 관점을 얻었습니다. 작업을 완료하는 순서뿐 아니라 이동을 중단해야 하는 조건도 제어 흐름의 일부로 다뤄야 한다고 느꼈습니다.
+
+앞으로는 주행 조건별 이동 거리와 회전 오차를 기록하고 반복 시험으로 조정의 효과를 확인하고 싶습니다. 바닥이나 조명 등 조건을 하나씩 바꾸어 센서 입력과 주행의 변화를 살펴보고, 장애물 정지 뒤 재개 조건도 검토하겠습니다. 실제 장치의 응답을 근거로 동작 조건을 설명하고 검증할 수 있는 제어 소프트웨어를 설계하겠습니다.
+
+[← 청년정책알리미](https://alpha8332.github.io/portfolio-robros/projects/youth-policy.html) [Projects →](https://alpha8332.github.io/portfolio-robros/projects.html)
 
 
 ---
