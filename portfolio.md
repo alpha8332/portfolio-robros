@@ -296,7 +296,7 @@ Career  2025.12 ~ 2026.06   Neuromeka  Robotics Software Engineering Intern · P
 
 - [03 · POSCO 양팔 테스트베드 및 KPI 검증 ↗](https://alpha8332.github.io/portfolio-robros/projects/kpi.html)
 
-- [04 · 모방학습 정책 실행 및 실패 분석 ↗](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
+- [04 · 모방학습 데이터 개선 및 정책 실행 ↗](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
 
 ### 2024
 
@@ -924,114 +924,126 @@ Measurement Notes · 보고 자료
 
 04 / IMITATION LEARNING
 
-# 50회를 모았는데,
-어떤 조건이 빠졌을까?
+# 무작위 50회에서,
+성공률 90%까지
 
-교시·데이터 선별·ACT 학습과 실행을 수행하며, 빠진 수집 조건과 환경 변경 뒤의 실패를 확인했습니다.
+v2의 무작위 수집에서 중복과 빠진 조건을 찾고, v3에서는 위치·자세를 나누어 100회 교시했습니다. 개선 후 작업 영역 내 위치를 바꾸어도 성공률 90%를 확인했습니다.
 
 Neuromeka 인턴 · 2025.12 ~ 2026.06
 
-직접 수행
-교시 · 데이터 선별 · ACT 학습·실행
+v2에서 발견한 문제
+무작위 50회 · 겹치는 조건과 빈 조합
 
-설계한 조건
-80개 기본 조건 + 20회 추가 반복
+v3에서 바꾼 것
+80개 기본 조건 + 20회 추가 반복 · 총 100회 수집
 
-관찰
-카메라·테이블 배치 변경 후 작업 실패[문제 해결 과정 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background)
+실로봇 실행 결과
+성공률 90% · 작업 영역 내 위치 변화[문제 해결 과정 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background)
 
 위치 후보  트레이
-수집 메모의 배치 예시 · 바나나 표시는 위치 후보이며 동시 조작 개수가 아닙니다.
+v3 수집 조건을 나눈 바나나 위치 후보와 트레이 배치
 
 CONTENTS
-[ 01  /  Experiment ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background) [ 02  /  Missing Data ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#investigation) [ 03  /  Data Design ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#implementation) [ 04  /  Rollout ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#takeaway)
+[ 01  /  v2 Setup ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background) [ 02  /  v2 Findings ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#investigation) [ 03  /  v3 Design ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#implementation) [ 04  /  v3 Results ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#takeaway)
 
-01 / Experiment
+01 / v2 Setup
 
-## 고정된 배치에서 동작을 연결하는 것부터 시작했습니다.
+## v2에서는 작업 영역 안에서 위치와 자세를 무작위로 바꿨습니다.
 
-누리 양팔과 2지 그리퍼로 바나나를 집어 트레이에 놓는 작업을 실험했습니다. 초기에는 오른팔을 관측 위치에 고정하고 왼팔로 조작했습니다. VIVE 입력으로 교시하고 양쪽 손목 영상을 사용했습니다.
+누리 양팔과 2지 그리퍼로 바나나를 집어 트레이에 놓는 Pick & Place를 실험했습니다. 한 팔은 바나나와 트레이를 관측하도록 고정하고, 다른 팔은 VIVE로 교시했습니다. 손목 카메라 2개의 영상을 사용했습니다.
 
-처음에는 로봇 시작 자세·바나나·트레이 위치를 고정해 10회 교시했습니다. 기존 플랫폼에서 데이터를 수집하고 ACT 학습·추론과 실제 로봇 실행까지 수행하며 접근·파지·이동·놓기의 연결을 확인했습니다.
+로봇 시작 자세와 트레이 위치는 고정하고, 바나나의 위치·자세만 임의로 바꾸어 50회 데이터를 수집했습니다. 수집 데이터를 선별한 뒤 ACT 학습·추론과 실로봇 실행을 수행했습니다.
 
-무엇을 보고, 어느 팔로 조작했는가 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg)
-고정 관측 팔과 조작 팔, 손목 영상의 역할을 보여주는 배치 개념도입니다. 실제 설치 사진이나 치수 도면이 아닙니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg) 제가 직접 수행한 범위
-작업 조건을 정하고 교시·데이터 검증·학습·실행을 반복했습니다. ACT 모델 아키텍처나 전체 학습 플랫폼을 새로 개발한 경험으로 표현하지 않습니다.
+무엇을 보고, 어느 팔로 조작했는가 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg?v=il-v3-20261030)
+누리 양팔·2지 그리퍼·손목 카메라 2개로 교시하고, 실제 파지·이동·배치 동작을 확인했습니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-task-geometry.svg?v=il-v3-20261030) 제가 직접 수행한 범위
+작업 조건 설정, 교시, 데이터 선별·검증, ACT 학습·추론, 실로봇 실행과 결과 분석을 수행했습니다.
 
-02 / Missing Data
+02 / v2 Findings
 
-## 무작위로 늘린 데이터가 작업 영역을 고르게 채우지는 못했습니다.
+## 무작위로 놓다 보니, 같은 조건은 겹치고 빈 조합은 남았습니다.
 
-다음 실험에서는 바나나의 위치와 자세를 임의로 바꾸어 50회 수집했습니다. 하지만 비슷한 조건은 중복되고, 충분히 들어 있지 않은 위치·자세 조합도 남았습니다. 특히 왼팔에서 먼 위치에 수직으로 놓인 바나나를 파지하기 어려웠습니다.
+랜덤한 위치에 바나나를 놓더라도 이전과 비슷한 위치나 같은 자세가 반복될 수 있었습니다. 수집 횟수는 늘었지만, 위치와 자세의 다양성이 고르게 확보된 것은 아니었습니다. 이 중복 때문에 데이터 맵에서 충분히 채워지지 않은 위치·자세 조합이 남았을 것으로 판단했습니다.
 
--  실패를 작업 조건으로 다시 보기
-“학습이 잘 안 된다”로 묶지 않고, 어느 위치·자세에서 파지가 어려운지 살폈습니다.
+실행 결과를 위치와 자세로 나누어 보니, 수직 자세에서 특히 ①·④ 위치의 파지가 어려웠습니다. 학습 Loss는 0.0067이었지만 실제 작업에서는 특정 조건의 실패가 남았습니다.
 
--  수집 횟수와 조건 범위를 구분
-50개를 모았다는 사실만으로 어떤 상황을 보여 주었는지는 설명할 수 없었습니다. 다음 수집은 위치와 자세를 먼저 나누기로 했습니다.
+v2 검증 위치
 
-BEFORE
+①  ②  ③  ④  ⑤
+트레이
+고정
 
-### 무작위 50회 교시
+v2 위치·자세별 실행 기록
 
-수집 횟수는 늘었지만 중복과 빠진 조합을 파악하기 어려움
+자세  ①  ②  ③  ④  ⑤
 
-AFTER
+수직  실패  성공  성공  실패  성공
 
-### 조건을 나눈 수집
+수평  성공  성공  성공  성공  성공
 
-물체·트레이 위치와 자세를 표로 나누어 포함할 상황과 반복할 상황을 정함
+v2 발표 자료의 위치·자세별 실행 결과
 
-03 / Data Design
+v2 · 발견
 
-## 더 모으기 전에, 무엇을 보여 줄지 정했습니다.
+### 무작위 50회 수집
 
-4 × 5 × 4 80개 기본 조건
+위치·자세가 중복되고, 작업 영역의 일부 조합은 충분히 포함되지 않음
+
+v3 · 개선 방향
+
+### 포함할 조건부터 나누기
+
+위치·자세별 수집표를 만들고, 실패가 많았던 조건에는 반복을 추가
+
+03 / v3 Design
+
+## v3에서는 위치·자세를 나누고, 부족한 조건을 더 수집했습니다.
+
+4 × 5 × 4 80개 기본 조합
 트레이 4위치 · 바나나 5위치 · 자세 4종
 
-+ 20회 어려운 조건 추가 반복
-총 100회 교시 조건으로 구성
++ 20회 취약 조건 추가 반복
+총 100회 교시 수집
 
-무작위 수집에서 조건을 나눈 수집으로 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
-기존 수집표를 재작성했습니다. 트레이 4위치 × 바나나 5위치 × 자세 4종에 추가 반복을 배정한 표이며, 칸의 숫자는 성공률이 아닌 수행 횟수입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg)
-트레이 위치도 바뀌므로 영상에 바나나와 목적지가 함께 들어오는지 점검했습니다. 바나나 중앙을 파지하고 pick/place에서 잠시 멈춘 뒤 다음 동작으로 이어지도록 교시했습니다. 덜컹거리거나 멈칫한 Episode는 제외했습니다.
+트레이와 바나나의 위치를 구분하고, 자세를 수평·수직·좌측 대각·우측 대각의 네 가지로 나누었습니다. 조합별로 수집 여부를 확인해 빈 조건을 채우고, 파지가 어려웠던 위치·자세는 더 반복했습니다.
 
-Handover에서는 오른팔 파지 → 왼팔로 전달 → 왼팔 grasp → 오른팔 release → 트레이 배치의 순서를 구성했습니다. 손목 영상의 가림과 파지 주체가 바뀌는 순간을 보며 조작했습니다.
-100회가 뜻하는 것
-기본 조합과 추가 반복을 포함한 교시 조건입니다. 최종 유효 Episode 100개 또는 정책 성공 100회를 뜻하지 않으며, 수집 설계만으로 성능이 개선됐다고 결론 내리지 않았습니다.
+v3 · 위치와 자세를 나누어 수집한 기록 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg?v=il-v3-20261030)
+트레이·바나나 위치와 자세를 조합하고, 취약 조건의 반복을 더해 총 100회 교시했습니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/experiment-condition-coverage.svg?v=il-v3-20261030)
+-  시야에 물체와 목적지를 함께 담기
+트레이 위치를 바꾸어도 카메라에 바나나와 트레이가 함께 들어오는지 확인했습니다. 조작 중에는 손목 영상을 보며 가림을 점검했습니다.
 
-04 / Rollout
+-  일관된 파지·배치 동작으로 교시
+바나나 중앙을 잡고 천천히 움직였습니다. Pick과 Place에서는 잠시 멈춘 뒤 다음 동작으로 이어지도록 했습니다.
 
-## Loss가 낮아져도, 바뀐 환경에서 작업은 실패했습니다.
+-  불안정한 시연은 제외
+덜컹거리거나 멈칫한 Episode는 제외하고 데이터를 선별한 뒤 학습과 실행을 반복했습니다.
 
-수행·정리한 일
+04 / v3 Results
 
-### 교시부터 실로봇 실행까지 수행
+## v3에서는 위치를 바꾸어도 성공률 90%를 확인했습니다.
 
-시연 수집·선별과 ACT 학습·추론·실행을 수행하고, 빠진 조합을 줄이기 위해 80개 기본 조건과 추가 반복을 설계했습니다.
+v3 · REAL-ROBOT RESULT
+90 %
+작업 영역 내 위치 변화에 대한 Pick & Place 성공률
 
-남은 검증
+수집 조건을 나누어 학습한 v3를 실로봇에서 실행했습니다. 설정한 작업 영역 안에서 바나나를 어느 위치에 놓더라도 성공률 90%를 확인했습니다. 바나나에 접근해 파지하고 트레이에 옮겨 놓는 작업의 실행 결과를 확인했습니다.
 
-### 환경 변경 뒤의 실패는 미해결
+v2
 
-조건 설계 이후의 정책 성공률 개선은 확인되지 않았습니다. 카메라 시점·테이블 배치를 통제한 후속 실험이 필요합니다.
+### 특정 위치·자세에서 파지 실패
 
-후속 양팔 실험에서는 학습 Loss가 약 0.01인 구간을 관찰했지만, 카메라 각도와 테이블 배치가 달라진 실행에서 실패가 반복됐습니다. 저는 학습 지표와 실제 작업의 성립을 따로 기록했습니다.
+무작위 50회 수집 후에도 수직 자세의 ①·④ 위치 등에서 실패가 나타남
 
--  학습 완료와 작업 성공을 구분
-Loss가 낮다는 이유만으로 실제 파지·배치까지 성공했다고 판단하지 않았습니다.
+v3
 
--  수집 조건과 실행 조건 대조
-카메라 시점과 배치가 바뀌면 물체의 영상 위치·가림 관계도 달라집니다. 모델만 다시 학습하기 전에 수집 때의 조건을 실행 환경에 제공하고 있는지 확인해야 한다고 정리했습니다.
+### 위치 변화에도 성공률 90%
 
--  관찰한 범위에서 결론 내림
-카메라와 테이블이 함께 바뀐 기록만으로 개별 변수의 영향이나 정확한 실패 단계를 확정하지 않았습니다. 이 문제를 해결 완료한 성과로 쓰지 않고 다음 실험에서 통제할 조건으로 남겼습니다.
+조건을 나눈 100회 수집과 데이터 선별을 거쳐 작업 영역 내 실행 성능 개선
 
 05 / Takeaway
 
-## 데이터의 양보다 먼저, 로봇이 본 상황을 설명하기
+## 더 많이 모으기 전에, 빠진 조건을 먼저 찾았습니다.
 
-무작위 50회 수집에서 빠진 조건을 발견한 뒤, 조건을 나눈 수집표가 다음 교시의 기준이 됐습니다. 또한 학습 지표만 보던 시선을 실제 실행 환경과 작업 순서까지 넓혔습니다. 어떤 데이터를 모았는지와 그 모델을 어떤 조건에서 실행했는지 함께 남기는 것이 이 실험에서 얻은 개발·검증 방식입니다.
+v2에서 실패를 위치·자세별로 살펴보면서, 무작위 수집 횟수만으로 데이터의 다양성을 설명할 수 없다는 점을 확인했습니다. v3에서는 수집표로 작업 영역의 조건을 나누고 취약한 조합을 보강했습니다. 실패가 발생한 조건을 다음 데이터 수집의 기준으로 바꾼 과정이 성공률 90%의 실로봇 실행으로 이어졌습니다.
 
 [← 양팔 KPI 검증](https://alpha8332.github.io/portfolio-robros/projects/kpi.html) [Journey →](https://alpha8332.github.io/portfolio-robros/index.html#journey)
 
