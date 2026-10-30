@@ -767,25 +767,25 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 핵심 판단
 목표 추종과 양팔 동기는 별도 평가
 
-KPI 달성 · 재실시 RMSE
+KPI 달성 · RMSE
 동기 0.615 mm / 기준 1 mm
 지연 X 46.675 · Z 47.694 ms / 기준 50 ms[실제 측정 그래프 보기 ↓](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
 
-재실시 시험 · 양팔 실제 궤적과 목표 궤적
+시험 · 양팔 실제 궤적과 목표 궤적
 
 왼팔
 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-left.png)
 
 오른팔
 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-right.png)
-KPI재실시 슬라이드 1의 원본 그래프 · [원본 슬라이드 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)
+KPI 슬라이드 1의 원본 그래프 · [원본 슬라이드 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)
 
-KPI RETEST · RESULTS
+KPI TEST · RESULTS
 
-## 재실시 결과, 동기·지연 KPI 달성
+## 동기·지연 KPI 달성
 
 양팔 동기 오차
-0.615 mm 재실시 보고 RMSE
+0.615 mm 측정 RMSE
 
 RMSE  기준 1 mm
 
@@ -793,7 +793,7 @@ RMSE  기준 1 mm
 KPI 달성 MEAN 0.589 mm
 
 X축 Master–Slave 지연
-46.675 ms 재실시 보고 RMSE
+46.675 ms 측정 RMSE
 
 RMSE  기준 50 ms
 
@@ -801,24 +801,24 @@ RMSE  기준 50 ms
 KPI 달성 MEAN 41.012 ms
 
 Z축 Master–Slave 지연
-47.694 ms 재실시 보고 RMSE
+47.694 ms 측정 RMSE
 
 RMSE  기준 50 ms
 
 0  50 ms
 KPI 달성 MEAN 42.285 ms
 
-KPI RETEST · MEASUREMENT
+KPI TEST · MEASUREMENT
 
 ## 반복 시험과 실제 움직임으로 확인
 
 동기 시험 · 20회 측정 그래프 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-trials.png)
-재실시 보고서 슬라이드 1의 동기 RMSE 그래프입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-trials.png)
+보고서 슬라이드 1의 동기 RMSE 그래프입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-sync-trials.png)
 
 X축 추종 지연 · 반복 시험 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-x-trials.png)
-재실시 보고서 슬라이드 2의 X축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-x-trials.png)
+보고서 슬라이드 2의 X축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-x-trials.png)
 Z축 추종 지연 · 반복 시험 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-z-trials.png)
-재실시 보고서 슬라이드 2의 Z축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-z-trials.png)
+보고서 슬라이드 2의 Z축 지연과 50 ms 기준선입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-latency-z-trials.png)
 
 ### 두 팔 사이의 시간 차는 확대해서 비교했습니다.
 
@@ -832,7 +832,7 @@ X축 실제 위치 [](https://alpha8332.github.io/portfolio-robros/assets/eviden
 슬라이드 2의 Master·Slave 위치 파형입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-x.png)
 Z축 실제 위치 [](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-z.png)
 슬라이드 2의 Master·Slave 위치 파형입니다. · [크게 보기 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-position-z.png)
-자료: KPI재실시 슬라이드 1·2 · [동기 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)  · [지연 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-2.png)
+자료: KPI 슬라이드 1·2 · [동기 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-1.png)  · [지연 시험 원본 ↗](https://alpha8332.github.io/portfolio-robros/assets/evidence/kpi-final-slide-2.png)
 
 CONTENTS
 [ 01  /  Test Goal ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#background) [ 02  /  Decision ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#investigation) [ 03  /  Measurement ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#implementation) [ 04  /  Results ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#takeaway)
@@ -898,12 +898,12 @@ D405·D435IF의 USB 포트·허브·케이블·영상 조건을 시험해 수집
 
 ## 동기 RMSE 0.615 mm, 지연 RMSE 두 축 모두 50 ms 이내
 
-재실시 보고서에서 동기 RMSE는 0.615 mm, 추종 지연 RMSE는 X축 46.675 ms · Z축 47.694 ms로 정리했습니다. 동기 오차와 시간 지연을 나누어 측정하고 각 KPI 기준의 달성을 확인했습니다.
+보고서에서 동기 RMSE는 0.615 mm, 추종 지연 RMSE는 X축 46.675 ms · Z축 47.694 ms로 정리했습니다. 동기 오차와 시간 지연을 나누어 측정하고 각 KPI 기준의 달성을 확인했습니다.
 
 [KPI 결과 그래프 보기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#results-overview)  · [실제 측정 그래프 보기 ↑](https://alpha8332.github.io/portfolio-robros/projects/kpi.html#measured-logs)
 
 Measurement Notes · 보고 자료
-표시 수치는 KPI재실시 슬라이드 1·2의 RMSE와 MEAN입니다. 그래프는 같은 PowerPoint 원본에 포함된 이미지를 사용했습니다.
+표시 수치는 KPI 슬라이드 1·2의 RMSE와 MEAN입니다. 그래프는 같은 PowerPoint 원본에 포함된 이미지를 사용했습니다.
 
 05 / Takeaway
 
