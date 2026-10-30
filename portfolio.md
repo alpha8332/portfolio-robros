@@ -381,7 +381,7 @@ GET IN TOUCH
 
 편하게 연락 주세요. 커피챗도 좋습니다.
 
-[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf?v=kpi-task-20261030)  · [GitHub ↗](https://github.com/alpha8332)
+[PDF 이력서 ↗](https://alpha8332.github.io/portfolio-robros/assets/resume-robros-v3.pdf?v=resume-3pages-20261030)
 
 Email
 [sdc8470@gmail.com  ↗ ](mailto:sdc8470@gmail.com)
@@ -1232,13 +1232,6 @@ MEASURED RESPONSE TIME
 
 공개 데이터셋 → DB 초기 설치 → API·화면 연결 → 별도 PC 실행
 다른 PC에서 설치·실행을 확인하고 결과물과 시연 영상을 제출했습니다. PR 검토와 함께 실제 DB–API–화면에서 데이터의 의미와 동작이 이어지는지를 통합 검증했습니다.
-
-프로젝트 저장소와 개선 기록
-- [청년정책알리미 공개 GitHub 저장소 ↗](https://github.com/alpha8332/cheongnyeon-alimi)
-
-- [추천 판정·N+1 조회 개선과 측정 조건 ↗](https://github.com/alpha8332/cheongnyeon-alimi/blob/main/docs/troubleshooting/backend/recommendation_full_inventory_performance.md)
-
-- [연령 placeholder 정규화 기록 ↗](https://github.com/alpha8332/cheongnyeon-alimi/blob/main/docs/troubleshooting/data/release_age_placeholder_normalization.md)
 
 05 / Takeaway
 
