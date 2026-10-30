@@ -142,7 +142,7 @@ HANDS-ON EXPERIENCE
 ### Robots
 
 -
-One-Arm Robot:
+Single-Arm Robot:
 
 - Indy7 ▧
 Indy7 공식 Indy7 제품 이미지 [Neuromeka ↗](https://en.neuromeka.com/indy)
