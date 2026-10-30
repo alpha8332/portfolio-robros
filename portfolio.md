@@ -1598,7 +1598,7 @@ PRESIDENT · 2020.11 ~ 2021.11
 
 [← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
 
-WORK-STUDY EXPERIENCE
+PART-TIME JOB
 
 # 근로장학생 · 부서별 이력
 
