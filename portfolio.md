@@ -1445,55 +1445,83 @@ CONTENTS
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/association.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  STUDENT ASSOCIATION
 
-STUDENT ASSOCIATION
+제29대 총동아리연합회 · 푸름
 
-# 총동아리연합회 · 대외협력국장
-
-2021.11 ~ 2022.10
-
-운영 문서와 부서별 연락체계를 정비하고, 대학 간 교류·농촌봉사 추진과 학생처 협의를 담당했습니다.
-
-역할
+# 총동아리연합회
 대외협력국장
 
-운영 업무
-주간보고·회의·예산 양식·연락체계
+2년간의 공백 이후, 대외협력국의 업무 기반을 다시 만들고
+국원·동아리·교내 부서·타 대학을 연결했습니다.
 
-대외 활동
-대학 사례 조사·교류 협의·예산 협의
+활동 기간
+2021.11 ~ 2022.10
 
-CONTENTS
-[ 01  /  운영 문서·연락체계 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#operations) [ 02  /  대학 간 교류·농촌봉사 추진 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#exchange) [ 03  /  학생처 협의 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#budget)
+역할
+대외협력국장 · 조직 운영
+한국기술교육대학교 · 제29대 총동아리연합회 푸름
 
-01 / 운영 문서·연락체계
+9개 대학 총동아리연합회 현황 조사
 
-## 운영 문서·연락체계
+3개 대학 대학 간 협의 참여
 
-- 주간보고·회의·예산 양식 정비
+4차례 회의 대학 간 협력 기반 마련
 
-- 부서별 연락체계 정비
+ORGANIZATION
 
-02 / 대학 간 교류·농촌봉사 추진
+## 운영 기반 재구축
 
-## 대학 간 교류·농촌봉사 추진
+코로나 이후 총동아리연합회가 2년간 부재해 인수인계자·과거 데이터·문서 양식이 없는 상황에서 업무 기반을 다시 정리했습니다.
 
-9개 대학 사례 조사
+- 국원들과 주간 업무보고, 회의 안건·대본·회의록, 행사 기획안, 견적·예산표, 신청서·서약서 등 운영 문서 정리
 
-3개 대학 교류 협의
+- 분과별 담당자를 배치하고 진행 상황 관리
 
-4회 대학 간 협의
+UNIVERSITY EXCHANGE
 
-대학별 사례를 조사하고, 대학 간 협의를 바탕으로 교류·농촌봉사를 추진했습니다.
+## 천안권 대학 간 협력
 
-03 / 학생처 협의
+천안권 9개 대학의 현황을 조사하고, 본교·단국대학교 천안캠퍼스·남서울대학교가 참여한 4차례 회의를 통해 협력 기반을 마련했습니다.
 
-## 학생처 협의
+- 상대 대학의 예산·인력·장소 부담 확인
 
-- 학생처와 활동·예산 관련 협의
+- 본교의 지원 가능 조건과 추가 협의 의지를 설명하며 참여 조건 조율
 
-- 협의를 통한 추가 예산 확보
+EVENT PLANNING
+
+## 동아리 학생 나들이 운영
+
+- 나들이 장소 조사와 답사, 행사 기획 및 운영 준비
+
+- 예산 부족 상황에서 배정 상황·기존 지원 안내·행사 대상 차이를 근거로 학생지원팀장과 협의
+
+- 추가 예산을 확보하고 행사 실행
+
+VOLUNTEERING & FESTIVAL
+
+## 농촌봉사·축제 준비
+
+- 병천면 농촌봉사활동 기획과 장소 조사, 참가 신청 및 물품 지원 준비
+
+- 축제 기획 보조 및 타 대학 공연 동아리의 참여 조건 협의
+
+선례가 없는 환경에서 업무 기준을 세우고, 여러 관계자와 기획·설득·협업하는 경험을 쌓았습니다.
+
+## 활동 자료
+
+회의 · 답사 · 행사 홍보
+
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/association-exchange-agenda.png)
+천안권 동아리 연합 회의 자료 · 2022.08.22
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/association-spring-survey.png)
+봄 나들이 답사 보고서 · 2022.04.02
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/association-autumn-poster.png)
+가을 나들이 홍보물
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/association-rural-survey.jpg)
+농촌봉사활동 장소 조사
+
+닫기 ×
 
 [← 군 복무](https://alpha8332.github.io/portfolio-robros/activities/military.html) [풍물동아리 한소리 →](https://alpha8332.github.io/portfolio-robros/activities/hansori.html)
 
