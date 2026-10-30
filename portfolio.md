@@ -1386,64 +1386,249 @@ ENGINEERING NOTE
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/military.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
 
-Military Service
+MILITARY SERVICE
 
 # 육군 정보통신 병장 만기제대 · 분대장
 
 2024.01 ~ 2025.07
 
-## 역할과 활동
+유선통신망과 CCTV 선로를 구축·유지보수하고, 통신장비·훈련망 운용 및 분대장 업무를 수행했습니다.
 
-MDF·전화 단자함 회선 구성, 유선통신망 구축·유지보수와 회선 시험을 통한 장애 진단·복구
+복무
+육군 정보통신 병장 만기제대
 
-NVR·DVR 기반 CCTV 선로 설치·복구, RJ45·RJ11 케이블 제작과 통신장비·훈련망 운용
+주요 업무
+통신망·CCTV 선로·케이블·장비 운용
 
-병력 관리·작업 교육과 업무 인수인계 문서 작성.
+분대장 역할
+병력·작업 교육·임무 관리·인수인계
+
+CONTENTS
+[ 01  /  통신망 구축·유지보수 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#communications) [ 02  /  CCTV·케이블·통신장비 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#equipment) [ 03  /  분대장 업무와 인수인계 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#squad)
+
+01 / 통신망 구축·유지보수
+
+## 통신망 구축·유지보수
+
+- MDF·전화 단자함 회선 구성
+
+- 유선통신망 구축과 유지보수
+
+- 회선 시험을 통한 통신 장애 진단·복구
+
+02 / CCTV·케이블·통신장비
+
+## CCTV·케이블·통신장비
+
+- NVR·DVR 기반 CCTV 통신선로 설치·복구
+
+- RJ45·RJ11 케이블 제작
+
+- 군 통신장비와 훈련망 운용
+
+03 / 분대장 업무와 인수인계
+
+## 분대장 업무와 인수인계
+
+- 병력 관리와 임무 수행 관리
+
+- 작업 교육과 통신 업무 교육
+
+- 통신병 업무 인수인계 문서 작성
+
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html) [총동아리연합회 →](https://alpha8332.github.io/portfolio-robros/activities/association.html)
 
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/association.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
 
-Student Association
+STUDENT ASSOCIATION
 
 # 총동아리연합회 · 대외협력국장
 
 2021.11 ~ 2022.10
 
-## 역할과 활동
+운영 문서와 부서별 연락체계를 정비하고, 대학 간 교류·농촌봉사 추진과 학생처 협의를 담당했습니다.
 
-주간보고·회의·예산 양식과 부서별 연락체계 정비
+역할
+대외협력국장
 
-9개 대학 사례 조사, 3개 대학 간 4회 협의를 바탕으로 교류·농촌봉사 추진
+운영 업무
+주간보고·회의·예산 양식·연락체계
 
-학생처 협의를 통한 추가 예산 확보.
+대외 활동
+대학 사례 조사·교류 협의·예산 협의
+
+CONTENTS
+[ 01  /  운영 문서·연락체계 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#operations) [ 02  /  대학 간 교류·농촌봉사 추진 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#exchange) [ 03  /  학생처 협의 ](https://alpha8332.github.io/portfolio-robros/activities/association.html#budget)
+
+01 / 운영 문서·연락체계
+
+## 운영 문서·연락체계
+
+- 주간보고·회의·예산 양식 정비
+
+- 부서별 연락체계 정비
+
+02 / 대학 간 교류·농촌봉사 추진
+
+## 대학 간 교류·농촌봉사 추진
+
+9개 대학 사례 조사
+
+3개 대학 교류 협의
+
+4회 대학 간 협의
+
+대학별 사례를 조사하고, 대학 간 협의를 바탕으로 교류·농촌봉사를 추진했습니다.
+
+03 / 학생처 협의
+
+## 학생처 협의
+
+- 학생처와 활동·예산 관련 협의
+
+- 협의를 통한 추가 예산 확보
+
+[← 군 복무](https://alpha8332.github.io/portfolio-robros/activities/military.html) [풍물동아리 한소리 →](https://alpha8332.github.io/portfolio-robros/activities/hansori.html)
 
 
 ---
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/hansori.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
 
-Club & Performance
+CLUB & PERFORMANCE
 
 # 풍물동아리 한소리 · 회장 및 공연 운영
 
 2019.03 ~ 2025.11
 
-## 역할과 활동
+동아리 운영과 부원 악기 교육·악보 제작, 온라인·대면 공연 기획 및 무대·음향 운영에 참여했습니다.
 
-회장 재임 2020.11 ~ 2021.11
+전체 활동 기간
+2019.03 ~ 2025.11
 
-집행부 공백 속 운영 체계 정비, 악기 교육·악보 제작과 온라인·정기공연 기획
+회장 재임
+2020.11 ~ 2021.11
 
-무대·음향·연출 운영
+담당 활동
+조직 운영·교육·공연 기획·연출·무대·음향
 
-정기공연 5회, 외부 행사 20회 이상, 농악대회 2회
+CONTENTS
+[ 01  /  동아리 운영·부원 교육 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#operations) [ 02  /  공연 기획·무대 운영 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#performance) [ 03  /  참여 기록·수상 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#records)
 
-2023 천안시 대학어울림 페스티벌 동아리경연 장려상.
+01 / 동아리 운영·부원 교육
+
+## 동아리 운영·부원 교육
+
+- 회장 재임 중 조직 운영과 부회장·총무·기획·홍보 업무 담당
+
+- 부원 악기 교육과 악보 제작
+
+02 / 공연 기획·무대 운영
+
+## 공연 기획·무대 운영
+
+- 비대면 온라인 공연과 대면 정기공연 기획·운영
+
+- 공연 기획·연출 및 무대·음향 운영
+
+03 / 참여 기록·수상
+
+## 참여 기록·수상
+
+5회 정기공연
+
+20회 이상 외부 행사
+
+2회 농악대회
+
+참여 횟수는 2019.03 ~ 2025.11 전체 활동 기간 기준입니다.
+
+2023
+천안시 대학어울림 페스티벌 동아리경연 장려상
+
+[← 총동아리연합회](https://alpha8332.github.io/portfolio-robros/activities/association.html) [근로장학생 · 부서별 이력 →](https://alpha8332.github.io/portfolio-robros/activities/work-study.html)
+
+
+---
+
+원본: https://alpha8332.github.io/portfolio-robros/activities/work-study.html
+
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
+
+WORK-STUDY EXPERIENCE
+
+# 근로장학생 · 부서별 이력
+
+2019.09 ~ 2026.10 · 한국기술교육대학교 · 기간별 비연속 근로
+
+부서별로 행정 지원, 교육 운영 지원, 자료 정리와 콘텐츠 검수 업무를 수행했습니다.
+
+기관
+한국기술교육대학교
+
+이력 구분
+부서·기간별 비연속 근로
+
+업무 분야
+행정·교육 운영·자료·콘텐츠 검수
+
+CONTENTS
+[ 01  /  근로 업무 ](https://alpha8332.github.io/portfolio-robros/activities/work-study.html#overview) [ 02  /  부서별 근로 기록 ](https://alpha8332.github.io/portfolio-robros/activities/work-study.html#departments)
+
+01 / 근로 업무
+
+## 근로 업무
+
+- 부서별 행정 지원과 자료 취합·정리
+
+- 교육 운영 지원과 온라인 교육 콘텐츠 검수
+
+- 자료·PPT 제작 지원 및 전공 멘토링
+
+02 / 부서별 근로 기록
+
+## 부서별 근로 기록
+
+2026.07 ~ 2026.10
+능력개발교육원 HRD교육팀 · 자격교육 운영 지원
+
+2023.07 ~ 2023.12
+대외협력팀 · 행정 지원 및 교환학생 전공 멘토링
+
+2023.03 ~ 2023.06
+미래교육혁신팀 · 행정 지원 및 자료·PPT 제작
+
+2023.01 ~ 2023.02
+교육성과인증센터 · NCS 능력단위 자료 취합·정리
+
+2022.09 ~ 2022.12
+미래기술교육센터 · 기술교육로드맵·과정개요서 작성 지원
+
+2022.07 ~ 2022.08
+대학혁신지원사업단 · 자료 정리 및 행정 지원
+
+2022.03 ~ 2022.06
+온라인평생교육원 · 온라인 교육 콘텐츠 검수
+
+2022.02
+학술정보팀 · 자료실 운영 지원
+
+2022.01
+학생지원팀 · 학생 행정 지원
+
+2021.09 ~ 12 / 2020.03 ~ 05 / 2019.09 ~ 10
+학생식당 · 배식·세척·홀 정리
+
+2021.04 ~ 06 / 2020.06 ~ 07
+학사팀 · 온라인 시험 감독 및 행정 지원
+
+[← 풍물동아리 한소리](https://alpha8332.github.io/portfolio-robros/activities/hansori.html) [Activities →](https://alpha8332.github.io/portfolio-robros/activities.html)
