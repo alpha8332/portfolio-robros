@@ -1386,57 +1386,57 @@ ENGINEERING NOTE
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/military.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  MILITARY SERVICE
 
 MILITARY SERVICE
 
-# 육군 정보통신 병장 만기제대 · 분대장
+# 육군 정보통신
+
+병장 만기제대 · 분대장
 
 2024.01 ~ 2025.07
 
-유선통신망과 CCTV 선로를 구축·유지보수하고, 통신장비·훈련망 운용 및 분대장 업무를 수행했습니다.
+통신망·CCTV 유지보수와 장비 운용, 분대원 교육·임무 관리를 담당했습니다.
 
-복무
-육군 정보통신 병장 만기제대
+SQUAD LEADER
 
-주요 업무
-통신망·CCTV 선로·케이블·장비 운용
+## 분대장 임무 수행
 
-분대장 역할
-병력·작업 교육·임무 관리·인수인계
+- 분대원 병력·임무 관리, 작업 교육 및 인수인계 문서 작성
 
-CONTENTS
-[ 01  /  통신망 구축·유지보수 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#communications) [ 02  /  CCTV·케이블·통신장비 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#equipment) [ 03  /  분대장 업무와 인수인계 ](https://alpha8332.github.io/portfolio-robros/activities/military.html#squad)
+- 생활관 휴게공간 조성 및 복지환경 개선
 
-01 / 통신망 구축·유지보수
+WIRED COMMUNICATIONS
 
-## 통신망 구축·유지보수
+## 유선통신망 구축·유지보수
 
-- MDF·전화 단자함 회선 구성
+- MDF·전화 단자함 회선 구성 및 유선전화 개통
 
-- 유선통신망 구축과 유지보수
+- 통신선로 구축·유지보수, 회선 시험을 통한 장애 진단·복구
 
-- 회선 시험을 통한 통신 장애 진단·복구
+CCTV & NETWORK
 
-02 / CCTV·케이블·통신장비
+## CCTV·네트워크 설비 유지보수
 
-## CCTV·케이블·통신장비
+- NVR·DVR 기반 CCTV 선로 구축 및 장애 복구
 
-- NVR·DVR 기반 CCTV 통신선로 설치·복구
+- RJ45·RJ11 커넥터 압착 및 통신 케이블 제작
 
-- RJ45·RJ11 케이블 제작
+COMMUNICATIONS EQUIPMENT
 
-- 군 통신장비와 훈련망 운용
+## 군 통신장비 운용
 
-03 / 분대장 업무와 인수인계
+- 군 통신장비 운용 및 훈련 물자 관리
 
-## 분대장 업무와 인수인계
+- 중계소 안테나 설치·점검, 훈련 통신망 구축 지원
 
-- 병력 관리와 임무 수행 관리
+FACILITY MAINTENANCE
 
-- 작업 교육과 통신 업무 교육
+## 기타 설비 유지보수
 
-- 통신병 업무 인수인계 문서 작성
+- 배전반 배선·부품, 앰프·마이크 등 설비 점검·수리
+
+- 지휘통제실 통신설비 공사 지원
 
 [← Activities](https://alpha8332.github.io/portfolio-robros/activities.html) [총동아리연합회 →](https://alpha8332.github.io/portfolio-robros/activities/association.html)
 
