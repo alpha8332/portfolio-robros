@@ -1553,12 +1553,12 @@ PRESIDENT · 2020.11 ~ 2021.11
 
 ## 활동 사진·자료
 
-공연 · 연습 · 교육
+공연 · 포스터 · 교육
 
-[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-performance.jpg)
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-performance-2025.png)
 2025 정기공연[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-persona-poster.jpg)
-정기공연 〈페르소나〉 · 2021[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-practice.jpg)
-장구 연습[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-teaching.png)
+정기공연 〈페르소나〉 · 2021[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-samulnori-2023.png)
+2023 사물놀이 공연[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-teaching.png)
 직접 만든 꽹과리 기초 교재
 
 [← 총동아리연합회](https://alpha8332.github.io/portfolio-robros/activities/association.html) [근로장학생 · 부서별 이력 →](https://alpha8332.github.io/portfolio-robros/activities/work-study.html)
