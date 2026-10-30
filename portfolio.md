@@ -1502,58 +1502,64 @@ CONTENTS
 
 원본: https://alpha8332.github.io/portfolio-robros/activities/hansori.html
 
-[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  ACTIVITY RECORD
+[← Activities](https://alpha8332.github.io/portfolio-robros/activities.html)  CLUB & PERFORMANCE
 
-CLUB & PERFORMANCE
+한소리 · 연주·교육·공연 운영
 
-# 풍물동아리 한소리 · 회장 및 공연 운영
+# 풍물동아리 한소리
 
-2019.03 ~ 2025.11
-
-동아리 운영과 부원 악기 교육·악보 제작, 온라인·대면 공연 기획 및 무대·음향 운영에 참여했습니다.
+부원 교육과 악보 제작부터 공연 기획·연출,
+무대·음향 운영까지 함께했습니다.
 
 전체 활동 기간
 2019.03 ~ 2025.11
 
 회장 재임
 2020.11 ~ 2021.11
-
-담당 활동
-조직 운영·교육·공연 기획·연출·무대·음향
-
-CONTENTS
-[ 01  /  동아리 운영·부원 교육 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#operations) [ 02  /  공연 기획·무대 운영 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#performance) [ 03  /  참여 기록·수상 ](https://alpha8332.github.io/portfolio-robros/activities/hansori.html#records)
-
-01 / 동아리 운영·부원 교육
-
-## 동아리 운영·부원 교육
-
-- 회장 재임 중 조직 운영과 부회장·총무·기획·홍보 업무 담당
-
-- 부원 악기 교육과 악보 제작
-
-02 / 공연 기획·무대 운영
-
-## 공연 기획·무대 운영
-
-- 비대면 온라인 공연과 대면 정기공연 기획·운영
-
-- 공연 기획·연출 및 무대·음향 운영
-
-03 / 참여 기록·수상
-
-## 참여 기록·수상
+신동찬 · 풍물동아리 한소리
 
 5회 정기공연
 
 20회 이상 외부 행사
 
-2회 농악대회
+2회 농악 대회
 
-참여 횟수는 2019.03 ~ 2025.11 전체 활동 기간 기준입니다.
+전체 활동 기간 기준
+
+PERFORMANCE & EDUCATION
+
+## 공연 및 교육 활동
+
+- 부원 악기 교육·지도, 악보 제작·배포
+
+- 악기·악기채 제작 및 수리
+
+- 공연 기획·연출, 무대 구성 및 음향 운영
 
 2023
-천안시 대학어울림 페스티벌 동아리경연 장려상
+천안시 대학어울림 페스티벌
+동아리경연 장려상
+교육 지도 · 무대 구성 및 연출
+
+PRESIDENT · 2020.11 ~ 2021.11
+
+## 회장 · 조직 재건 및 공연 운영
+
+- 집행부 공백으로 부회장·총무·기획·홍보 등 운영 전반 수행
+
+- 사물놀이 전문단체 연수생으로 참여하여 연주 역량 강화
+
+- 소속 대학생 풍물패 연합 최초의 비대면 온라인 공연 및 대면 정기공연 기획·운영
+
+## 활동 사진·자료
+
+공연 · 연습 · 교육
+
+[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-performance.jpg)
+2025 정기공연[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-persona-poster.jpg)
+정기공연 〈페르소나〉 · 2021[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-practice.jpg)
+장구 연습[ ↗ ](https://alpha8332.github.io/portfolio-robros/assets/activities/hansori-teaching.png)
+직접 만든 꽹과리 기초 교재
 
 [← 총동아리연합회](https://alpha8332.github.io/portfolio-robros/activities/association.html) [근로장학생 · 부서별 이력 →](https://alpha8332.github.io/portfolio-robros/activities/work-study.html)
 
