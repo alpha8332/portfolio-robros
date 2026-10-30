@@ -545,16 +545,6 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 
 명령 유지 방식의 개념 비교 · 실측 타이밍 그래프 아님
 
-EXECUTION EVIDENCE
-
-## 실제 로봇 동작으로 비교할 장면
-
-수정 전 초기 정렬 중 정지 영상 전달 예정
-목표 도달 전에 멈추는 장면
-수정 후 초기 정렬 → Replay 영상 전달 예정
-목표 도달 후 본 Replay로 이어지는 장면
-영상 자료를 전달받으면 이 위치에 삽입합니다. 현재는 비교할 장면의 구성만 준비되어 있습니다.
-
 CONTENTS
 [ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [ 02  /  System Flow ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [ 03  /  Case A · Alignment ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [ 04  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [ 05  /  Case B · Right Arm ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [ 06  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
 
@@ -952,16 +942,6 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 
 위치 후보  트레이
 수집 메모의 배치 예시 · 바나나 표시는 위치 후보이며 동시 조작 개수가 아닙니다.
-
-EXECUTION EVIDENCE
-
-## 시연 수집과 정책 실행을 나란히 확인
-
-Teleoperation 사람의 시연 수집 영상 전달 예정
-바나나와 트레이, 로봇 조작이 함께 보이는 장면
-ACT Rollout 학습한 정책의 실제 실행 영상 전달 예정
-실제 동작과 관찰한 실패를 확인할 장면
-영상 자료를 전달받으면 이 위치에 삽입합니다. 현재는 비교할 장면의 구성만 준비되어 있습니다.
 
 CONTENTS
 [ 01  /  Experiment ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#background) [ 02  /  Missing Data ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#investigation) [ 03  /  Data Design ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#implementation) [ 04  /  Rollout ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#validation) [ 05  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/imitation.html#takeaway)
