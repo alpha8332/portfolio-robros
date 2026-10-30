@@ -492,9 +492,6 @@ A와 B의 배열 크기가 같아도 순서가 바뀌면 다른 로봇의 값이
 
 처음 보인 증상은 모드 전환 문제였지만, 같은 가정이 정지·수집 계획·학습 데이터에도 남아 있었습니다. 이후에는 한 화면의 정상 동작만으로 끝내지 않고, 설정한 대상이 저장과 실행에서도 같은 대상으로 남는지 확인하는 기준을 갖게 됐습니다.
 
-관련 기록 더 보기
-[다중 로봇 개발·검증 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/mimicx/multi-robot.html)
-
 [← Work Experience](https://alpha8332.github.io/portfolio-robros/work-experience.html) [Replay 기능 개발 및 검증 →](https://alpha8332.github.io/portfolio-robros/projects/replay.html)
 
 
@@ -911,9 +908,6 @@ Measurement Notes · 보고 자료
 
 이 경험을 통해 설치 차이와 운동 오차, 목표 추종과 양팔 동기, 명령 전송과 실제 응답을 나누어 봐야 다음 확인 지점이 명확해진다는 것을 배웠습니다. 실제 동작을 기록하고 측정 기준에 따라 결과를 설명하는 것을 검증의 기준으로 삼았습니다.
 
-관련 기록 더 보기
-[양팔 KPI 시험·분석 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/posco/kpi/index.html)
-
 [← Replay 기능 개발 및 검증](https://alpha8332.github.io/portfolio-robros/projects/replay.html) [모방학습 정책 실행 →](https://alpha8332.github.io/portfolio-robros/projects/imitation.html)
 
 
@@ -1044,9 +1038,6 @@ Loss가 낮다는 이유만으로 실제 파지·배치까지 성공했다고 �
 
 무작위 50회 수집에서 빠진 조건을 발견한 뒤, 조건을 나눈 수집표가 다음 교시의 기준이 됐습니다. 또한 학습 지표만 보던 시선을 실제 실행 환경과 작업 순서까지 넓혔습니다. 어떤 데이터를 모았는지와 그 모델을 어떤 조건에서 실행했는지 함께 남기는 것이 이 실험에서 얻은 개발·검증 방식입니다.
 
-관련 기록 더 보기
-[개인 모방학습 실험 기록 ↗](https://alpha8332.github.io/dongchan-portfolio-public/archive/career/neuromeka/experiments/personal/index.html)
-
 [← 양팔 KPI 검증](https://alpha8332.github.io/portfolio-robros/projects/kpi.html) [Journey →](https://alpha8332.github.io/portfolio-robros/index.html#journey)
 
 
@@ -1111,8 +1102,6 @@ SYSTEM & DATA FLOW
 
 Docker 기반 Windows 실행 환경과 배포·데이터 검증 절차를 구성했습니다. 별도 PC에서 설치·실행을 확인하고 결과물과 시연 영상을 제출했습니다. 데이터·API·화면의 연결 및 실행 재현성을 통합 검증의 대상으로 삼았습니다.
 
-관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
-
 
 ---
 
@@ -1158,8 +1147,6 @@ C와 ATmega128 환경에서 먼지 센서 임계값과 적외선 신호를 이�
 ## 실제 주행에서 거리와 회전을 조정
 
 실제 주행 시험에서 이동 거리와 회전 동작을 조정하고 초음파 장애물 감지 시 정지·부저 동작을 확인했습니다. 확인된 것은 센서 입력에 따른 이동·청정·복귀의 제어 흐름입니다. 정량적인 공기 정화 효율이나 자율 지도 작성 성능을 측정한 사례는 아닙니다.
-
-관련 기록: [기술 아카이브 ↗](https://alpha8332.github.io/dongchan-portfolio-public/)
 
 
 ---
