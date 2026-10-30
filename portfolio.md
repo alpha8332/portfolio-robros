@@ -554,7 +554,7 @@ Neuromeka 인턴 · 2025.12 ~ 2026.06
 명령 유지 방식의 개념 비교 · 실측 타이밍 그래프 아님
 
 CONTENTS
-[ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [ 02  /  System Flow ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [ 03  /  Case A · Alignment ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [ 04  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [ 05  /  Case B · Right Arm ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [ 06  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation)
+[ 01  /  Overview ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#role) [ 02  /  System Flow ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#system) [ 03  /  Case A · Alignment ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#investigation) [ 04  /  Implementation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#modification) [ 05  /  Case B · Right Arm ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#right-arm-investigation) [ 06  /  Validation ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#validation) [ 07  /  Takeaway ](https://alpha8332.github.io/portfolio-robros/projects/replay.html#takeaway)
 
 01 / Overview
 
@@ -750,6 +750,9 @@ pulse/hold 수정 뒤 목표 위치로 이동하는 동작을 실제 로봇에�
 화면 연결 실행 상태에 따른 커서 표시
 초기 정렬 중 커서를 고정하고 본 재생의 진행 상태를 표시하도록 연결했습니다.
 
+07 / Takeaway
+
+## 시작 조건과 상태 전이를 함께 설계하기
 ENGINEERING NOTE
 Replay를 실행하기 전에는 초기 자세를 정렬하는 Safe Logic이 필요했습니다. 실행 시점의 로봇 자세가 기록된 시작 자세와 크게 다르면, 첫 재생 명령부터 그 위치로 급격히 이동하려 할 수 있기 때문입니다. 급격한 속도 변화는 모터 과부하나 양팔 충돌로 이어질 위험이 있었습니다. 따라서 기록된 시작 자세로 먼저 정렬하고, 도달·안정을 확인한 뒤 Replay를 시작하도록 구성했습니다.
 
